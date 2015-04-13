@@ -9,6 +9,7 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  */
@@ -33,9 +34,12 @@ public class RequestEncodingFilter implements Filter{
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException{
 //        logger.info("enter encoding");
+    	System.out.println("-----------------> config encoding: " + this.m_encoding);
+    	System.out.println("-----------------> req encoding: " + ((HttpServletRequest) request).getCharacterEncoding());
         request.setCharacterEncoding(m_encoding);
 
         chain.doFilter(request, response);
+        System.out.println("-----------------> resp encoding: " + response.getCharacterEncoding());
     }
 
 }
