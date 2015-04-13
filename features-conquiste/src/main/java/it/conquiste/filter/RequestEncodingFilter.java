@@ -37,9 +37,9 @@ public class RequestEncodingFilter implements Filter{
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException{
 //        logger.info("enter encoding");
     	System.out.println("--------------------> enc: " + request.getCharacterEncoding());
-        if ("POST".equalsIgnoreCase(((HttpServletRequest) request).getMethod())) {
-        	System.out.println("--------------------> body" + CharStreams.toString(request.getReader()));
-        }
+//        if ("POST".equalsIgnoreCase(((HttpServletRequest) request).getMethod())) {
+//        	System.out.println("--------------------> body" + CharStreams.toString(request.getReader()));
+//        }
     	
         request.setCharacterEncoding(m_encoding);
 
