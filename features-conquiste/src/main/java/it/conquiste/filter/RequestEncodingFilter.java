@@ -40,6 +40,7 @@ public class RequestEncodingFilter implements Filter{
 
         chain.doFilter(request, response);
         System.out.println("-----------------> resp encoding: " + response.getCharacterEncoding());
+        response.setCharacterEncoding(m_encoding);
     }
 
 }
