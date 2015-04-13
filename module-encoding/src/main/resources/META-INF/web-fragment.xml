@@ -5,6 +5,7 @@
           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-fragment_3_0.xsd">
 
     <name>moduleencoding</name>
+    <ordering><before><others/></before></ordering>
     <filter>
         <filter-name>characterEncodingFilter</filter-name>
         <filter-class>it.conquiste.filter.RequestEncodingFilter</filter-class>
