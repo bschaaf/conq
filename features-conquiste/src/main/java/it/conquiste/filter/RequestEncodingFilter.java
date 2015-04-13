@@ -9,6 +9,9 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+
+import com.google.common.io.CharStreams;
 
 /**
  */
@@ -33,6 +36,11 @@ public class RequestEncodingFilter implements Filter{
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException{
 //        logger.info("enter encoding");
+    	System.out.println("--------------------> enc: " + request.getCharacterEncoding());
+        if ("POST".equalsIgnoreCase(((HttpServletRequest) request).getMethod())) {
+        	System.out.println("--------------------> body" + CharStreams.toString(request.getReader()));
+        }
+    	
         request.setCharacterEncoding(m_encoding);
 
         chain.doFilter(request, response);
