@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+#set($locale = $m.context.site.bean.resources.locale)
+##Manual###################################################################################
+#if($manual)
+$!manualXML
+#end
+##End Manual###############################################################################
+##PQ's#####################################################################################
+#if($publishingQueues)
+## loops thru entries in queues
+#* *##foreach($contentEntry in $sitemapPublishingQueue)
+#*    *##set($entry = $contentEntry.content)
+#*    *##set($parentExist = false)
+#*    *##foreach($pId in $entry.parentIds)
+#*        *##if($pId == $m.context.page.content.contentId.contentId)
+#*            *##set($parentExist = true)
+#*        *##end
+#*    *##end
+#*    *##if($parentExist)
+#*    *#	<url>
+#*     			URLs are escaped by polopoly. We do not need to do that here.
+      *#		<loc>#link({"path": $p_path.resolve($entry.contentId), 'htmlEncodeLink': 'true', "requestAttribs": {"localLinksEnabled": "false"}})</loc>
+#*    *#	</url>
+#*    *##end
+#* *##end
+#end
+## END PQ's################################################################################
+</urlset>

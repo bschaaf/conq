@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content>
+    <metadata>
+      <contentid>
+        <major>Department</major>
+        <externalid>p.templatecategory.department</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>p.AllDepartmentsInputTemplateTreeCategory</externalid>
+      </input-template>
+      <security-parent>
+        <major>Department</major>
+        <externalid>p.StandardResourceCategorization</externalid>
+      </security-parent>
+    </metadata>
+    <component group="polopoly.Content" name="name">Department</component>
+    <contentlist mode="modify" group="polopoly.Department">
+      <entry mode="insert" withMetadata="false">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>p.siteengine.Site</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry mode="insert" withMetadata="false">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>p.siteengine.Page</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+  </content>
+</batch>

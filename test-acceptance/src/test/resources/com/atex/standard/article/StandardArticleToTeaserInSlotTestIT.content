@@ -1,0 +1,13 @@
+id:.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Article test site
+
+id:.content
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:My simple article
+component:body:value:<p>And simple text</p>
+component:lead:value:With simple lead

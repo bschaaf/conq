@@ -1,0 +1,223 @@
+#if($catalogs.size() > 0)
+  #set($catalogName = $catalogs.get(0))
+  #set($catalog = $catalogInfo.get($catalogName))
+#end
+
+#if($catalog.newspapers.size() > 0)
+  #set($newspaper = $catalog.newspapers.get(0))
+#end
+
+#if($!newspaper && $newspaper.issues.size() > 0)
+  #set($newspaperIssues = $sorter.sort($newspaper.issues, "id:desc"))
+  #set($lastNewspaperIssue = $newspaperIssues.get(0))
+#end
+
+
+#set($allmags = [])
+#set($lastmags = [])
+#foreach($magazine in $catalog.magazines)
+  #if($magazine.issues.size() > 0)
+    #set($foo = $allmags.add($sorter.sort($magazine.issues, "releaseDate:desc")))
+	#set($n = $allmags.size() - 1 )
+	#set($foo = $lastmags.add($allmags[$n].get(0)))
+  #end
+#end
+
+#if($lastmags.size() > 0)
+  #set($lastMagazineIssue=$sorter.sort($lastmags, "releaseDate:desc").get(0))
+#end 
+
+#if(!$!content.teaser || !$content.teaser.checked) 
+ 
+  <div class="large-7 medium-7 column noRight">
+   
+      <div class="primaPagina">
+	  #if($!lastNewspaperIssue)
+          <div class="issueLink" data-catalog="$!catalogName" data-issue="$!lastNewspaperIssue.issueCode">
+            <img src="/newsstandws/issue/$lastNewspaperIssue.issueCode/cover/600.jpg" >
+          </div>
+	  #end
+	  #if($!lastMagazineIssue)
+		  <div class="issueLink" data-catalog="$!catalogName" data-issue="$!lastMagazineIssue.issueCode">
+            <img src="/newsstandws/issue/$lastMagazineIssue.issueCode/cover/600.jpg" >
+          </div>
+	  #end
+      </div>
+  </div>
+
+  
+  <div class="large-5 medium-5 column">
+  #if($!{m.global.applixUser} && $m.global.applixUser != 'null')
+   <b>User logged in.</b>
+  #else
+    <div class="login">
+	  <form action="/login" method="post">
+        <ul>
+            <li><p>LOGIN</p></li>
+            <li><span>Username :</span><input type="text" name="username"></li>
+            <li><span>Password :</span><input type="password" name="password"></li>
+            <li><input type="submit" class="accedi" value="Login"></li>
+			<li><input type="hidden" name="thisUrl" value="#link({"path": $p_path.resolve($content.contentId), 'htmlEncodeLink': 'true'})"></li>
+        </ul>
+        <!-- Cancel the floating css rule -->
+        <div class="clear"></div>
+    </div>
+  #end
+    <form method="post" id="pub">
+      <div class="sfogliaGiornale">
+          <ul>
+              <li><p><strong>Sfoglia L'edizione</strong></p></li>
+              <li>
+                  <select name="publication">
+                          #if($!newspaper)<option value="$newspaper.id">$newspaper.name</option>#end
+  						#foreach($magazine in $catalog.magazines)
+                            <option value="$magazine.id">$magazine.name</option>
+  						#end
+                  </select>
+                  <input class="dataPubblicazione" name="publicationDate" type="text" placeholder="$date.format("d/M/yyyy", $date)">
+                  <!-- Cancel the floating css rule -->
+                  <div class="clear"></div>
+              </li>
+              <li><a class="button avviaRicerca" href="javascript:;" onclick="myFunction();">Sfoglia</a><div id="searchComment"></div></li>
+              <!-- Cancel the floating css rule -->
+              <div class="clear"></div>
+          </ul>
+      </div>
+    </form>
+  </div>
+  
+  <script>
+  function myFunction() {
+  #if($!{m.global.applixUser} && $m.global.applixUser != 'null')
+      var x = document.getElementById("pub");
+      //var issueCode = x.elements[0].value + '_' + x.elements[1].value.substring(0,4) + '_' + x.elements[1].value.replace(/-/g,'');
+	  var issueCode = x.elements[0].value + '_' + x.elements[1].value.substring(6,10) + '_' + x.elements[1].value.split("/").reverse().join("");
+      $.when(Atex.plugin.newsstand.login("${catalogName}", issueCode))
+        .then(function(data) {
+          if (console.log) {
+            console.log('got url ' + data);
+          }
+		  $('#searchComment').html('');
+          openInNewWindow(data);
+        })
+		.fail(function(data) { 
+		  $('#searchComment').html('<b>non trovato</b>');
+        });
+  #end	
+  }
+  </script>
+  
+  <div class="large-12 column noRight noLeft">
+  #if($!newspaper)
+    #if($newspaper.issues.size() > 0)
+      <div class="edicolaSlider">
+          <h2 class="titleTwo">Conquiste del Lavoro</h2>
+          <div class="nextOrange buttonNextSlider"></div>
+          <div class="contPaper">
+              <ul>
+  			#set($counter = 0)
+  			#foreach($issue in $newspaperIssues)
+  			      <li>
+  				    #set($pubDate=$date.toDate("yyyyMMdd", $issue.label.substring(0,8)))
+  				    <strong>$date.format("d MMMM yyyy", $!pubDate, $m.context.site.bean.resources.locale)</strong>
+                      <div class="issueLink" data-catalog="$!catalogName" data-issue="$!issue.issueCode">
+                        <img src="/newsstandws/issue/$issue.issueCode/cover/600.jpg" >
+                      </div>
+                   </li>
+  		      #if($counter == 5) #break #end
+  			  #set($counter = $counter + 1)
+  			#end
+              </ul>
+          </div>
+          <div class="backOrange buttonBackSlider"></div>
+          <!-- Cancel the floating css rule -->
+          <div class="clear"></div>
+      </div>
+	#end
+  #end
+  
+  #set($n = 0)
+  #foreach($magazine in $catalog.magazines)
+    #if($magazine.issues.size() > 0)
+      <div class="edicolaSlider">
+          <h2 class="titleTwo">$magazine.name</h2>
+          <div class="nextOrange buttonNextSlider"></div>
+          <div class="contPaper">	    
+              <ul>
+  			#set($counter = 0)
+  			#foreach($issue in $allmags[$n])
+  			      <li>
+  				    #set($pubDate=$date.toDate("yyyyMMdd", $issue.label.substring(0,8)))
+  				    <strong>$date.format("d MMMM yyyy", $!pubDate, $m.context.site.bean.resources.locale)</strong>
+                      <div class="issueLink" data-catalog="$!catalogName" data-issue="$!issue.issueCode">
+                        <img src="/newsstandws/issue/$issue.issueCode/cover/600.jpg" >
+                      </div>
+                   </li>
+  			  #if($counter == 5) #break #end
+  			  #set($counter = $counter + 1)
+  			#end
+			#set($n = $n + 1)
+              </ul>
+          </div>
+          <div class="backOrange buttonBackSlider"></div>
+          <!-- Cancel the floating css rule -->
+          <div class="clear"></div>
+      </div>
+	#end
+  #end
+  </div>
+  
+  
+  
+  <script>
+  #if($!{m.global.applixUser} && $m.global.applixUser != 'null')
+    function openInNewWindow(url) {
+      var win = window.open(url, '_blank');
+      win.focus();
+    }
+    $('.issueLink').on('click', function(e) {
+      var div = $(e.currentTarget);
+      var catalog = div.attr('data-catalog');
+      var issue = div.attr('data-issue');
+      $.when(Atex.plugin.newsstand.login(catalog, issue))
+        .then(function(data) {
+          if (console.log) {
+            console.log('got url ' + data);
+          }
+          openInNewWindow(data);
+        });
+    });
+  #end
+  </script>
+
+#else
+    <!-- EDICOLA teaser begin -->
+	#set($link='#')
+	#if($!content.edicolaPage.contentId)
+	  #set($link="#link({'path': $p_path.resolve($content.edicolaPage.contentId, $m.context.site.contentPath)})")
+	#end
+    <div class="large-12 medium-12 column noRight noLeft">
+        <div class="edicola">
+            <h2 class="titleTwo">E-dicola</h2>
+            <div class="contentNP">
+                <div class="previewNP">
+                    <a href="$link" title="">
+					  <img src="/newsstandws/issue/$lastNewspaperIssue.issueCode/cover/600.jpg" alt="">
+					</a>
+                </div>
+                <div class="menuEdicola">
+                    <ul>
+                        <li><a href="$link" title="Leggi Edizione">Leggi Edizione</a></li>
+                        <li><a href="$link" title="Acquista Edizione">Acquista Edizione</a></li>
+                        <li><a href="$link" title="Abbonati">Abbonati</a></li>
+                        <li><a href="$link" title="Inserti">Inserti</a></li>
+                        <li><a href="$link" title="Guide">Guide</a></li>
+                    </ul>
+                </div>
+                <!-- Cancel the floating css rule -->
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!-- EDICOLA teaser end -->
+#end

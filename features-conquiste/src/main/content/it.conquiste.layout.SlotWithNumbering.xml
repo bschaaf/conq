@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+<!--This file contains input template definitions -->
+    <input-template name="it.conquiste.layout.SlotWithNumbering" label="cm.template.p.siteengine.layout.Slot.it">
+        <param name="showLabel">false</param>
+        <policy>com.polopoly.siteengine.layout.slot.SlotPolicy</policy>
+        <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+        <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+        <type>LayoutElement</type>
+        <content-list name="slotElements" input-template="p.ElementContentListWrapper" />
+        <field name="layoutContentCreator" input-template="p.ContentCreator">
+            <param name="createWithSecurityParent">true</param>
+            <param name="securityParentAlias">content</param>
+            <param name="insertTargetAlias">content</param>
+            <param name="askInsertTarget">false</param>
+            <param name="askInsertionContentListName">false</param>
+            <param name="editInContext">true</param>
+            <param name="autoInsertContentListRelativeName">slotElements</param>
+            <param name="showCategorySelectWithOneCategory">false</param>
+            <param name="showInHeader">true</param>
+            <idparam name="templateRoot">
+                <externalid>p.siteengine.ElementTemplates.d</externalid>
+            </idparam>
+        </field>
+        <field name="slotElements" input-template="p.ContentListEntryContainer">
+            <param name="usePolicyNameAsContentListName">true</param>
+            <param name="contentListDefinition">slotElements</param>
+            <param name="showCheckboxes">true</param>
+            <param name="callInsertionHooks">true</param>
+            <param name="checkMaxItems">true</param>
+            <param name="showActionButtonsInViewMode">false</param>
+        </field>
+        <field name="inheritSetting" input-template="p.siteengine.InheritSelect" label="cm.template.p.siteengine.InheritSelect">
+            <param name="selected">0</param>
+            <param name="label_0">cm.template.p.siteengine.layout.Slot.InheritSetting.Default</param>
+            <param name="value_0">default</param>
+            <param name="label_1">cm.template.p.siteengine.layout.Slot.InheritSetting.On</param>
+            <param name="value_1">on</param>
+            <param name="label_2">cm.template.p.siteengine.layout.Slot.InheritSetting.Off</param>
+            <param name="value_2">off</param>
+            <param name="help">cm.template.p.siteengine.layout.Slot.InheritSetting.Help</param>
+        </field>
+        <output-templates mode="www">
+            <id>it.conquiste.layout.SlotWithNumbering.ot</id>
+        </output-templates>
+    </input-template>
+</template-definition>

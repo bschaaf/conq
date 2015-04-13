@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<model>
+  <contentCacheSettings>
+    <contentCacheRefreshInterval>1</contentCacheRefreshInterval>
+  </contentCacheSettings>
+  <diskCacheSettings>
+    <contentCacheDirectory>/cache/contenthub/content</contentCacheDirectory>
+    <filesCacheDirectory>/cache/contenthub/files</filesCacheDirectory>
+  </diskCacheSettings>
+</model>

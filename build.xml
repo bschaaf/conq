@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project name="Conquiste" default="compile" basedir="." xmlns:polopoly="http://www.polopoly.com/ANT1.6">
+
+	<!-- ======================================================================
+       Properties
+       ====================================================================== -->
+
+	<!-- To override properties in this installation. -->
+	<available property="env.local.xml" file="${basedir}/local.seat-${target.env}.xml" value="local.seat-${target.env}.xml" />
+	<property name="env.local.xml" value="./local.xml" />
+	<import optional="true" file="${env.local.xml}" />
+
+	<!-- Project base directories. -->
+	<property name="work.dir" location="${basedir}/work" />
+	<property name="target.dir" location="${basedir}/target" />
+	<property name="target.dist.dir" location="${target.dir}/dist" />
+
+	<target name="-set-maven-command" unless="mvn.command">
+		<condition property="mvn.command" value="mvn">
+			<not>
+				<os family="windows" />
+			</not>
+		</condition>
+		<condition property="mvn.command" value="mvn.bat">
+			<os family="windows" />
+		</condition>
+		<property name="mvn.options" value="" />
+	</target>
+
+	<target name="-set-maven-debug-command" unless="mvn.command">
+		<!--
+		<condition property="mvn.command" value="mvnDebug">
+			<not>
+				<os family="windows" />
+			</not>
+		</condition>
+		<condition property="mvn.command" value="mvnDebug.bat">
+			<os family="windows" />
+		</condition>
+		-->
+		<property name="mvn.options" value="-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n" />
+	</target>
+
+	<macrodef name="run-maven-cmd">
+		<attribute name="pom" default="${basedir}/pom.xml" />
+		<attribute name="target" />
+		<attribute name="fork" default="false" />
+		<attribute name="fail-on-error" default="true" />
+		<sequential>
+			<property environment="env"/>
+			<exec executable="${mvn.command}" failonerror="@{fail-on-error}" spawn="@{fork}">
+				<env key="MAVEN_OPTS" value="${env.MAVEN_OPTS} ${mvn.options}"/>
+				<arg line="-f @{pom} @{target}" />
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<target name="check-jboss-running">
+		<condition property="jboss.running">
+			<socket server="localhost" port="1099" />
+		</condition>
+		<echo message="Checking whether JBoss is running: ${jboss.running}" />
+	</target>
+
+	<target name="jetty-check-status">
+		<condition property="jetty.started">
+			<socket server="localhost" port="8080" />
+		</condition>
+		<echo message="Checking whether Jetty is running: ${jetty.started}" />
+	</target>
+
+	<target name="-wait-for-jetty-up">
+		<waitfor maxwait="120" maxwaitunit="second">
+			<and>
+				<socket server="localhost" port="8080" />
+				<http url="http://localhost:8080/polopoly" />
+			</and>
+		</waitfor>
+	</target>
+
+	<target name="-wait-for-jetty-down">
+		<waitfor maxwait="120" maxwaitunit="second">
+			<not>
+				<and>
+					<socket server="localhost" port="8080" />
+					<http url="http://localhost:8080/polopoly" />
+				</and>
+			</not>
+		</waitfor>
+	</target>
+
+	<target name="jboss-start" depends="-set-maven-command, check-jboss-running" description="Start dev jboss" unless="jboss.running">
+		<run-maven-cmd target="jboss:start" />
+	</target>
+
+	<target name="jboss-stop" depends="-set-maven-command, check-jboss-running" description="Stop dev jboss" if="jboss.running">
+		<run-maven-cmd target="jboss:stop" />
+	</target>
+
+	<target name="debug" depends="-set-maven-debug-command" description="Set maven debug agentlib">
+	</target>
+
+	<target name="clean" depends="-set-maven-command" description="Clean all projects">
+		<run-maven-cmd target="clean" />
+	</target>
+
+	<target name="compile" depends="-set-maven-command" description="Compile all projects">
+		<run-maven-cmd target="compile -Dmaven.test.skip=true" />
+	</target>
+
+	<target name="test" depends="-set-maven-command" description="Execute tests">
+		<run-maven-cmd target="test" />
+	</target>
+
+	<target name="package" depends="-set-maven-command" description="Package all projects">
+		<run-maven-cmd target="install -Dmaven.test.skip=true" />
+	</target>
+
+	<target name="import-scan" depends="-set-maven-command, jboss-start" description="Import xml">
+		<run-maven-cmd target="p:import-scan -DskipDemo -Dlogback.configurationFile='${basedir}/config/dev/logback.xml'" />
+	</target>
+
+	<target name="jetty-run-all" depends="-set-maven-command, jboss-start, jetty-check-status" description="Run jetty" unless="jetty.started">
+		<mkdir dir="${work.dir}/tmp" />
+		<run-maven-cmd target="jetty:run-all" />
+	</target>
+
+	<target name="jetty-run-all-daemon" depends="-set-maven-command, jboss-start, jetty-check-status" description="Run jetty" unless="jetty.started">
+		<mkdir dir="${work.dir}/tmp" />
+		<run-maven-cmd target="jetty:run-all" fork="true" fail-on-error="false" />
+		<antcall target="-wait-for-jetty-up" />
+	</target>
+
+	<target name="jetty-stop" depends="-set-maven-command, jetty-check-status" description="Stop jetty" if="jetty.started">
+		<run-maven-cmd target="jetty:stop" />
+		<antcall target="-wait-for-jetty-down" />
+		<sleep seconds="15" />
+	</target>
+
+	<target name="debug-jetty-run-all" depends="-set-maven-debug-command" description="Run debug jetty" unless="jetty.started">
+		<antcall target="jetty-run-all" />
+	</target>
+
+	<target name="run" depends="-set-maven-command, jboss-start, package, import-scan, jetty-run-all" description="Run all">
+	</target>
+
+	<target name="install" depends="-set-maven-command, package, jboss-start, import-scan, jetty-run-all-daemon" description="Developer installation">
+		<run-maven-cmd target="antrun:run -Pdev -Pfix-install-dev -Pmvn.noTests" />
+	</target>
+
+	<target name="status" description="dump jboss and jetty status">
+		<antcall target="check-jboss-running" />
+		<antcall target="jetty-check-status" />
+	</target>
+
+	<target name="stop-all" depends="jetty-stop, jboss-stop" description="stop jetty and jboss">
+	</target>
+
+	<target name="assemble-dist" depends="-set-maven-command">
+		<run-maven-cmd target="p:assemble-dist -DskipDemo -DtargetEnv=${target.env} -DbuildFront=true" />
+	</target>
+
+	<target name="pack-application-dist" depends="-set-maven-command" description="Create release jar (-Dtarget.env=dev|test|prod)">
+
+		<fail unless="target.env"
+					message="A target dist must be specified. Do e.g. ant pack-application-dist -Dtarget.env=dev|test|prod" />
+		<fail unless="svn.tag" message="Tag identifier missing. Do e.g -Dsvn.tag=xxx" />
+
+		<delete dir="${basedir}/bin" />
+		<delete dir="${target.dist.dir}" />
+
+		<run-maven-cmd target="clean install p:assemble-dist -DskipDemo -DtargetEnv=${target.env} -DbuildFront=true -DbuildPackage=true -DskipTests=true" />
+		<mkdir dir="${target.dist.dir}/deployment-static" />
+
+		<echo file="${target.dist.dir}/version.txt">${target.env}:${svn.tag}</echo>
+
+		<copy tofile="${target.dist.dir}/local.xml">
+			<fileset file="${basedir}/${env.local.xml}" />
+		</copy>
+
+		<copy todir="${target.dist.dir}">
+			<fileset file="${basedir}/scripts/build.xml" />
+		</copy>
+
+	</target>
+
+	<target name="javadoc" depends="-set-maven-command" description="javadoc generation">
+		<run-maven-cmd target="javadoc:javadoc" />
+	</target>
+
+</project>

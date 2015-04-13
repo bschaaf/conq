@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+
+  <diskCacheSettings>
+    <contentCacheDirectory>/cache/polopoly/content</contentCacheDirectory>
+    <filesCacheDirectory>/cache/polopoly/files</filesCacheDirectory>
+  </diskCacheSettings>
+  
+  <!-- AuthenticationAuthorizationCacheSettings 
+  <authenticationAuthorizationCacheSettings>
+    <sessionKeyRenewalTime>3600</sessionKeyRenewalTime>
+  </authenticationAuthorizationCacheSettings>-->
+    
+ </model>

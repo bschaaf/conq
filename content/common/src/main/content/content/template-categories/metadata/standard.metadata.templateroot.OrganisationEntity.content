@@ -1,0 +1,7 @@
+id:.
+major:department
+inputtemplate:p.TemplateRoot
+securityparent:p.sitengine.ContentCreatorTemplates.d
+name:Organisation templates root
+
+publish:p.EntityTemplates

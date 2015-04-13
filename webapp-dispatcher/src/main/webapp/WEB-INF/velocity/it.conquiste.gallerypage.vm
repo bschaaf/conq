@@ -1,0 +1,34 @@
+<!-- Gallery page -->
+#set($numberOfItems = $content.numberOfItems)
+#if($numberOfItems > 0)
+<div class="large-12 medium-12 column noLeft">
+  #set($list = $content.defaultList.subList(0, $numberOfItems))
+  #foreach($entry in $list)
+    #set($gallery = $entry.content)
+    
+    #if($gallery.images.size() > 0)
+      #set($image = $gallery.images.get(0))
+      #set($imgSrc = $tool_img.getUrlBuilder($image.contentId.contentIdString).format("1x1").height(115).buildUrl())
+    #end
+
+    #set($path = $p_path.resolve($gallery.contentId, $m.context.page.contentPath))
+    #set($link = "#link({'path': $path, 'htmlEncodeLink': 'true', '':''})")
+
+    <!-- Small Article Two -->
+    <div class="largeArticle">
+        <a href="$link" title=""> <h4 class="titleFour">$gallery.name</h4></a>
+             <a href="$link" class="thumbnailSmallArticle">
+                 <div class="img-container">
+                    #if($imgSrc)
+                    <img src="$imgSrc" alt="$gallery.name"/>
+                    #end
+                 </div>
+             </a>
+            <p>$!gallery.description.value</p>
+    </div>
+
+  #end
+</div>
+
+
+#end

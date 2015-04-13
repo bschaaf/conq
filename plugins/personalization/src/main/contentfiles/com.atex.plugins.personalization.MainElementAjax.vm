@@ -1,0 +1,17 @@
+#set($related = $m.local.related)
+#set($name = $m.local.name)
+#set($numberOfItems = $related.size())
+#if($!numberOfItems && $numberOfItems > 0)
+<div class="element-personalized-list">
+  <h2>$!name</h2>
+  <ul>
+  #foreach($entry in $related)
+    <li>
+    #set($path = $p_path.resolve($entry.contentId, $m.local.path))
+    #set($linkText = $!esc.html($entry.name))
+        <a href="#link({"path": $path, 'htmlEncodeLink': 'true'})">$linkText</a>
+    </li>
+  #end
+  </ul>
+</div>
+#end

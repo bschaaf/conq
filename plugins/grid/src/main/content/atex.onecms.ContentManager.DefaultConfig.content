@@ -1,0 +1,13 @@
+# Teaserable variant definition; declare identity mapping for TeaserableBean
+id:com.atex.plugins.grid.teaserable.variantconfig
+major:3
+inputtemplate:com.polopoly.data.Variant.config
+component:model:modelType:com.polopoly.data.mapping.VariantConfig
+component::defaultMapping:atex.onecms.ContentManager.exclude
+component:composer:com.atex.plugins.grid.TeaserableBean:atex.onecms.ContentManager.identity
+
+# Put our variant in default config
+id:.
+major:3
+inputtemplate:com.atex.onecms.content.ContentManager.config
+component:variantMapping:com.atex.plugins.grid.teaserable:com.atex.plugins.grid.teaserable.variantconfig

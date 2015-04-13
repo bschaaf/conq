@@ -1,0 +1,21 @@
+<!-- IN BREVE begin -->
+#if ($rssFeed.items)
+    <div class="large-12 medium-12 column noRight noLeft">
+        <div class="inBreve">
+            <h2 class="titleTwoGray">IN BREVE</h2>
+            <article class="scrollVertical">
+                #foreach($item in $rssFeed.items)
+                <p>
+                    <span>$item.pubDate </span>
+                    <a href="$item.link">$item.title</a> 
+                    $item.description
+                </p><br>
+                #end
+            </article>
+            <div class="moreNotice">
+                <a href="$content.other.value" title="Le Altre Notizie">Le Altre Notizie</a>
+            </div>
+        </div>
+    </div>
+#end
+<!-- IN BREVE end -->

@@ -1,0 +1,139 @@
+## Social network meta
+#if($view && $view=="socialmeta")
+  #set($meta_type = "article")
+  #set($meta_description = $content.lead)
+  #if($content.images.list.size() > 0)
+    #set($meta_image = $content.images.list.get(0).content)
+  #end
+  #parse("/WEB-INF/velocity/it.conquiste.socialmeta.vm")
+#else
+
+#set($path = $content.linkPath)
+#set($link = "#link({'path': $path, 'htmlEncodeLink': 'true'})")
+
+<ul class="breadcrumb">
+    #set($trailingPath = $m.context.page.contentPath)
+    #foreach($contentId in $trailingPath)
+        #set($page = $tool_model.getModel($contentId))
+        #set($pagePath = $trailingPath.getSubPath(0, $velocityCount))
+        <li>
+            <a href="#link({"path": $pagePath.asArray, "content": $contentId, 'htmlEncodeLink': 'true', "":""})">
+                $page.name
+            </a>
+        </li>
+    #end
+</ul>
+
+<div class="large-12 column">
+    <div class="generalArgument">
+        <h2 class="titleTwo">$!content.overtitle</h2>
+        <a href="$link" title="">
+            <h3 class="titleThree">$!content.name</h3> 
+        </a>
+		#if($!{content.byline.value} && $content.byline.value!='')
+        <div class="autore">
+            <p><strong>di  $content.byline.value</strong></p>
+        </div>
+		#end
+       <!--<div class="voteArticle">
+            <ul>
+                <li><p>Vota :</p></li>
+                <li class="bloccostelle"></li>
+                <li><p class="grazie" style="display:none"><span>Grazie per il tuo voto!</span></p></li>
+
+            </ul>
+        </div>-->
+
+		#foreach($entry in $content.images.list)
+		  #set($path = $entry.content.linkPath)
+          #set($link = "#link({'path': $path, 'htmlEncodeLink': 'true'})")
+          ##set($m.stack.imageFormat = "3x2")
+          ##  <a href="$link" title="" >#renderwithfallback({"content": $entry.content}) #end</a>
+		  <a href="$link" title="" ><img src="$tool_img.getUrlBuilder($entry.content.contentId.contentIdString).buildUrl()" /></a>
+		#end		
+		
+        <div class="articleTxt">
+            <article>
+                $!parsedBody
+                <p><date><em>( $date.format("d MMMM yyyy", $!content.publishedDate.date, $m.context.site.bean.resources.locale) )</em></date></p>
+            </article>
+        </div>
+		
+		
+        #set($shouldLink=true)
+        #if($m.context.site.content.landingPages.list.size() > 0)
+            #set($landingPage = $m.context.site.content.landingPages.list.get(2).content)
+        #else
+            #set($landingPage = $m.context.page.content)
+            #set($shouldLink=false)
+        #end
+        #set($shouldDisplay=false)
+        #set($dimensions = $content.metadata.dimensions)
+        #foreach($dimension in $dimensions)
+            #set($entitiesCount = $dimension.entities.size())
+            #if($entitiesCount > 0)
+                #set($shouldDisplay=true)
+                #break
+            #end
+        #end
+
+
+        <ul class="related-container list-inline">
+            #foreach($dimension in $dimensions)
+                #set($entitiesCount = $dimension.entities.size())
+                #if($entitiesCount > 0)
+                    #foreach($entity in $dimension.entities)
+                    <li>
+                        #if($shouldLink)
+                            <a href="#link({"path": $landingPage.parentIds,
+                                        "contentId":$landingPage.contentId,
+                                        'htmlEncodeLink': 'true',
+                                        "contentParams":{
+                                            $landingPage.contentId : {
+                                                "entity":$entity,
+                                                "dimension":$dimension}}})">
+                        #end
+                        <span class="label label-descrete">$tool_metadata.getEntityPath($entity)</span>
+                        #if($shouldLink)
+                            </a>
+                        #end
+                    </li>
+                    #end
+                #end
+            #end
+		</ul>
+		
+    </div>
+</div>
+
+#renderwithfallback({"content": $content.elements})
+    #end
+
+<div class="large-12 column noLeft">
+    <div class="contActionList">
+        <a class="print" href="javascript:window.print()" title="Stampa Pagina"><img src="/img/icon/print.png" alt="Stampa Pagina"> Stampa Pagina</a>
+        <a class="upPage" href="#" title="Vai Inizio Pagina"><img src="/img/icon/up.png" alt="Icona Inizio Pagina">Inizio Pagina</a>
+    </div>
+    <!-- SHARE ON SOCIALS-->
+    #set($path = $p_path.resolve($content.contentId, $m.context.page.contentPath))
+    #set($link = "#link({'path': $path, 'htmlEncodeLink': 'true', '':''})")
+    #if($content.images.list.size() > 0)
+      #set($firstImageLink = $tool_img.getUrlBuilder($content.images.list.get(0).content.contentId.contentIdString).buildUrl())
+    #end
+    <div class="interact">
+        <ul>
+            <li><a href="mailto:?subject=$!content.name&body=Salve, penso che questo argomento possa interessarti. L'URL &egrave;: $!m.context.site.bean.mainAlias.url$link" title="Email"><img src="/img/icon/email.png" alt="Email Icon"/></a></li>
+            <li><a href="https://www.facebook.com/sharer/sharer.php?u=$!m.context.site.bean.mainAlias.url$link" title="Facebook" target="_blank"><img src="/img/icon/fbBit.png" alt="Facebook Icon"/></a></li>
+            <li><a href="https://twitter.com/intent/tweet?url=$!m.context.site.bean.mainAlias.url$link" title="Twitter" target="_blank"><img src="/img/icon/twitterBit.png" alt="Twitter Icon"/></a></li>
+            <li><a href="https://plus.google.com/share?url=$!m.context.site.bean.mainAlias.url$link" title="Google Plus" target="_blank"><img src="/img/icon/googlePlusBit.png" alt="Google Plus Icon"/></a></li>
+            <li><a href="http://pinterest.com/pin/create/link/?url=$!m.context.site.bean.mainAlias.url$link#if($firstImageLink)&media=$!m.context.site.bean.mainAlias.url$firstImageLink#end" title="Pinterest" target="_blank"><img src="/img/icon/pinterestBit.png" alt="Pinterest Icon"/></a></li>
+        </ul>
+    </div>
+    <!-- Comment Article-->
+    <div class="commentArticle">
+        <a href="#" title="Commenta"><img src="/img/icon/comment.png" alt="Commenta Icona"/></a>
+    </div>
+    <!-- Cancel the floating css rule -->
+    <div class="clear"></div>
+</div>
+#end

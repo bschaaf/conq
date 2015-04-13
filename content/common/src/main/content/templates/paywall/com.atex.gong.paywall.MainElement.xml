@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="com.atex.gong.paywall.MainElement" label="com.atex.gong.paywall.MainElement.Label">
+    <policy>com.atex.plugins.baseline.policy.BaselinePolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <type>LayoutElement</type>
+    <param name="ViewState_insert">false</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditState_saveAndFastInsert">false</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditNewState_saveAndClose">false</param>
+    <param name="EditNewState_saveAndInsert">false</param>
+    <param name="EditNewState_saveAndFastInsert">true</param>
+    <param name="EditNewState_saveAndView">false</param>
+    <param name="templateIcon">text_code_colored.png</param>
+    <param name="renderTemplateIconInSelect">true</param>
+    <field name="name" input-template="p.ContentName" label="cm.label.Name" />
+    <output-templates mode="www">
+      <id>com.atex.gong.paywall.MainElement.ot</id>
+    </output-templates>
+  </input-template>
+</template-definition>

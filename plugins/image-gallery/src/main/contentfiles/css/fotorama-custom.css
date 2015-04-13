@@ -1,0 +1,46 @@
+.element-gallery .caption-text {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.element-gallery .credit {
+  color: #999;
+  font-size: 11px;
+}
+
+.element-gallery .fotorama__caption {
+  display: none;
+}
+
+.element-gallery .fotorama--fullscreen .fotorama__caption {
+  display: block;
+}
+
+.fotorama .fotorama__nav {
+  text-align: left;
+}
+
+.fotorama__caption__wrap {
+  background: none;
+}
+
+.fotorama__caption {
+  opacity: 1 !important;
+  color: #aaa;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.full-caption-text {
+  font-size: 12px;
+}
+
+.full-credit {
+  font-size: 11px;
+  color: #999;
+}
+.element-gallery {
+  background-color: #222;
+  padding: 10px;
+  border: 1px solid #888;
+  border-radius: 4px;
+}

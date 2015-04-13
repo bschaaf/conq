@@ -1,0 +1,12 @@
+# Use our mocked composer to present test content as teaserable
+id:.composer
+major:3
+inputtemplate:p.model.Pojo
+component:model:modelType:com.atex.onecms.content.mapping.MappingConfigBean
+component:model:pojo:{'_type'\:'com.atex.onecms.content.mapping.MappingConfigBean', 'mapperClass'\:'com.atex.plugins.grid.TeaserableMockContentComposer'}
+
+# Add above composer to handle TeaserableMock type
+id:com.atex.plugins.grid.teaserable.variantconfig
+major:3
+inputtemplate:com.polopoly.data.Variant.config
+component:composer:com.atex.plugins.grid.TeaserableMock:GridElementPolicyTestIT.dataApi.composer

@@ -1,0 +1,18 @@
+# This file lists web resources of this plugin that should be rendered on all
+# pages. See "Plugin contributed web resources" on http://support.polopoly.com for
+# documentation.
+#
+# Examples:
+#
+# Add the stylesheets in the css folder to the head section of all pages
+#/css
+#
+
+# Renders search canonical url in page header.
+com.atex.plugins.search.SearchHeader.ot
+
+# Compiled from style.less.
+/SearchElement.css
+
+/namespace.min.js
+/SearchElement.min.js

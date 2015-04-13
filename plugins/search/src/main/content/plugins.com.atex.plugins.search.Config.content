@@ -1,0 +1,14 @@
+id:.
+major:17
+inputtemplate:com.atex.plugins.search.Config.it
+
+# facet dates components, see http://searchhub.org/2012/02/23/date-math-now-and-filter-queries/
+# for explanation of the end date.
+component:facetdates:publishingDate.start:-10YEARS/DAY
+component:facetdates:publishingDate.end:+1DAY/DAY
+component:facetdates:publishingDate.gap:+1MONTH/MONTH
+component:facetdates:publishingDate.format:yyyy MMMMM
+
+component:queryType:value:freetextSearch
+
+component:resultsPageSize:value:10

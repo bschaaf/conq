@@ -1,0 +1,81 @@
+{
+  "id": "com.atex.plugins.banner.Banner.edit",
+
+  "type": "com.atex.plugins.banner.BannerContentDataBean",
+
+  "label": "Banner",
+  "namePath": "contentData/title",
+
+  "aspects": {
+    "atex.Files": {},
+    "atex.Metadata": {}
+  },
+
+  "dataBindings": [
+    {
+      "label": "Banner",
+      "widget": "pFileUploader",
+      "config": {
+        "allowedMimeTypes": ["image/jpeg", "image/pjpeg", "image/png"]
+      },
+
+      "domainObjects": {
+        "filePath": "contentData/filePath",
+        "files": "atex.Files"
+      }
+    },
+    {
+      "label": "Name",
+      "widget": "pTextInput",
+
+      "config": {
+        "placeholder": "Leave empty to use name from the banner"
+      },
+
+      "domainObjects": {
+        "data": "contentData/title"
+      }
+    },
+    {
+      "label": "Description",
+      "widget": "pTextArea",
+
+      "config": {
+        "placeholder": "Description of banner goes here..."
+      },
+
+      "domainObjects": {
+        "data": "contentData/description"
+      }
+    },
+    {
+      "label": "Byline",
+      "widget": "pTextInput",
+
+      "config": {
+        "placeholder": "Byline of banner goes here..."
+      },
+
+      "domainObjects": {
+        "data": "contentData/byline"
+      }
+    },
+    {
+      "label": "Associated Sites",
+      "widget": "pAssociatedSites",
+
+      "domainObjects": {
+        "associatedSites": "p.InsertionInfo/associatedSites",
+        "taxonomyIds": "atex.Metadata/taxonomyIds"
+      }
+    },
+    {
+      "label": "Metadata",
+      "widget": "pMetadata",
+
+      "domainObjects": {
+        "data": "atex.Metadata"
+      }
+    }
+  ]
+}

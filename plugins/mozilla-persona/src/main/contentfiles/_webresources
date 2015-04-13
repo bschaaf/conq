@@ -1,0 +1,18 @@
+# This file lists web resources of this plugin that should be rendered on all
+# pages. See "Plugin contributed web resources" on http://support.polopoly.com for
+# documentation.
+
+# The example plugin style. Compiled from style.less.
+/style.css
+
+# Mozilla Persona client library for browsers lacking native support.
+https://login.persona.org/include.js location=footer
+
+# jquery.cookie plugin
+/jquery.cookie.min.js
+
+# The persona callback mapping javascript. Compressed and renamed from persona.js.
+/persona.min.js
+
+# Settings for persona.
+com.atex.plugins.persona.Settings.ot location=footer

@@ -1,0 +1,11 @@
+id:localizedstrings.english
+major:1
+inputtemplate:p.siteengine.LocalizedStrings
+component:localizedstrings:com.atex.plugins.search.facets.tag_dimension.Tag:Tag
+component:localizedstrings:com.atex.plugins.search.facets.tag_dimension.Person:Person
+component:localizedstrings:com.atex.plugins.search.facets.tag_dimension.Organisation:Organization
+component:localizedstrings:com.atex.plugins.search.facets.tag_dimension.Location:Location
+component:localizedstrings:com.atex.plugins.search.facets.tag_dimension.IPTC:Categories
+component:localizedstrings:com.atex.plugins.search.facets.inputTemplate:Result Type
+component:localizedstrings:com.atex.plugins.search.facets.inputTemplate.standard.Article:Articles
+component:localizedstrings:com.atex.plugins.search.facets.publishingDate:Publishing Date

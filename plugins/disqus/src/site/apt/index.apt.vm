@@ -1,0 +1,63 @@
+  ${project.description}
+
+Installation
+
+  To add the plugin dependencies to your project, edit the project <<<pom.xml>>> and add:
+
++-----------------------------------------------------------------+
+<project>
+  ...
+  <dependencies>
+    ...
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>${project.artifactId}</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>${project.artifactId}</artifactId>
+      <version>${project.version}</version>
+      <classifier>contentdata</classifier>
+    </dependency>
+    ...
+  </dependencies>
+  ...
+</project>
++-----------------------------------------------------------------+
+
+  Running <<<mvn p:run>>> in your project, the plugin should be imported to the system. The plugin
+  should show up in the plugins list and any templates should be available in their respective locations.
+
+* Adding Disqus comments
+
+  To add a Disqus comments section to for example articles, you need to render the Disqus element template in the
+  appropriate place in the article template. As a minimum, add the following to the velocity file:
+
+#set($symbol_dollar = '$')
++------------------------------------------------------------------+
+#render({"content": ${symbol_dollar}content, "outputTemplate": "com.atex.plugins.disqus.MainElement.ot"})
++------------------------------------------------------------------+
+
+  Disqus however recommends that you also specify Disqus Identifier, Disqus Title and Disqus URL. To provide these
+  parameters to the Disqus plugin, use something like the following snippet instead:
+
++------------------------------------------------------------------+
+#set($canonicalPath = $p_path.resolve($content.contentId))
+#if($canonicalPath)
+  #set($canonicalLink = "#link({'path': $canonicalPath, 'htmlEncodeLink': 'true', 'requestAttribs': {'localLinksEnabled': false}})")
+#end
+#render({"content": ${symbol_dollar}content, "outputTemplate": "com.atex.plugins.disqus.MainElement.ot",
+         "params": {"disqusIdentifier": ${symbol_dollar}!content.contentId.contentId.contentIdString,
+                    "disqusTitle": ${symbol_dollar}esc.javascript(${symbol_dollar}!content.name),
+                    "disqusUrl": ${symbol_dollar}!canonicalLink}})
++------------------------------------------------------------------+
+
+* Configuring Disqus Shortname
+
+  In order for this plugin to function, a Disqus shortname has to be configured. This can be done in the Polopoly GUI
+  under SiteEngine/Configuration/Plugins/Disqus Plugin. Click on the tab Configuration once you have opened the
+  Disqus Plugin.
+
+  For more information on the Disqus shortname, see {{https://help.disqus.com/customer/portal/articles/466208}} and
+  {{https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables#disqus_shortname}}.

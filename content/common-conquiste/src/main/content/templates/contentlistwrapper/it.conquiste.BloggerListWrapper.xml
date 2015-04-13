@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="it.conquiste.BloggerListWrapper">
+    <content-list-wrapper>com.polopoly.cm.app.policy.ConfigurableContentListWrapper</content-list-wrapper>
+    <idparam-list name="allowedInputTemplates">
+      <contentid>
+        <externalid>it.conquiste.standard.metadata.BloggerEntity</externalid>
+      </contentid>
+    </idparam-list>
+  </input-template>
+</template-definition>

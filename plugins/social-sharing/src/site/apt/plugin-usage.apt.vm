@@ -1,0 +1,9 @@
+User guide
+
+  Press the share button. The given content will be shared on the supported social network (currently Facebook, Google+ and Twitter).
+
+  The title, description, image and other data will be taken from the OpenGraph headers of the page. See the
+  {{{./index.html}Getting Started}} page for instructions on how to set those headers.
+
+[images/facebook_share.png]
+

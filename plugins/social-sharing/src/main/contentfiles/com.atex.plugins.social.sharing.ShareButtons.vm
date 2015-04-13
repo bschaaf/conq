@@ -1,0 +1,43 @@
+#set($canonicalPath = $p_path.resolve($content.contentId))
+#if($canonicalPath)
+#set($canonicalLink = "#link({'path': $canonicalPath, 'htmlEncodeLink': 'true', 'requestAttribs': {'localLinksEnabled': false}})")
+#if("$!canonicalLink" != "")
+<div class="social-sharing-buttons">
+  <div class="social-sharing-button social-sharing-fb">
+    <div class="fb-share-button" data-href="$canonicalLink" data-type="button"></div>
+  </div>
+  <div class="social-sharing-button social-sharing-gp">
+  #if (!${google-plus} || ${google-plus.shareButton})
+    <div  class="g-plus" data-action="share" data-href="$canonicalLink"
+      #if (${google-plus})
+        #if (${google-plus.annotation}) data-annotation="$!{google-plus.annotation}" #end
+        #if (${google-plus.height}) data-height="$!{google-plus.height}" #end
+        #if (${google-plus.width}) data-width="$!{google-plus.width}" #end
+        #if (${google-plus.attributes}) ${google-plus.attributes} #end
+      #end
+    ></div>
+  #else
+    <div  class="g-plusone" data-href="$canonicalLink"
+      #if (${google-plus})
+        #if (${google-plus.annotation}) data-annotation="$!{google-plus.annotation}" #end
+        #if (${google-plus.width}) data-width="$!{google-plus.width}" #end
+        #if (${google-plus.attributes}) ${google-plus.attributes} #end
+      #end
+    ></div>
+  #end
+  </div>
+  <div class="social-sharing-button social-sharing-tw">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="$canonicalLink"
+    #if (${twitter})
+      #if (${twitter.text}) data-text="$!{twitter.text}" #end
+      #if (${twitter.count}) data-count="$!{twitter.count}" #end
+      #if (${twitter.language}) data-lang="$!{twitter.language}" #end
+      #if (${twitter.size}) data-size="$!{twitter.size}" #end
+      #if (${twitter.related}) data-related="$!{twitter.related}" #end
+      #if (${twitter.attributes}) ${twitter.attributes} #end
+    #end
+    >Tweet</a>
+  </div>
+</div>
+#end
+#end

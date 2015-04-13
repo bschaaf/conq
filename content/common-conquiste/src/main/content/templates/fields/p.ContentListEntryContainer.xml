@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+    <input-template name="p.ContentListEntryContainer">
+        <policy>com.polopoly.cm.app.policy.ContentListWrapperPolicy</policy>
+        <editor>it.conquiste.cm.widget.OConquisteContentListPolicyWidget</editor>
+        <viewer>it.conquiste.cm.widget.OConquisteContentListPolicyWidget</viewer>
+    </input-template>
+</template-definition>

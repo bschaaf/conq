@@ -1,0 +1,17 @@
+#set($numberOfItems = $content.numberOfItems)
+#if($numberOfItems > 0)
+<div class="element-list">
+  <h2>$!content.name</h2>
+  <ul class="$content.cssClassName">
+  #set($list = $content.defaultList.subList(0, $numberOfItems))
+  #foreach($entry in $list)
+    <li>
+    #set($linkContent = $entry.content)
+    #renderwithfallback({"content": $linkContent.contentId, "params": {"mode": "listElementLink"}})
+      #parse("com.atex.plugins.list.link.vm")
+    #end
+    </li>
+  #end
+  </ul>
+</div>
+#end

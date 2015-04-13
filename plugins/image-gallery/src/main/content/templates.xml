@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+
+  <input-template name="com.atex.plugins.image-gallery.image.upload">
+    <editor>com.atex.plugins.widget.OFileUploadWidget</editor>
+    <viewer>com.atex.plugins.widget.OFileUploadWidget</viewer>
+  </input-template>
+
+  <input-template name="com.atex.plugins.image-gallery.image.dnd">
+    <policy>com.atex.plugins.widget.ImageDropTargetPolicy</policy>
+    <editor>com.atex.plugins.widget.OImageDropTargetWidget</editor>
+    <viewer>com.atex.plugins.widget.OImageDropTargetWidget</viewer>
+  </input-template>
+
+  <input-template name="com.atex.plugins.image-gallery.Caption">
+    <policy>com.polopoly.cm.policy.ReferenceMetaDataPolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <field name="caption" input-template="p.TextArea">
+      <param name="rows">2</param>
+      <param name="style">width: 98%</param>
+      <param name="placeholder">com.atex.plugins.image-gallery.caption</param>
+    </field>
+  </input-template>
+
+  <input-template name="com.atex.plugins.image-gallery-plugin.Config.it" label="com.atex.plugins.baseline.Config.it">
+    <policy>com.atex.plugins.imagegallery.ImageGalleryConfigurationPolicy</policy>
+    <editor>com.polopoly.plugin.OPluginConfigContextPolicyWidget</editor>
+    <viewer>com.polopoly.plugin.OPluginConfigContextPolicyWidget</viewer>
+    <type>AppConfig</type>
+    <field name="inputTemplate" label="com.atex.plugins.image-gallery.label.contentcreator" input-template="p.TextInput" required="true">
+      <param name="inlineHelp">true</param>
+      <help>com.atex.plugins.image-gallery.help.inputtemplate</help>
+    </field>
+  </input-template>
+
+  <input-template name="com.atex.plugins.image-gallery.ContentListWrapper">
+    <content-list-wrapper>com.polopoly.cm.app.policy.ConfigurableContentListWrapper</content-list-wrapper>
+    <param name="allowedFromVariant">com.atex.plugins.gallery.image</param>
+  </input-template>
+
+  <input-template name="com.atex.plugins.image-gallery.MainElement" label="com.atex.plugins.image-gallery.mainElement">
+    <type>LayoutElement</type>
+    <policy>com.atex.plugins.imagegallery.ImageGalleryPolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <editor contextName="orchid_TOCENTRY">com.atex.plugins.widget.OGalleryTocEntryRenderer</editor>
+    <viewer contextName="orchid_TOCENTRY">com.atex.plugins.widget.OGalleryTocEntryRenderer</viewer>
+    <editor contextName="orchid_THUMBENTRY">com.atex.plugins.widget.OSearchThumb</editor>
+    <viewer contextName="orchid_THUMBENTRY">com.atex.plugins.widget.OSearchThumb</viewer>
+    <param name="renderTemplateIconInSelect">true</param>
+    <param name="ViewState_insert">false</param>
+    <param name="ViewState_refresh">true</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditState_saveAndFastInsert">false</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditNewState_saveAndClose">false</param>
+    <param name="EditNewState_saveAndInsert">false</param>
+    <param name="EditNewState_saveAndFastInsert">true</param>
+    <param name="EditNewState_saveAndView">false</param>
+    <param name="titleOfNewContent">com.atex.plugins.image-gallery.label.new</param>
+    <content-list name="images" input-template="com.atex.plugins.image-gallery.ContentListWrapper" />
+	      <field name="securityParent" input-template="p.SecurityParentSelect" label="standard.Article.ParentPage">
+            <help>Select security parent for this gallery</help>
+            <param name="inlineHelp">true</param>
+            <param name="width">320</param>
+            <param name="height">100</param>
+            <idparam name="rootContent">
+              <externalid>p.siteengine.Sites.d</externalid>
+            </idparam>
+          </field>
+    <field name="name" input-template="p.ContentName" label="com.atex.plugins.image-gallery.name" required="true"/>
+	<field name="description" input-template="p.TextArea" label="com.atex.plugins.image-gallery.label.description">
+       <param name="fieldsetClass">heading</param>
+       <param name="fieldsetClass">field text</param>
+       <param name="rows">3</param>
+       <param name="cols">50</param>
+       <param name="tabIndex">2</param>
+    </field>
+    <field name="upload" input-template="com.atex.plugins.image-gallery.image.upload" label="com.atex.plugins.image-gallery.label.upload" />
+    <field name="dnd" input-template="com.atex.plugins.image-gallery.image.dnd">
+      <param name="maxFileSize">10</param>
+      <param name="maxNofFile">20</param>
+    </field>
+    <field name="images" input-template="p.ContentListEntryContainer" label="com.atex.plugins.image-gallery.label.images">
+      <editor>com.atex.plugins.widget.OImageGalleryImageListWidget</editor>
+      <viewer>com.atex.plugins.widget.OImageGalleryImageListWidget</viewer>
+      <param name="contentListName">images</param>
+    </field>
+    <field name="publishedDate" input-template="p.OptionalDateTime" label="standard.Article.PublishedDate">
+      <help>standard.Article.PublishedDate.Help</help>
+      <param name="inlineHelp">true</param>
+      <param name="showSeconds">false</param>
+    </field>
+    <output-templates mode="www">
+      <id>com.atex.plugins.imagegallery.MainElement.ot</id>
+    </output-templates>
+  </input-template>
+
+</template-definition>

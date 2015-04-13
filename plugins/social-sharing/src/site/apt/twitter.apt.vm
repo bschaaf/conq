@@ -1,0 +1,36 @@
+Twitter
+
+  You can configure the twitter share button in the plugin configuration page from the polopoly GUI.
+  Look at SiteEngine/Configuration/Plugins/Social Sharing Plugin.
+  To have a list of available options for most of these parameters have a look at {{https://dev.twitter.com/docs/tweet-button}}.
+
+* Default Text
+
+  This will override the page or article title as message for the share.
+
+* Counter
+
+  Allow you to show the number of shares (and align it).
+
+* Language
+
+  Language to be used when displaying the twitter widgets.
+
+* Size
+
+  You can customize the size of the widget.
+
+* Related
+
+  Accounts suggested to the user that clicked on the "<<Tweet>>" button.
+  You can add multiple accounts separated with a comma.
+  Twitter says that only the first two will be used.
+  See {{https://dev.twitter.com/docs/tweet-button}}.
+
+* Additional Attributes
+
+  You can specify any additional attribute that will be added to the anchor. For example you can add
+
++------------------------+
+  data-via="atexglobal"
++------------------------+

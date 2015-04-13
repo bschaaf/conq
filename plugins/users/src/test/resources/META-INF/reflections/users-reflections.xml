@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is here to enable running unit tests in Eclipse without having to build with maven first -->
+<Reflections>
+  <SubTypesScanner>
+    <entry>
+      <key>com.atex.plugins.users.WebLoginEventListener</key>
+      <values>
+        <value>com.atex.plugins.users.WebClientUtilTest</value>
+      </values>
+    </entry>
+    <entry>
+      <key>com.atex.plugins.users.WebLogoutEventListener</key>
+      <values>
+        <value>com.atex.plugins.users.WebClientUtilTest</value>
+      </values>
+    </entry>
+  </SubTypesScanner>
+</Reflections>

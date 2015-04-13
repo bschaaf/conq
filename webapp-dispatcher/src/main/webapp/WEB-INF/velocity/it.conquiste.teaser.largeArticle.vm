@@ -1,0 +1,33 @@
+#set($path = $teaser.linkPath)
+#set($link = "#link({'path': $path, 'htmlEncodeLink': 'true'})")
+<!--Article with thumbnail / Image preview-->
+<div class="large-12 medium-12 column noLeft">
+    <!-- Small Article Two -->
+    <div class="largeArticle">
+        <h2 class="titleTwo">$teaser.overtitle</h2>
+        <a href="$link" title=""> <h4 class="titleFour">$esc.html($!teaser.name)</h4></a>
+		#if($teaser.imageContentId)
+			<a href="$link" class="thumbnailSmallArticle" ><img src="$tool_img.getUrlBuilder($teaser.imageContentId.contentIdString).buildUrl()" /></a>
+		#end
+         <p>$teaser.text</p>
+    </div>
+    <!-- SHARE ON SOCIALS-->
+    #if($teaser.imageContentId)
+      #set($imageLink = $tool_img.getUrlBuilder($teaser.imageContentId.contentIdString).buildUrl())
+    #end
+    <div class="interact">
+        <ul>
+            <li><a href="mailto:?subject=$esc.html($!teaser.name)&body=Salve, penso che questo argomento possa interessarti. L'URL &egrave;: $!m.context.site.bean.mainAlias.url$link" title="Email"><img src="/img/icon/email.png" alt="Email Icon"/></a></li>
+            <li><a href="https://www.facebook.com/sharer/sharer.php?u=$!m.context.site.bean.mainAlias.url$link" title="Facebook" target="_blank"><img src="/img/icon/fbBit.png" alt="Facebook Icon"/></a></li>
+            <li><a href="https://twitter.com/intent/tweet?url=$!m.context.site.bean.mainAlias.url$link" title="Twitter" target="_blank"><img src="/img/icon/twitterBit.png" alt="Twitter Icon"/></a></li>
+            <li><a href="https://plus.google.com/share?url=$!m.context.site.bean.mainAlias.url$link" title="Google Plus" target="_blank"><img src="/img/icon/googlePlusBit.png" alt="Google Plus Icon"/></a></li>
+            <li><a href="http://pinterest.com/pin/create/link/?url=$!m.context.site.bean.mainAlias.url$link#if($imageLink)&media=$!m.context.site.bean.mainAlias.url$imageLink#end" title="Pinterest" target="_blank"><img src="/img/icon/pinterestBit.png" alt="Pinterest Icon"/></a></li>
+        </ul>
+    </div>
+    <!-- Comment Article-->
+    <div class="commentArticle">
+        <a href="#" title="Commenta"><img src="/img/icon/comment.png" alt="Commenta Icona"/></a>
+    </div>
+    <!-- Cancel the floating css rule -->
+    <div class="clear"></div>
+</div>

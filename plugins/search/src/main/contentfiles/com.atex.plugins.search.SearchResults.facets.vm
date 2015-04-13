@@ -1,0 +1,40 @@
+#set($rs = $m.context.site.bean.resources.strings)
+#set($prs = $rs.com.atex.plugins.search)
+#set($String = '')
+
+<div class="search-results">
+  <div class="facets">
+    #foreach($facet_field in $facets)
+
+      <h5>$rs.com.atex.plugins.search.facets.get($facet_field.name)</h5>
+      <ul>
+      #foreach($facet in $facet_field.values)
+        #if($facet.selected)
+          #set($span_class = "glyphicon glyphicon-remove")
+          #set($facet_action = "Atex.plugin.search.removeFilterSearch('$esc.javascript($facet.fq)')")
+        #else
+          #set($span_class = "")
+          #set($facet_action = "Atex.plugin.search.filterSearch('$esc.javascript($facet.fq)')")
+        #end
+        <li>
+          <a onclick="$facet_action" href="#">
+            #if (!$facet.selected)
+            <span class="badge">$facet.count</span>
+            #end
+
+            <span class="$span_class"></span>
+            #set($key = $facet_field.name + "." + $facet.value)
+            #set($facet_l10n = $prs.facets.get($key) + "")
+            #if($facet_l10n.substring(0,3).equals("???"))
+                $facet.value
+            #else
+                $facet_l10n
+            #end
+          </a>
+        </li>
+      #end
+      </ul>
+    #end
+  </div>
+</div>
+

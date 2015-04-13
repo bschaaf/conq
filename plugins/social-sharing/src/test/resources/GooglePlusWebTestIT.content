@@ -1,0 +1,10 @@
+id:.site
+major:2
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+component:polopoly.Content:name:Test site for Google Plus web test
+
+id:.content
+major:1
+inputtemplate:GooglePlusWebTestIT.Article
+securityparent:.site

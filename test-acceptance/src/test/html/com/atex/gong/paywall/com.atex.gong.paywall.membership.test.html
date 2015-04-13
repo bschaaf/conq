@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <!-- Fallback for local testing -->
+    <script type="text/javascript" src="jquery/jquery-1.11.0.min.js"></script>
+    
+    <script type="text/javascript" src="/js/com.atex.gong.paywall.membership.js"></script>
+    <!-- Fallback for local testing -->
+    <script type="text/javascript" src="../../../../../../../../webapp-dispatcher/src/main/webapp/js/com.atex.gong.paywall.membership.js"></script>
+    
+    <link rel="stylesheet" href="qunit/qunit-1.14.0.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="qunit/qunit-1.14.0.js"></script>
+    
+    <script>
+    jQuery(document).ready(function(){
+
+        module("membership.js.base64");
+        
+        test("testEncode", function() {
+            equal(polopoly.base64.stringEncode("=+!qwe"), "PSshcXdl", "no pad encode");
+            equal(polopoly.base64.stringEncode("%a"), "JWE=", "pad encode");
+            equal(polopoly.base64.stringEncode(""), "", "empty encode");
+        });
+
+        test("testDecode", function() {
+            equal(polopoly.base64.stringDecode("PSshcXdl"), "=+!qwe", "unpadded decode");
+            equal(polopoly.base64.stringDecode("JWE="), "%a", "padded decode");
+            equal(polopoly.base64.stringDecode("JWE"), "%a", "missing padding decode");
+            equal(polopoly.base64.stringDecode("JWE"), "%a", "missing padding decode");
+            equal(polopoly.base64.stringDecode(""), "", "empty decode");
+            equal(polopoly.base64.stringDecode(null), "", "null decode");
+        });
+
+        module("membership.js.cookie");
+
+        test("clearSetGetCookie", function() {
+            polopoly.cookie.clear("sessionKey");
+            polopoly.cookie.clear("loginName");
+            polopoly.cookie.clear("userId");
+
+            equal(polopoly.cookie.get("sessionKey"), undefined);
+            equal(polopoly.cookie.get("loginName"), undefined);
+            equal(polopoly.cookie.get("userId"), undefined);
+
+            polopoly.cookie.set("sessionKey", "1234567890abcdef");
+            polopoly.cookie.set("loginName", "2.123_adrian@gt.com");
+            polopoly.cookie.set("userId", "1234567890abcdef1234567890abcdef");
+
+            equal(polopoly.cookie.get("sessionKey"), "1234567890abcdef");
+            equal(polopoly.cookie.get("loginName"), "2.123_adrian@gt.com");
+            equal(polopoly.cookie.get("userId"), "1234567890abcdef1234567890abcdef");
+
+            polopoly.cookie.clear("sessionKey");
+            polopoly.cookie.clear("loginName");
+            polopoly.cookie.clear("userId");
+
+            equal(polopoly.cookie.get("sessionKey"), undefined);
+            equal(polopoly.cookie.get("loginName"), undefined);
+            equal(polopoly.cookie.get("userId"), undefined);
+        });
+
+        module("membership.js.user");
+
+        test("isLoggedIn", function() {
+            polopoly.cookie.clear("sessionKey");
+            polopoly.cookie.clear("loginName");
+            polopoly.cookie.clear("userId");
+            ok(!polopoly.user.isLoggedIn(), "not logged in");
+
+            polopoly.cookie.clear("sessionKey");
+            polopoly.cookie.set("loginName", "2.123_adrian@gt.com");    
+            polopoly.cookie.clear("userId");
+            ok(!polopoly.user.isLoggedIn(), "not logged in");
+
+            polopoly.cookie.clear("sessionKey");
+            polopoly.cookie.clear("loginName");
+            polopoly.cookie.set("userId", "1234567890abcdef1234567890abcdef");    
+            ok(!polopoly.user.isLoggedIn(), "not logged in");
+
+            polopoly.cookie.set("sessionKey", "1234567890abcdef");    
+            polopoly.cookie.clear("loginName");
+            polopoly.cookie.set("userId", "1234567890abcdef1234567890abcdef");    
+            ok(!polopoly.user.isLoggedIn(), "not logged in");
+    
+            polopoly.cookie.clear("sessionKey");
+            polopoly.cookie.set("loginName", "2.123_adrian@gt.com");    
+            polopoly.cookie.set("userId", "1234567890abcdef1234567890abcdef");    
+            ok(!polopoly.user.isLoggedIn(), "not logged in");
+    
+            polopoly.cookie.set("sessionKey", "1234567890abcdef");    
+            polopoly.cookie.set("loginName", "2.123_adrian@gt.com");    
+            polopoly.cookie.set("userId", "1234567890abcdef1234567890abcdef");    
+            ok(polopoly.user.isLoggedIn(), "logged in");
+    
+            polopoly.cookie.clear("sessionKey");
+            polopoly.cookie.clear("loginName");
+            polopoly.cookie.clear("userId");    
+        });
+
+    });
+
+    </script>
+  </head>
+  <body>
+    <h1 id="qunit-header">Test of com.atex.gong.paywall.membership.js</h1>
+    <h2 id="qunit-banner"></h2>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests"></ol>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <name>Content Data - dev</name>
+  <artifactId>dev-content</artifactId>
+  <groupId>com.atex.gong</groupId>
+  <packaging>jar</packaging>
+
+  <parent>
+    <groupId>com.atex.gong</groupId>
+    <artifactId>content</artifactId>
+    <version>1.1</version>
+  </parent>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>truezip-maven-plugin</artifactId>
+        <version>1.2</version>
+        <executions>
+          <execution>
+            <id>copy-out-demo-content</id>
+            <goals>
+              <goal>cp</goal>
+            </goals>
+            <phase>prepare-package</phase>
+            <configuration>
+              <from>src/main/contentjar/demo-content.jar</from>
+              <to>${project.build.directory}/generated-content</to>
+              <skip>false</skip>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.polopoly.extensions</groupId>
+        <artifactId>p-maven-plugin</artifactId>
+        <version>${polopoly.version}</version>
+        <executions>
+          <execution>
+           <id>pack-content</id>
+            <goals>
+              <goal>pack</goal>
+            </goals>
+            <phase>package</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+#set($locale = $m.context.site.bean.resources.locale)
+##PQ's#####################################################################################
+#if($googleSiteMap)
+##   loops thru entries in queues
+#* *##foreach($contentEntry in $googleNewsSitemapPublishingQueue)
+#*     *##set($entry = $contentEntry.content)
+	<url>
+		<loc>#link({"path": $p_path.resolve($entry.contentId), 'htmlEncodeLink': 'true', "requestAttribs": {"localLinksEnabled": "false"}})</loc>
+		<news:news>
+			<news:publication>
+				<news:name>$!publicationName</news:name>
+				<news:language>$locale.language</news:language>
+			</news:publication>
+##Hardcoded 'Z' time zone passing in UTC timezone populated by controller
+#*     *##if($entry.publishingDateTime && $entry.publishingDateTime > 0)
+			<news:publication_date>$date.format("yyyy-MM-dd'T'HH:mm:ss", $entry.publishingDateTime, $locale, $timezone)Z</news:publication_date>
+#*     *##end
+#*     *##if("$!entry.title" != "")
+			<news:title>$!entry.title</news:title>
+#*     *##else
+#*         *##if("$!entry.overtitle" != "")
+			<news:title>$!entry.overtitle</news:title>			
+#*         *##end
+#*     *##end
+#*     *##if("$!entry.access" != "")
+			<news:access>$!entry.access</news:access>
+#*     *##end
+#*     *##if("$!entry.keywords" != "")
+			<news:keywords>$!entry.keywords</news:keywords>
+#*     *##end
+#*     *##if("$!entry.genres" != "")
+			<news:genres>$!entry.genres</news:genres>
+#*     *##else 
+			<news:genres>UserGenerated</news:genres>
+#*     *##end
+		</news:news>
+	</url>
+#end
+#end
+## END PQ's################################################################################
+</urlset>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="com.atex.plugins.list.PublishingQueueContentListWrapper">
+    <param name="maxSize">1</param>
+    <content-list-wrapper>com.polopoly.cm.app.policy.ConfigurableContentListWrapper</content-list-wrapper>
+    <idparam name="templateRoot">
+      <externalid>p.siteengine.PublishingQueueContentRepositoryTemplates</externalid>
+    </idparam>
+  </input-template>
+</template-definition>

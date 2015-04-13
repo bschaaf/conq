@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model typeName="com.polopoly.statistics.application.StatisticsServerComponent">
+  <environment>
+    <dataDirectory>/filestorage/statistics</dataDirectory>
+  </environment>
+  <analyzers>
+    <analyzer>echo</analyzer>
+    <analyzer>visitorstat</analyzer>
+    <analyzer>visitors</analyzer>
+    <analyzer>article</analyzer>
+    <analyzer>departmentanalyzer</analyzer>
+    <analyzer>referrer</analyzer>
+  </analyzers>
+  <computers>
+    <computer>referrerdomaincomputer</computer>
+  </computers>
+</model>

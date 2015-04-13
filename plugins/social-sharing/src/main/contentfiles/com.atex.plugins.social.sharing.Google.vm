@@ -1,0 +1,14 @@
+## see https://support.google.com/business/answer/4569085?hl=en
+#if ($google-plus-url)
+<a href="$google-plus-url" rel="publisher"></a>
+#end
+<script type="text/javascript">
+#if ($google-plus-lang)
+  window.___gcfg = {lang: '$esc.javascript($google-plus-lang)'};
+#end
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>

@@ -1,0 +1,68 @@
+  ${project.description}
+
+Installation
+
+  To add the plugin dependencies to your project, edit the project <<<pom.xml>>> and add:
+
++-----------------------------------------------------------------+
+<project>
+  ...
+  <dependencies>
+    ...
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>${project.artifactId}</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>${project.artifactId}</artifactId>
+      <version>${project.version}</version>
+      <classifier>contentdata</classifier>
+    </dependency>
+    ...
+  </dependencies>
+  ...
+</project>
++-----------------------------------------------------------------+
+
+  Running <<<mvn p:run>>> in your project, the plugin should be imported to the system. The plugin
+  should show up in the plugins list and any templates should be available in their respective locations.
+
+Adding a login/logout button
+
+  An output template is provided which can be added to the page layout velocity template
+  in order to display the login or logout button.
+
++------------------------------------------------------------------+
+#render({"outputTemplate": "com.atex.plugins.persona.LoginLogout.ot"})
++------------------------------------------------------------------+
+
+Configuration
+
+ The login popup can be configured to some extent in the polopoly GUI, in the configuration tab on the Mozilla Persona plugin content (at SiteEngine/Configuration/Plugins/Mozilla Persona).
+
+[images/configure.png]
+
+* Privacy Policy and Terms of Service
+
+  It is possible to configure a privacy policy and terms of service content which will be linked from the persona popup.
+  Note that privacy policy and terms of service are mutually dependent. I.e. it is not possible to
+  use a privacy policy without terms of service or vice versa.
+
+  To enable the links, enter the external ids in the plugin configuration.
+
+[images/terms.png]
+
+* Site name
+
+  The popup will default to using the hostname as site name, but it is possible to override this in the configuration.
+
+* Site logo
+
+  It is possible to supply a site logo for the popup, but note that it must be an absolute secure URL, e.g.
+  "https://www.polopolypost.com/polopoly_fs/7.123!/image/2358286532.gif".
+
+* Background color
+
+  The background color can be customized by setting a hexadecimal RGB color value, e.g. "00FF00" for green.

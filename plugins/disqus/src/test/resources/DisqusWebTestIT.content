@@ -1,0 +1,17 @@
+id:.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+component:polopoly.Content:name:Test Site for Disqus Plugin Web Test
+
+id:.article
+major:article
+inputtemplate:DisqusWebTestIT.Article
+securityparent:.site
+name:Disqus Web Test Article
+
+id:plugins.com.atex.plugins.disqus.Config
+major:appconfig
+inputtemplate:com.atex.plugins.disqus.Configuration
+component:enabled:value:true
+component:siteShortname:value:polopolydisqusplugintestsite

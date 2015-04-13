@@ -1,0 +1,34 @@
+id:plugins.com.atex.plugins.personalization.Config
+major:appconfig
+ref:polopoly.Toc:0:dimension.Tag
+component:maxHistory:value:2
+
+id:.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Test site for Targeting
+
+id:.article1
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:Targeting article 1 title
+component:lead:value:Targeting article 1 lead
+component:categorization:value:{"dimensions"\:[{"id"\:"dimension.Tag","name"\:"Tag","enumerable"\:false,"entities"\:[{"id"\:"Japan","name"\:"Japan","entities"\:[],"attributes"\:[],"childrenOmitted"\:false},{"id"\:"USA","name"\:"USA","entities"\:[],"attributes"\:[],"childrenOmitted"\:false},{"id"\:"Nuclear","name"\:"Nuclear","entities"\:[],"attributes"\:[],"childrenOmitted"\:false},{"id"\:"Article1","name"\:"Article1","entities"\:[],"attributes"\:[],"childrenOmitted"\:false}]}]}
+
+id:.article2
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:Targeting article 2 title
+component:lead:value:Targeting article 2 lead
+component:categorization:value:{"dimensions"\:[{"id"\:"dimension.Tag","name"\:"Tag","enumerable"\:false,"entities"\:[{"id"\:"Nuclear","name"\:"Nuclear","entities"\:[],"attributes"\:[],"childrenOmitted"\:false},{"id"\:"Article2","name"\:"Article2","entities"\:[],"attributes"\:[],"childrenOmitted"\:false}]}]}
+
+id:.article3
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:Targeting article 3 title
+component:lead:value:Targeting article 3 lead
+component:categorization:value:{"dimensions"\:[{"id"\:"dimension.Tag","name"\:"Tag","enumerable"\:false,"entities"\:[{"id"\:"Nuclear","name"\:"Nuclear","entities"\:[],"attributes"\:[],"childrenOmitted"\:false},{"id"\:"Article3","name"\:"Article3","entities"\:[],"attributes"\:[],"childrenOmitted"\:false}]}]}

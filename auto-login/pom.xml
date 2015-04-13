@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <name>auto login</name>
+
+  <artifactId>auto-login</artifactId>
+  <groupId>com.atex.gong</groupId>
+  <packaging>jar</packaging>
+
+  <parent>
+    <groupId>com.atex.gong</groupId>
+    <artifactId>top</artifactId>
+    <version>1.1</version>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.polopoly</groupId>
+      <artifactId>integration-atex</artifactId>
+      <version>${polopoly.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.polopoly.core</groupId>
+          <artifactId>common</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.polopoly.core</groupId>
+          <artifactId>user-servlet-mixed</artifactId>
+        </exclusion>
+      </exclusions>
+      <type>jar</type>
+    </dependency>
+  </dependencies>
+</project>

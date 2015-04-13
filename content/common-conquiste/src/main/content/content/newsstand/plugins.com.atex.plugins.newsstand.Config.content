@@ -1,0 +1,12 @@
+id:plugins.com.atex.plugins.newsstand.Config
+major:appconfig
+inputtemplate:com.atex.plugins.newsstand.Configuration
+securityparent:p.siteengine.Configuration.d
+component:host:value:http\://vp-pro13.xorovo.it
+component:version:value:vpweb25
+component:wsname:value:ViewerplusWS
+component:platform:value:web
+component:type:value:production
+component:device_id:value:polopoly
+component:catalogs:value:CICL
+component:newspapers:value:CICL

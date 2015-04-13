@@ -1,0 +1,9 @@
+id:.
+major:department
+inputtemplate:p.TemplateCategory
+securityparent:p.TemplateRoot
+name:Person templates
+component:polopoly.Client:categoryMajor:Article
+list:standard.metadata.PersonEntity
+
+publish:standard.metadata.templateroot.PersonEntity

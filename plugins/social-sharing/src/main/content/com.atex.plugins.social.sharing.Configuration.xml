@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="com.atex.plugins.social.sharing.Configuration" label="com.atex.plugins.social.sharing.Configuration">
+    <policy>com.atex.plugins.social.sharing.SocialSharingConfigPolicy</policy>
+    <editor>com.polopoly.plugin.OPluginConfigContextPolicyWidget</editor>
+    <viewer>com.polopoly.plugin.OPluginConfigContextPolicyWidget</viewer>
+
+    <type>AppConfig</type>
+
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="ViewState_insert">false</param>
+
+    <layout name="pages" input-template="p.AjaxPageMenu">
+
+      <layout name="page.facebook" input-template="p.Page"
+              label="com.atex.plugins.social.sharing.Configuration.page.facebook">
+        <param name="lazyInit">true</param>
+
+        <field name="facebook.appid" input-template="p.TextInput"
+               label="com.atex.plugins.social.sharing.Configuration.facebook.appid" />
+      </layout>
+
+      <layout name="page.google" input-template="p.Page"
+              label="com.atex.plugins.social.sharing.Configuration.page.google">
+        <param name="lazyInit">true</param>
+
+        <field name="gplus.type" input-template="p.Select"
+               label="com.atex.plugins.social.sharing.Configuration.gplus.type">
+          <param name="size">1</param>
+          <param name="selected">0</param>
+          <param name="multivalued">false</param>
+          <param name="label_0">com.atex.plugins.social.sharing.Configuration.gplus.type.share</param>
+          <param name="value_0">0</param>
+          <param name="label_1">com.atex.plugins.social.sharing.Configuration.gplus.type.plusone</param>
+          <param name="value_1">1</param>
+        </field>
+        
+        <layout name="holder" input-template="p.ColumnHolder" label="Columns">
+
+          <layout name="stylingColumn" input-template="p.Column" label="">
+            <field name="gplus.annotation" input-template="p.Select"
+                   label="com.atex.plugins.social.sharing.Configuration.gplus.annotation">
+              <param name="size">1</param>
+              <param name="selected">0</param>
+              <param name="multivalued">false</param>
+              <param name="label_0">com.atex.plugins.social.sharing.Configuration.gplus.annotation.none</param>
+              <param name="value_0">0</param>
+              <param name="label_1">com.atex.plugins.social.sharing.Configuration.gplus.annotation.bubbleH</param>
+              <param name="value_1">1</param>
+              <param name="label_2">com.atex.plugins.social.sharing.Configuration.gplus.annotation.bubbleV</param>
+              <param name="value_2">2</param>
+              <param name="label_3">com.atex.plugins.social.sharing.Configuration.gplus.annotation.inline</param>
+              <param name="value_3">3</param>
+            </field>
+    
+            <field name="gplus.height" input-template="p.Select"
+                   label="com.atex.plugins.social.sharing.Configuration.gplus.height">
+              <help>com.atex.plugins.social.sharing.Configuration.gplus.height.help</help>
+              <param name="inlineHelp">true</param>
+              <param name="size">1</param>
+              <param name="selected">1</param>
+              <param name="multivalued">false</param>
+              <param name="label_0">15</param>
+              <param name="value_0">15</param>
+              <param name="label_1">20</param>
+              <param name="value_1">20</param>
+              <param name="label_2">24</param>
+              <param name="value_2">24</param>
+              <param name="label_3">60</param>
+              <param name="value_3">60</param>
+            </field>
+    
+            <field name="gplus.width" input-template="p.TextInput"
+                   label="com.atex.plugins.social.sharing.Configuration.gplus.width">
+              <help>com.atex.plugins.social.sharing.Configuration.gplus.width.help</help>
+              <param name="inlineHelp">true</param>
+              <param name="style">display:inline-block; min-height:1em</param>
+            </field>
+          </layout>
+
+          <layout name="moreColumn" input-template="p.Column" label="">
+            <param name="cssClass">p_padding</param>
+            <field name="gplus.url" input-template="p.TextInput"
+                   label="com.atex.plugins.social.sharing.Configuration.gplus.url">
+              <help>com.atex.plugins.social.sharing.Configuration.gplus.url.help</help>
+              <param name="inlineHelp">true</param>
+              <param name="style">display:inline-block; min-height:1em</param>
+            </field>
+  
+            <field name="gplus.attributes" input-template="p.TextInput"
+                   label="com.atex.plugins.social.sharing.Configuration.gplus.attributes">
+              <help>com.atex.plugins.social.sharing.Configuration.gplus.attributes.help</help>
+              <param name="inlineHelp">true</param>
+              <param name="style">display:inline-block; min-height:1em</param>
+            </field>
+    
+            <field name="gplus.lang" input-template="p.TextInput"
+                   label="com.atex.plugins.social.sharing.Configuration.gplus.lang">
+              <param name="style">display:inline-block; min-height:1em</param>
+            </field>
+          </layout>
+        </layout>
+      </layout>
+
+      <layout name="page.twitter" input-template="p.Page"
+              label="com.atex.plugins.social.sharing.Configuration.page.twitter">
+        <param name="lazyInit">true</param>
+
+        <layout name="twHolder" input-template="p.ColumnHolder" label="Columns">
+
+          <layout name="twStylingColumn" input-template="p.Column" label="">
+            <field name="twitter.count" input-template="p.Select"
+                   label="com.atex.plugins.social.sharing.Configuration.twitter.count" >
+              <param name="size">1</param>
+              <param name="selected">0</param>
+              <param name="multivalued">false</param>
+              <param name="label_0">com.atex.plugins.social.sharing.Configuration.twitter.count.none</param>
+              <param name="value_0">none</param>
+              <param name="label_1">com.atex.plugins.social.sharing.Configuration.twitter.count.horizontal</param>
+              <param name="value_1">horizontal</param>
+              <param name="label_2">com.atex.plugins.social.sharing.Configuration.twitter.count.vertical</param>
+              <param name="value_2">vertical</param>
+            </field>
+    
+            <field name="twitter.size" input-template="p.Select"
+                   label="com.atex.plugins.social.sharing.Configuration.twitter.size" >
+              <help>com.atex.plugins.social.sharing.Configuration.twitter.size.help</help>
+              <param name="inlineHelp">true</param>
+              <param name="size">1</param>
+              <param name="selected">0</param>
+              <param name="multivalued">false</param>
+              <param name="label_0">com.atex.plugins.social.sharing.Configuration.twitter.size.medium</param>
+              <param name="value_0">medium</param>
+              <param name="label_1">com.atex.plugins.social.sharing.Configuration.twitter.size.large</param>
+              <param name="value_1">large</param>
+            </field>
+          </layout>
+
+          <layout name="twMiscColumn" input-template="p.Column" label="">
+            <field name="twitter.text" input-template="p.TextInput"
+                   label="com.atex.plugins.social.sharing.Configuration.twitter.text">
+              <help>com.atex.plugins.social.sharing.Configuration.twitter.text.help</help>
+              <param name="inlineHelp">true</param>
+              <param name="style">display:inline-block; min-height:1em</param>
+            </field>
+    
+            <field name="twitter.lang" input-template="p.TextInput"
+                   label="com.atex.plugins.social.sharing.Configuration.twitter.lang" >
+              <help>com.atex.plugins.social.sharing.Configuration.twitter.lang.help</help>
+              <param name="inlineHelp">true</param>
+              <param name="style">display:inline-block; min-height:1em</param>
+            </field>
+    
+            <field name="twitter.related" input-template="p.TextInput"
+                   label="com.atex.plugins.social.sharing.Configuration.twitter.related">
+              <param name="style">display:inline-block; min-height:1em</param>
+            </field>
+    
+            <field name="twitter.attributes" input-template="p.TextInput"
+                   label="com.atex.plugins.social.sharing.Configuration.twitter.attributes">
+              <help>com.atex.plugins.social.sharing.Configuration.twitter.attributes.help</help>
+              <param name="inlineHelp">true</param>
+              <param name="style">display:inline-block; min-height:1em</param>
+            </field>
+          </layout>
+        </layout>
+      </layout>
+    </layout>
+
+  </input-template>
+</template-definition>

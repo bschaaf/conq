@@ -1,0 +1,29 @@
+# Composer for mapping TeaserableMock in Policy test
+id:.composer
+major:content
+inputtemplate:p.model.Pojo
+component:model:modelType:com.atex.onecms.content.mapping.MappingConfigBean
+component:model:pojo:{'_type'\:'com.atex.onecms.content.mapping.MappingConfigBean', 'mapperClass'\:'com.atex.plugins.teaser.TeaserableMockContentComposer'}
+
+# Add types to our teaser variant
+# Add above composer to handle TeaserableMock
+id:com.atex.plugins.teaser.teaserable.variantconfig
+major:content
+inputtemplate:com.polopoly.data.Variant.config
+component:composer:TeaserVariantMocks.TeaserableMock:TeaserVariantMocks.dataApi.composer
+
+# Add types to our image variant
+# We don't really need any information from images, so we use a simple identity composer
+id:com.atex.plugins.teaser.image.variantconfig
+major:content
+inputtemplate:com.polopoly.data.Variant.config
+component:composer:TeaserVariantMocks.ImageMock:atex.onecms.ContentManager.identity
+
+# Write support for our various test content, so they are allowed in the content list wrappers
+# Web tests use a p.model.Pojo for mocking a TeaserableBean, so we need to map that too
+id:atex.onecms.ContentManager.DefaultConfig
+major:content
+inputtemplate:com.atex.onecms.content.ContentManager.config
+component:inputTemplateMapping:TeaserVariantMocks.ImageMock:TeaserVariantMocks.ImageMock
+component:inputTemplateMapping:TeaserVariantMocks.TeaserableMock:TeaserVariantMocks.TeaserableMock
+component:inputTemplateMapping:com.atex.plugins.teaser.TeaserableBean:p.model.Pojo

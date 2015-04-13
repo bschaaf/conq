@@ -1,0 +1,15 @@
+#if($linkContent.contentId)
+  #set($path = $p_path.resolve($linkContent.contentId, $m.context.page.contentPath))
+  #set($linkText = $!esc.html($linkContent.name))
+  #if($content.showTime && ($linkContent.publishingDateTime || $linkContent.publishingDateTime.value))
+    #set($pubTime = $linkContent.publishingDateTime)
+    #if($pubTime.value)
+      #set($pubTime = $math.toInteger($pubTime.value))
+    #end
+    #set($linkText = "<span class='time'>" + $!date.format("HH:mm", $pubTime, $m.context.site.bean.resources.locale) + "</span>" + "$!linkText")
+  #end
+  #if($content.showNumbers)
+    #set($linkText = "<span class='number'>" + $!velocityCount + "</span> " + "$!linkText")
+  #end
+  <a href="#link({"path": $path, 'htmlEncodeLink': 'true'})">$!linkText</a>
+#end

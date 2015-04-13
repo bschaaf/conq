@@ -1,0 +1,18 @@
+#set($rs = $m.context.site.bean.resources.strings)
+## The search form
+#set($path = $p_path.resolve($content.contentId, $m.context.site.contentPath))
+
+#if ("$!searchPage" != "")
+  #set($path = $p_path.resolve($searchPage, $m.context.site.contentPath))
+#end
+
+#if ($m.system.serviceStatus.search_solrClientPublic.serving)
+    <form
+      action="#link({"path": $path, 'htmlEncodeLink': 'true'})"
+      method="get">
+        <input type="text" name="q" value="$!q" class="ricerca" />
+		<button type="submit">CERCA</button>
+    </form>
+#else
+  <p>$rs.com.atex.plugins.search.SearchUnavailable</p>
+#end

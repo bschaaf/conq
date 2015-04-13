@@ -1,0 +1,46 @@
+<div class="large-4 medium-6 column columnRight">
+
+    
+    #render({"content": $content.right, "":""})
+	
+    <!-- VIDEO GALLERY begin -->
+ <!--   <div class="large-12 column noRight noLeft">
+        <div class="bgMediaGallery">
+            <a href="#" title="VIDEO GALLERY"><h2 class="titleTwoGray">VIDEO GALLERY</h2></a>
+            <iframe width="auto" height="230" src="https://www.youtube.com/embed/6rc0J7eYFVI" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>-->
+    <!-- VIDEO GALLERY end -->
+    
+    <!-- VISTO E PIACIUTO begin -->
+ <!--   <div class="large-12 column noRight noLeft">
+        <div class="bgMediaGallery">
+            <h2 class="titleTwoGray">VISTO E PIACIUTO</h2>
+            <iframe width="auto" height="230" src="https://www.youtube.com/embed/6rc0J7eYFVI" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>-->
+    <!-- VISTO E PIACIUTO end -->
+    
+    <!-- NO TITLE VIDEO begin -->
+    <!-- <div class="large-12 column noRight noLeft">
+        <div class="bgMediaGallery">
+            <iframe width="auto" height="230" src="https://www.youtube.com/embed/6rc0J7eYFVI" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div> -->
+	<!-- NO TITLE VIDEO end -->
+	
+    <!-- PARTNERS begin -->
+    <div class="large-12 column noRight noLeft">
+        <div class="partners">
+            <ul>
+                <li><a href="#" title=""><img src="/img/socialTrendsLogo.png" alt="Logo Social Trends"></a></li>
+                <li><a href="#" title=""><img src="/img/channelCisl.png" alt="Cisl Channel"></a></li>
+                <li><a href="#" title=""><img src="/img/vanessi.png" alt="Vanessi"></a></li>
+                <li><a href="#" title=""><img src="/img/blogx.png" alt="Blogx"></a></li>
+                <li><a href="#" title=""><img src="/img/rerunvoteLogoWeb.png" alt="Logo Rerunvote Web"></a></li>
+                <li><a href="#" title=""><img src="/img/banner.png" alt="banner"></a></li>
+            </ul>
+        </div> 
+    </div>
+	<!-- PARTNERS end -->
+</div>

@@ -1,0 +1,14 @@
+<template-definition version="1.0"
+  xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="com.atex.plugins.batchoperations.CategorizationBatchOperation" label="com.atex.plugins.batchoperations.CategorizatioBatchOperation">
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <field name="batchoperation" input-template="p.BatchOperation">
+      <param name="operationClassName">com.atex.plugins.batchoperations.SetCategoryOperation</param>
+      <field name="searchWidget" input-template="p.solr.LocalContentSearch" label=" ">
+        <param name="showCopyButtons">false</param>
+        <param name="metadataSearch">true</param>
+      </field>
+    </field>
+  </input-template>
+</template-definition>

@@ -1,0 +1,49 @@
+#set($rs = $m.context.site.bean.resources.strings)
+#set($prs = $rs.com.atex.plugins.poll)
+#set($pollConnected = $m.system.serviceStatus.pollCouch_client.connected)
+
+#if(!$renderError)
+<div class="element-poll" data-pollId="$pollId">
+  <h3>$!question</h3>
+    <div class="poll-container" style="display: none">
+        <h3 class="poll-vote-success" style="display: none">$prs.thanksForVote</h3>
+        <ul class="poll-result">
+            #foreach ($optionResult in $results)
+            <li data-answerId="$optionResult.id">
+                <span class="poll-result-label">$esc.html($optionResult.label)</span>
+                <span class="poll-result-data">${optionResult.percentageAsInt}% (${optionResult.value})</span>
+                <progress class="poll-bar" max="100" value="${optionResult.percentageAsInt}" />
+            </li>
+            #end
+        </ul>
+        <p>${prs.votesTotal}: <strong class="poll-total-vote-count">${totalVoteCount}</strong></p>
+        <p><a href="#" class="poll-link">$prs.answerPoll</a></p>
+    </div>
+    <div class="poll-container">
+        <form target="_blank" method="get" action="/poll">
+            <fieldset>
+                <input type="hidden" name="pollId" value="${pollId}" />
+                <input type="hidden" name="pollContentId" value="$content.contentId.contentId.contentIdString" />
+                <input type="hidden" name="questionId" value="${questionId}" />
+                #set($displayClass = "radio-inline")
+                #if($answerOptionsLayout == "vertical")
+                    #set($displayClass = "radio")
+                #end
+                #foreach($option in $options)
+                <div class="${displayClass}">
+                    <label>
+                        <input type="radio" name="answerId" value="${option.id}" />
+                        $esc.html($option.label)
+                    </label>
+                </div>
+                 #end
+            </fieldset>
+        </form>
+        #if ($pollConnected)
+          <p><a href="#" class="poll-link">$prs.showResult</a></p>
+        #end
+
+    </div>
+  <p class="text-danger" style="display: none">$prs.tryAgainLater</p>
+</div>
+#end

@@ -1,0 +1,55 @@
+{
+  "id": "act.template.Image.view",
+
+  "type": "com.atex.standard.image.ImageContentDataBean",
+
+  "label": "Image View",
+  "namePath": "contentData/title",
+
+  "aspects": {
+    "atex.Files": {},
+    "atex.ImageEditInfo": {},
+    "atex.Image": {}
+  },
+
+  "dataBindings": [
+    {
+      "label": "Image",
+      "widget": "pImageEditor",
+
+      "config": {
+        "editable": false
+      },
+
+      "domainObjects": {
+        "files": "atex.Files",
+        "editInfo": "atex.ImageEditInfo",
+        "image": "atex.Image"
+      }
+    },
+    {
+      "label": "Name",
+      "widget": "pTextOutput",
+
+      "domainObjects": {
+        "data": "contentData/title"
+      }
+    },
+    {
+      "label": "Description",
+      "widget": "pTextOutput",
+
+      "domainObjects": {
+        "data": "contentData/description"
+      }
+    },
+    {
+      "label": "Byline",
+      "widget": "pTextOutput",
+
+      "domainObjects": {
+        "data": "contentData/byline"
+      }
+    }
+  ]
+}

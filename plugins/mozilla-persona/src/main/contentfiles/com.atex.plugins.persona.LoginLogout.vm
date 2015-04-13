@@ -1,0 +1,4 @@
+<div class="mozilla-persona">
+    <button id="persona-login" class="loggedout btn" onclick="persona.doLogin();" hidden>Log in</button>
+    <button id="persona-logout" class="loggedin btn" onclick="persona.doLogout();" hidden>Log out</button>
+</div>

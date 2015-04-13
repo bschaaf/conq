@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <!--This file contains input template definitions -->
+  <input-template name="com.atex.plugins.teaser.Teaser" label="com.atex.plugins.teaser.Teaser">
+    <policy>com.atex.plugins.teaser.TeaserPolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <editor contextName="orchid_TOCENTRY">com.polopoly.siteengine.standard.contentlist.OContentListEntryBasePolicyWidget</editor>
+    <viewer contextName="orchid_TOCENTRY">com.polopoly.siteengine.standard.contentlist.OContentListEntryBasePolicyWidget</viewer>
+    <type>LayoutElement</type>
+    <param name="renderTemplateIconInSelect">true</param>
+    <content-list name="teaserables" input-template="com.atex.plugins.teaser.TeaserableContentListWrapper" />
+    <content-list name="images" input-template="com.atex.plugins.teaser.ImageContentListWrapper" />
+
+    <param name="ViewState_insert">false</param>
+    <param name="ViewState_refresh">true</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditState_saveAndFastInsert">false</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditNewState_saveAndClose">false</param>
+    <param name="EditNewState_saveAndInsert">false</param>
+    <param name="EditNewState_saveAndFastInsert">true</param>
+    <param name="EditNewState_saveAndView">false</param>
+
+    <field name="name" input-template="p.ContentName" label="com.atex.plugins.teaser.name">
+    </field>
+    <field name="text" input-template="p.TextArea" label="com.atex.plugins.teaser.text">
+    </field>
+    <field name="teaserablesCreator" input-template="p.ContentCreator" label="com.atex.plugins.teaser.articleCreator">
+      <param name="createWithSecurityParent">true</param>
+      <param name="securityParentAlias">content-securityparent</param>
+      <param name="insertTargetAlias">content</param>
+      <param name="askInsertTarget">false</param>
+      <param name="insertionContentListName">teaserables</param>
+      <param name="askInsertionContentListName">false</param>
+      <param name="askContentListPosition">false</param>
+      <param name="showCategorySelectWithOneCategory">false</param>
+      <param name="insertPosition">top</param>
+      <param name="concatenateCategories">true</param>
+      <param name="populateFromVariant">com.atex.plugins.teaser.teaserable</param>
+    </field>
+    <field name="teaserables" input-template="p.ContentListEntryContainer" label="com.atex.plugins.teaser.article">
+      <param name="contentListName">teaserables</param>
+    </field>
+    <field name="imageCreator" input-template="p.ContentCreator" label="com.atex.plugins.teaser.imageCreator">
+      <param name="createWithSecurityParent">true</param>
+      <param name="securityParentAlias">content-securityparent</param>
+      <param name="insertTargetAlias">content</param>
+      <param name="askInsertTarget">false</param>
+      <param name="insertionContentListName">images</param>
+      <param name="askInsertionContentListName">false</param>
+      <param name="askContentListPosition">false</param>
+      <param name="showCategorySelectWithOneCategory">false</param>
+      <param name="insertPosition">top</param>
+      <param name="concatenateCategories">true</param>
+      <param name="populateFromVariant">com.atex.plugins.teaser.image</param>
+    </field>
+    <field name="images" input-template="p.ContentListEntryContainer" label="com.atex.plugins.teaser.image">
+      <param name="contentListName">images</param>
+    </field>
+    <output-templates mode="www">
+      <id>com.atex.plugins.teaser.Teaser.ot</id>
+    </output-templates>
+  </input-template>
+</template-definition>

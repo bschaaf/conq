@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:camel="http://camel.apache.org/schema/spring"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://camel.apache.org/schema/spring
+                           http://camel.apache.org/schema/spring/camel-spring.xsd
+                           http://www.springframework.org/schema/jee
+                           http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+  <camelContext xmlns="http://camel.apache.org/schema/spring">
+    <errorHandler id="inboxErrorHandler" type="DeadLetterChannel" deadLetterUri="file:work/inbox-failed-imports/?fileName=${date:now:yyyy.MM.dd.HH.mm.ss}-${file:name}" />
+    <route errorHandlerRef="inboxErrorHandler">
+      <from uri="file:work/inbox?recursive=true&amp;initialDelay=10000&amp;delay=2000&amp;readLock=changed&amp;readLockMinLength=0&amp;delete=true" />
+      <onException>
+        <exception>com.polopoly.ejb.cm.LockException</exception>
+        <exception>com.polopoly.user.server.ServiceUnavailableRemoteException</exception>
+        <exception>com.atex.onecms.content.repository.StorageException</exception>
+        <redeliveryPolicy maximumRedeliveries="2" redeliveryDelay="5000" useExponentialBackOff="true" backOffMultiplier="3" />
+        <handled>
+          <constant>true</constant>
+        </handled>
+      </onException>
+      <choice>
+        <when>
+          <simple>${file:ext} == 'xml'</simple>
+          <to uri="polopoly://sysadmin:sysadmin@content-xml" />
+        </when>
+        <when>
+          <simple>${file:ext} == 'jar'</simple>
+          <to uri="polopoly://sysadmin:sysadmin@content-jar" />
+        </when>
+        <when>
+          <simple>${file:ext} == 'content'</simple>
+          <to uri="polopoly://sysadmin:sysadmin@content-dot-content" />
+        </when>
+        <when>
+          <simple>${file:ext} == 'json'</simple>
+          <to uri="polopoly://sysadmin:sysadmin@content-writer" />
+        </when>
+        <otherwise>
+          <to uri="file:work/inbox-unhandled/?fileName=${date:now:yyyy.MM.dd.HH.mm.ss}-${file:name}" />
+        </otherwise>
+      </choice>
+    </route>
+  </camelContext>
+</beans>

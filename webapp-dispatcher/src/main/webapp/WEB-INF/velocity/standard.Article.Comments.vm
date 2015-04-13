@@ -1,0 +1,10 @@
+#if($content.allowComments)
+  #set($canonicalPath = $p_path.resolve($content.contentId))
+  #if($canonicalPath)
+    #set($canonicalLink = "#link({'path': $canonicalPath, 'htmlEncodeLink': 'true', 'requestAttribs': {'localLinksEnabled': false}})")
+  #end
+  #render({"content": $content, "outputTemplate": "com.atex.plugins.disqus.MainElement.ot",
+           "params": {"disqusIdentifier": $!content.contentId.contentId.contentIdString,
+                      "disqusTitle": $esc.javascript($!content.name),
+                      "disqusUrl": $!canonicalLink}})
+#end

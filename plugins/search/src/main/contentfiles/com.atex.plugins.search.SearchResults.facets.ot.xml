@@ -1,0 +1,25 @@
+<output-template name="com.atex.plugins.search.SearchResults.facets.ot" input-template="p.siteengine.ElementOutputTemplate">
+  <content-xml>
+    <contentref group="plugin" name="plugindef">
+      <contentid>
+        <major>Content</major>
+        <externalid>plugins.com.atex.plugins.search</externalid>
+      </contentid>
+    </contentref>
+    <component group="polopoly.Content" name="name">Search Form output template - facets</component>
+    <component group="output/modelKeyMode" name="selected">no-cache</component>
+    <contentref group="output/renderer" name="selected">
+      <contentid>
+        <externalid>p.siteengine.VelocityRenderer</externalid>
+      </contentid>
+    </contentref>
+    <component group="output/renderer" name="templateFileName">com.atex.plugins.search.SearchResults.facets.vm</component>
+    <component group="preview/controller" name="value">com.polopoly.siteengine.preview.PreviewControllerStandard</component>
+    <contentref group="output/controller" name="selected">
+      <contentid>
+        <externalid>p.siteengine.JavaClassRenderController</externalid>
+      </contentid>
+    </contentref>
+    <component group="output/controller/selected/renderControllerClass" name="value">com.atex.plugins.search.SearchResultsController</component>
+  </content-xml>
+</output-template>

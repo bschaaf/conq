@@ -1,0 +1,59 @@
+id:.duration
+major:article
+inputtemplate:p.PaywallDuration
+securityparent:p.PaywallConfiguration.d
+name:One month duration (TEST)
+component:nofDays:value:30
+
+id:.subscriptionlevel
+major:article
+inputtemplate:p.PaywallSubscriptionLevel
+securityparent:p.PaywallConfiguration.d
+name:Online Subscription (TEST)
+component:capabilities:count:1
+ref:capabilities:reference0:p.CapabilityOnline
+ref:capabilities:reference_parent0:p.PaywallConfiguration.d
+
+id:.bundle
+major:article
+inputtemplate:p.PaywallContentBundle
+securityparent:p.PaywallConfiguration.d
+name:Sports Bundle (TEST)
+
+id:.product
+major:article
+inputtemplate:p.PaywallProduct
+securityparent:p.PaywallConfiguration.d
+name:Sports Product (TEST)
+component:contentBundles:count:1
+ref:contentBundles:reference0:.bundle
+ref:contentBundles:reference_parent0:p.PaywallConfiguration.d
+
+id:.offering
+major:article
+inputtemplate:p.PaywallOffering
+securityparent:p.PaywallConfiguration.d
+name:Sports One Month Offering (TEST)
+component:duration:count:1
+component:product:count:1
+component:subscriptionLevel:count:1
+ref:duration:reference0:.duration
+ref:duration:reference_parent0:p.PaywallConfiguration.d
+ref:product:reference0:.product
+ref:product:reference_parent0:p.PaywallConfiguration.d
+ref:subscriptionLevel:reference0:.subscriptionlevel
+ref:subscriptionLevel:reference_parent0:p.PaywallConfiguration.d
+
+id:p.PaywallConfiguration.d
+major:department
+inputtemplate:p.Paywall
+component:secret:value:mysecret
+component:status:selected:internal
+list:capabilities:p.CapabilityOnline
+list:contentBundles:.bundle
+list:durations:.duration
+list:offerings:.offering
+list:products:.product
+list:subscriptionLevels:.subscriptionlevel
+
+

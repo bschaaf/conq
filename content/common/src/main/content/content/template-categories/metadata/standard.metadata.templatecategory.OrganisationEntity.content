@@ -1,0 +1,9 @@
+id:.
+major:department
+inputtemplate:p.TemplateCategory
+securityparent:p.TemplateRoot
+name:Organisation templates
+component:polopoly.Client:categoryMajor:Article
+list:standard.metadata.OrganisationEntity
+
+publish:standard.metadata.templateroot.OrganisationEntity

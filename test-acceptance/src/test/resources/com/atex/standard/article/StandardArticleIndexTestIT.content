@@ -1,0 +1,17 @@
+id:.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Test site for indexed article
+
+id:.content
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:My simple indexed article
+component:body:value:<p>And simple text with html</p>
+component:lead:value:With simple lead
+component:byline:value:An author
+component:polopoly.TimeState:offTime:2459838780000
+component:polopoly.TimeState:onTime:1386750780000
+component:p.Content.state:onlineState:false

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="standard.metadata.OrganisationEntity" label="standard.metadata.OrganisationEntity.Label">
+    <type>Article</type>
+
+    <param name="EditNewState_saveAndClose">false</param>
+    <param name="EditNewState_saveAndView">false</param>
+    <param name="EditNewState_saveAndInsert">true</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditState_saveAndInsert">false</param>
+
+    <policy>com.atex.standard.metadata.EntityPolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+
+    <field name="name" input-template="p.ContentName" label="standard.metadata.OrganisationEntity.Name" />
+    <field name="summary" input-template="p.TextArea" label="standard.metadata.OrganisationEntity.Summary" />
+    <field name="externalId" input-template="p.ExternalId" label="cm.label.ExternalId"/>
+
+    <output-templates mode="www">
+      <id>standard.metadata.OrganisationEntity.ot</id>
+    </output-templates>
+  </input-template>
+
+  <output-template name="standard.metadata.OrganisationEntity.ot" input-template="p.siteengine.ArticleOutputTemplate">
+    <content-xml>
+      <component group="output/modelKeyMode" name="selected">no-cache</component>
+      <contentref group="output/renderer" name="selected">
+        <contentid>
+          <externalid>p.siteengine.VelocityFileRenderer</externalid>
+        </contentid>
+      </contentref>
+      <component group="output/renderer/selected/defaultVelocityViewFileName" name="value">/WEB-INF/velocity/standard.metadata.OrganisationEntity.vm</component>
+      <component group="preview/controller" name="value">com.polopoly.siteengine.preview.PreviewControllerStandard</component>
+    </content-xml>
+  </output-template>
+</template-definition>

@@ -1,0 +1,14 @@
+# The example plugin style. Compiled from style.less.
+/style.css
+
+# Renders Open Graph meta-tags in page header.
+com.atex.plugins.social.sharing.OpenGraph.ot
+
+# Embeds Facebook's share button JavaScript lib (https://developers.facebook.com/docs/plugins/share-button/)
+com.atex.plugins.social.sharing.Facebook.ot location=footer
+
+# Embeds Google+'s share button JavaScript lib (https://developers.google.com/+/web/share)
+com.atex.plugins.social.sharing.Google.ot location=footer
+
+# Embeds Twitter share button JavaScript lib (https://dev.twitter.com/docs/tweet-button)
+com.atex.plugins.social.sharing.Twitter.ot location=footer

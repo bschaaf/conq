@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <name>Polopoly Admin GUI Web Application</name>
+
+  <artifactId>webapp-polopoly</artifactId>
+  <packaging>war</packaging>
+
+  <parent>
+    <groupId>com.atex.gong</groupId>
+    <artifactId>top</artifactId>
+    <version>1.1</version>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <artifactId>module-encoding</artifactId>
+      <groupId>it.conquiste</groupId>
+      <version>1.0</version>
+    </dependency>
+	
+    <dependency>
+      <groupId>com.polopoly</groupId>
+      <artifactId>admin-gui</artifactId>
+      <version>${polopoly.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>source-common</artifactId>
+      <groupId>com.atex.gong</groupId>
+      <version>${project.version}</version>
+    </dependency>
+
+	<dependency>
+      <artifactId>features-conquiste</artifactId>
+      <groupId>it.conquiste</groupId>
+      <version>${project.version}</version>
+    </dependency>
+	
+    <dependency>
+      <groupId>com.atex.gong</groupId>
+      <artifactId>auto-login</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.polopoly</groupId>
+      <artifactId>integration-unified</artifactId>
+      <version>${polopoly.version}</version>
+      <classifier>fragment</classifier>
+    </dependency>
+	
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.atex.plugins</groupId>
+      <artifactId>orchid-onecms-plugin</artifactId>
+      <version>${orchid.onecms.plugin.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.atex.plugins</groupId>
+      <artifactId>orchid-onecms-plugin</artifactId>
+      <version>${orchid.onecms.plugin.version}</version>
+      <classifier>contentdata</classifier>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>polopoly</finalName>
+
+    <resources>
+      <resource>
+        <directory>${basedir}/config/${targetEnv}</directory>
+      </resource>
+      <resource>
+        <directory>${basedir}/config/common</directory>
+      </resource>
+    </resources>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.1.1</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+          <packagingExcludes>WEB-INF/lib/servlet-api-*.jar</packagingExcludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.polopoly.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>${jetty-plugin.version}</version>
+        <configuration>
+          <scanIntervalSeconds>${polopoly.jetty-scanIntervalSeconds}</scanIntervalSeconds>
+          <jettyConfig>${project.parent.basedir}/config/target/config/jetty-jmx.xml</jettyConfig>
+          <webAppConfig>
+            <contextPath>/polopoly</contextPath>
+          </webAppConfig>
+          <systemProperties>
+            <systemProperty>
+              <name>clientCacheBaseDir</name>
+              <value>${project.build.directory}/tmp</value>
+            </systemProperty>
+            <systemProperty>
+              <name>p.connectionPropertiesUrl</name>
+              <value>${polopoly.connection-properties}</value>
+            </systemProperty>
+          </systemProperties>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,19 @@
+<article class="person-entity">
+    #foreach($entry in $content.images.list)
+      <div class="image">		
+		#set($imgSrc = $tool_img.getUrlBuilder($entry.content.contentId.contentIdString).format("1x1").height(160).buildUrl())
+        #if($imgSrc)<img src="$imgSrc" alt="">#end
+		#set($image = $entry.content.contentData)
+        <p class="meta">
+          #if($image.description)
+            $!esc.html($image.description)
+          #end
+          #if($image.byline)
+            <span class="byline">$!esc.html($image.byline)</span>
+          #end
+        </p>
+      </div>
+	  <b>Blog di $content.name</b>
+    #end
+  <section class="biography">$!esc.html($content.biography.value)</section>
+</article>

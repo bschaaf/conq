@@ -1,0 +1,135 @@
+  ${project.description}
+
+Installation
+
+  To add the plugin dependencies to your project, edit the project <<<pom.xml>>> and add:
+
++-----------------------------------------------------------------+
+<project>
+  ...
+  <dependencies>
+    ...
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>${project.artifactId}</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>${project.artifactId}</artifactId>
+      <version>${project.version}</version>
+      <classifier>contentdata</classifier>
+    </dependency>
+    ...
+  </dependencies>
+  ...
+</project>
++-----------------------------------------------------------------+
+
+  Running <<<mvn p:run>>> in your project, the plugin should be imported to the system. The plugin
+  should show up in the plugins list and any templates should be available in their respective locations.
+
+Adding a personalized list element
+
+* Create
+
+[images/create_element.png]
+
+* Configure
+
+[images/configure_element.png]
+
+Adding a banner
+
+  An output template is provided which can be added to the page layout velocity template
+  in order to display an example banner.
+
++------------------------------------------------------------------+
+#render({"content": $content, "outputTemplate": "com.atex.plugins.personalization.Banner.ot"})
++------------------------------------------------------------------+
+
+Configuration
+
+* Max number of views in history
+
+  Each user's history will only retain data from the most recently viewed categorized content. The length of this history is configurable.
+
+** Example
+
++------------------------------------------------------------------+
+id:plugins.com.atex.plugins.personalization.Config
+major:appconfig
+component:maxHistory:10
++------------------------------------------------------------------+
+
+* Max number of content to exclude from Solr search
+
+  The most recently viewed content in the user's history will be excluded from the personalized list.
+  Setting this number equal to or greater than maxHistory will exclude every content in the user's history.
+  Keep this number low for improved performance, while larger values may reduce the number of results already viewed.
+
+** Example
+
++------------------------------------------------------------------+
+id:plugins.com.atex.plugins.personalization.Config
+major:appconfig
+component:maxExcluded:value:20
++------------------------------------------------------------------+
+
+* Max number of entities per Solr query
+
+  When listing related articles for a user a limited number of entities will be used, based on the number of occurrences
+  in the user's history. Keep this number low for improved performance, while larger values may increase relevance of results.
+
+** Example
+
++------------------------------------------------------------------+
+id:plugins.com.atex.plugins.personalization.Config
+major:appconfig
+component:maxEntities:value:5
++------------------------------------------------------------------+
+
+* Max number of results in list element
+
+  When listing related articles for a user a limited number of results will be displayed. Larger values may slow performance
+  and increase cache size.
+
+** Example
+
++------------------------------------------------------------------+
+id:plugins.com.atex.plugins.personalization.Config
+major:appconfig
+component:maxResults:value:10
++------------------------------------------------------------------+
+
+* Content types
+
+  Only content of the specified types will be included in personalized lists.
+
+** Example
+
++------------------------------------------------------------------+
+id:plugins.com.atex.plugins.personalization.Config
+major:appconfig
+component:type:count:1
+ref:type:reference0:standard.Article
+ref:type:reference_parent0:p.templatecategory.standardarticle
++------------------------------------------------------------------+
+
+* Category Dimensions
+
+  The plugin will copy categorization in specified dimensions from a content to a user.
+
+** Example
+
++------------------------------------------------------------------+
+id:plugins.com.atex.plugins.personalization.Config
+major:appconfig
+ref:polopoly.Toc:0:dimension.IPTC
++------------------------------------------------------------------+
+
+* Polopoly GUI
+
+ There is a configuration tab on the User Personalization plugin content (at SiteEngine/Configuration/Plugins/Personalization).
+
+[images/configure.png]

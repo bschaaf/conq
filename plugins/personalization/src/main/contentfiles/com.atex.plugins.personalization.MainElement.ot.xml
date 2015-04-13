@@ -1,0 +1,25 @@
+<output-template name="com.atex.plugins.personalization.MainElement.ot" input-template="p.siteengine.ElementOutputTemplate">
+  <content-xml>
+    <!-- add plugin reference -->
+    <contentref group="plugin" name="plugindef">
+      <contentid>
+        <major>Content</major>
+        <externalid>plugins.com.atex.plugins.personalization</externalid>
+      </contentid>
+    </contentref>
+
+    <!-- link controller (if present) -->
+
+    <!-- link template file -->
+    <contentref group="output/renderer" name="selected">
+      <contentid>
+        <externalid>p.siteengine.VelocityRenderer</externalid>
+      </contentid>
+    </contentref>
+    <component group="output/renderer" name="templateFileName"><![CDATA[com.atex.plugins.personalization.MainElement.vm]]></component>
+    <component group="preview/controller" name="value">com.polopoly.cm.app.preview.PreviewControllerNotPreviewable</component>
+
+    <!-- do not fragment cache by default -->
+    <component group="output/modelKeyMode" name="selected">no-cache</component>
+  </content-xml>
+</output-template>

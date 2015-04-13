@@ -1,0 +1,111 @@
+  ${project.description}
+
+Installation
+
+  To add the plugin dependencies to your project, edit the project <<<pom.xml>>> and add:
+
++-----------------------------------------------------------------+
+<project>
+  ...
+  <dependencies>
+    ...
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>${project.artifactId}</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>${project.artifactId}</artifactId>
+      <version>${project.version}</version>
+      <classifier>contentdata</classifier>
+    </dependency>
+    ...
+  </dependencies>
+  ...
+</project>
++-----------------------------------------------------------------+
+
+  Running <<<mvn p:run>>> in your project, the plugin should be imported to the system. The plugin
+  should show up in the plugins list and any templates should be available in their respective locations.
+
+* Adding a share button
+
+  Content that should be shared should of course have a share button. This must be added by the project to the velocity
+  template of each shareable content type.
+
+  Adding the button is as simple as adding the following line in an appropriate place in the various velocity files:
+
++------------------------------------------------------------------+
+#render({"content": $content, "outputTemplate": "com.atex.plugins.social.sharing.ShareButtons.ot"})
++------------------------------------------------------------------+
+
+* Configuring a Facebook AppId
+
+  In order for Facebook Share to function an AppId has to be configured. This can be done in the Polopoly GUI under
+  SiteEngine/Configuration/Plugins/Social Sharing Plugin.
+  Please refer to {{http://developers.facebook.com}} for how to generate an AppId for your site.
+
+* Configuring Google plus
+
+  See the {{{./googleplus.html}Google Plus}} specific page.
+
+* Configuring Twitter
+
+  See the {{{./twitter.html}Twitter}} specific page.
+
+* OpenGraph wiring
+
+  The Social Sharing plugin tries to present shared content with as much useful data as possible to the various social networks.
+  To do this it renders OpenGraph ({{http://ogp.me/}}) metadata in the html head section. By default it fills this with information
+  from the page or site being rendered, but projects should map their sharable content to provide more detailed and relevant information.
+
+  The plugin will attempt to retrieve this information from the currently rendered content by requesting it from the ContentManager
+  with the variant <<<com.atex.plugins.social.sharing>>>. It expects the project to provide mappings that return a
+  <<<com.atex.plugins.social.sharing.SocialSharingInfo>>> Java bean filled with relevant data. If no such mapping is present, the plugin
+  will use default data from the current page or site.
+
+** Wiring example
+
+  To add wiring in your project, first add mappings from your relevant model types (e.g. article) to a <<<composer>>> by adding a
+  component in the plugin's variant config. The following example is in .content format and assumes that your article type is
+  <<<com.atex.standard.article.ArticleBean>>> and your composer content ID (defined further down) is <<<com.atex.gong.wiring.social.sharing.articlecomposer>>>:
+
++------------------------------------------------------------------+
+id:com.atex.plugins.social.sharing.variantconfig
+major:3
+inputtemplate:com.polopoly.data.Variant.config
+component:composer:com.atex.standard.article.ArticleBean:com.atex.gong.wiring.social.sharing.articlecomposer
++------------------------------------------------------------------+
+
+  The article type mentioned above is either the external input template id of your article or, if the article policy implements LegacyContentAdapter,
+  the Java bean type produced by that mapper.
+
+  You then need to define the composer content. This example specifies a Java ContentComposer implementation called
+  <<<com.atex.gong.wiring.social.sharing.ArticleToSocialSharingContentComposer>>>:
+
++------------------------------------------------------------------+
+id:com.atex.gong.wiring.social.sharing.articlecomposer
+major:3
+inputtemplate:p.model.Pojo
+component:model:modelType:com.atex.onecms.content.mapping.MappingConfigBean
+component:model:pojo:{'_type'\:'com.atex.onecms.content.mapping.MappingConfigBean', 'mapperClass'\:'com.atex.gong.wiring.social.sharing.ArticleToSocialSharingContentComposer'}
++------------------------------------------------------------------+
+
+  Finally, the Java class has to be written. This is a simple class implementing ContentComposer that takes the
+  <<<com.atex.standard.article.ArticleBean>>> provided by the project article and produces the
+  <<<com.atex.plugins.social.sharing.SocialSharingInfo>>> bean expected by the social sharing plugin:
+
++------------------------------------------------------------------+
+public class ArticleToSocialSharingContentComposer implements ContentComposer<ArticleBean, SocialSharingInfo, Object> {
+    public ContentResult<SocialSharingInfo> compose(ContentResult<ArticleBean> source, String variant, Request request, Context<Object> context) {
+        SocialSharingInfo info = new SocialSharingInfo();
+        ArticleBean article = source.getContent().getContentData();
+        info.setTitle(article.getTitle());
+        info.setDescription(article.getLead());
+        info.setImageContentId(article.getImageContentId());
+        info.setOpenGraphType("article");
+        return new ContentResult<>(source, info);
+    }
+}
++------------------------------------------------------------------+

@@ -1,0 +1,13 @@
+#if ($urlBuilder)
+#if ($inverseAspectRatio)
+<div class="img-container">
+#end
+<div class="delayed-image-load" data-src="${urlBuilder.buildUrl()}&{width}" data-alt="$!alt">
+  <noscript>
+    <img alt="$!alt" src="${urlBuilder.width(200).buildUrl()}" />
+  </noscript>
+</div>
+#if ($inverseAspectRatio)
+</div>
+#end
+#end

@@ -1,0 +1,6 @@
+id:p.PaywallConfiguration.d
+major:department
+inputtemplate:p.Paywall
+component:enableMeteredModel:value:true
+component:meteredFreeClicks:value:10
+component:meteredPeriod:value:3

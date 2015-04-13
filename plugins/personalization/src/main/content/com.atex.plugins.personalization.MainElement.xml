@@ -1,0 +1,31 @@
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="com.atex.plugins.personalization.MainElement" label="com.atex.plugins.personalization.MainElement">
+    <policy>com.polopoly.cm.policy.ContentPolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <editor contextName="orchid_TOCENTRY">com.polopoly.siteengine.standard.contentlist.OContentListEntryBasePolicyWidget</editor>
+    <viewer contextName="orchid_TOCENTRY">com.polopoly.siteengine.standard.contentlist.OContentListEntryBasePolicyWidget</viewer>
+
+    <type>LayoutElement</type>
+
+    <param name="ViewState_insert">false</param>
+    <param name="ViewState_refresh">true</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditState_saveAndFastInsert">false</param>
+    <param name="EditState_saveAndView">false</param>
+    <param name="EditState_saveAndEdit">false</param>
+    <param name="EditNewState_saveAndClose">false</param>
+    <param name="EditNewState_saveAndInsert">false</param>
+    <param name="EditNewState_saveAndFastInsert">true</param>
+    <param name="EditNewState_saveAndView">false</param>
+
+    <param name="renderTemplateIconInSelect">true</param>
+    <field name="name" input-template="p.ContentName" label="com.atex.plugins.personalization.name" required="true">
+      <param name="inlineHelp">true</param>
+    </field>
+    <output-templates mode="www">
+      <id>com.atex.plugins.personalization.MainElement.ot</id>
+    </output-templates>
+  </input-template>
+</template-definition>

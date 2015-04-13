@@ -1,0 +1,29 @@
+@color: #C00;
+@border-color: #c6c6c6;
+.element-list {
+    h2 {
+        border-bottom: 1px solid;
+        margin-top: 0;
+        font-size: 22px;
+    }
+    ul {
+        padding: 0 0 0 5px;
+        &.lined li:not(:last-child) {
+            border-bottom: 1px solid @border-color;
+        }
+    }
+    li {
+        list-style: none;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+        .number, .time {
+            margin-right: 10px;
+        }
+        .time, .number, a span {
+            color: @color;
+        }
+    }
+    a:hover {
+        text-decoration: inherit;
+    }
+}

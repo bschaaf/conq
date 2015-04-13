@@ -1,0 +1,11 @@
+id:localizedstrings.swedish
+major:1
+inputtemplate:p.siteengine.LocalizedStrings
+component:localizedstrings:com.atex.plugins.search.facets.tag_dimension.Tag:Tag
+component:localizedstrings:com.atex.plugins.search.facets.tag_dimension.Person:Person
+component:localizedstrings:com.atex.plugins.search.facets.tag_dimension.Organisation:Organisation
+component:localizedstrings:com.atex.plugins.search.facets.tag_dimension.Location:Plats
+component:localizedstrings:com.atex.plugins.search.facets.tag_dimension.IPTC:Kategorier
+component:localizedstrings:com.atex.plugins.search.facets.inputTemplate:Typ av resultat
+component:localizedstrings:com.atex.plugins.search.facets.inputTemplate.standard.Article:Artiklar
+component:localizedstrings:com.atex.plugins.search.facets.publishingDate:Publiceringsdatum

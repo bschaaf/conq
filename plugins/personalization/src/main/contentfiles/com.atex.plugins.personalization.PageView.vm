@@ -1,0 +1,13 @@
+#set($articleId=$m.context.page.pathAfterPage.last)
+#if(!$articleId)
+  #set($articleId=$m.context.page.contentPath.last)
+#end
+#if($articleId)
+<script>
+  $(function() {
+    if (document.cookie.indexOf("accessToken") >= 0) {
+      $.ajax({ url: "/personalization?articleId=policy:$articleId.contentId.contentIdString", method: "POST" });
+    }
+  });
+</script>
+#end

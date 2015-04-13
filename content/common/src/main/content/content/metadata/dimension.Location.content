@@ -1,0 +1,7 @@
+id:.
+major:department
+inputtemplate:p.TagCategory
+securityparent:p.StandardCategorization
+name:Location
+component:description:value:Location
+component:changePropagation:value:true

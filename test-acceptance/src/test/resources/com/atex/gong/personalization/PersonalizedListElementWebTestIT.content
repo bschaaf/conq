@@ -1,0 +1,52 @@
+id:plugins.com.atex.plugins.personalization.Config
+major:appconfig
+ref:polopoly.Toc:0:dimension.IPTC
+
+id:.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Test Site for Personlized Element Web Test
+
+id:.personalized-list-element
+major:layoutelement
+inputtemplate:com.atex.plugins.personalization.MainElement
+securityparent:.site
+name:PersonalizedListElementWebTestIT
+component:maxResults:value:10
+component:type:count:1
+ref:type:reference0:p.templatecategory.article
+ref:type:reference_parent0:p.StandardResourceCategorization
+
+id:.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Test Site for Personlized Element Web Test
+list:pageLayout/selected/right/slotElements:.personalized-list-element
+
+id:.no-category-article
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:My article with no category
+component:lead:value:My lead
+component:body:value:<p>My Body</p>
+
+id:.first-sport-category-article
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:My first article with category sport
+component:lead:value:My lead
+component:body:value:<p>My Body</p>
+component:categorization:value:{"dimensions"\:[{"id"\:"dimension.Tag","name"\:"Tag","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.Person","name"\:"Person","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.Organisation","name"\:"Organisation","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.Location","name"\:"Location","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.Company","name"\:"Company","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.IPTC","name"\:"IPTC","enumerable"\:true,"entities"\:[{"id"\:"iptc-15","name"\:"sport","entities"\:[],"attributes"\:[],"childrenOmitted"\:false}]}]}
+
+id:.second-sport-category-article
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:My second article with category sport
+component:lead:value:My lead
+component:body:value:<p>My Body</p>
+component:categorization:value:{"dimensions"\:[{"id"\:"dimension.Tag","name"\:"Tag","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.Person","name"\:"Person","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.Organisation","name"\:"Organisation","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.Location","name"\:"Location","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.Company","name"\:"Company","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.IPTC","name"\:"IPTC","enumerable"\:true,"entities"\:[{"id"\:"iptc-15","name"\:"sport","entities"\:[],"attributes"\:[],"childrenOmitted"\:false}]}]}

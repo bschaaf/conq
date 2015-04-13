@@ -1,0 +1,23 @@
+<!-- FOTO GALLERY begin -->
+<div class="large-12 column noRight noLeft">
+  <div class="fotoGallery">
+    <h2 class="titleTwoGray">FOTO GALLERY</h2>
+    #if($content.publishingQueue and $content.publishingQueue.list.size() > 0)
+      #set($publishingQueue = $content.publishingQueue.list.get(0).content)
+      #set($contentList = $publishingQueue.contentList)
+      #if($contentList && $contentList.size() > 0)
+        #set($gallery = $contentList.get(0).content)
+        #if($gallery.images.size() > 0)
+          #set($image = $gallery.images.get(0))
+          #set($imgSrc = $tool_img.getUrlBuilder($image.contentId.contentIdString).width(303).buildUrl())
+
+          #set($path = $p_path.resolve($content.link.contentId, $m.context.page.contentPath))
+          #set($link = "#link({'path': $path, 'htmlEncodeLink': 'true', '':''})")
+
+          <a href="$link" title="Foto Gallery"><img src="$imgSrc" alt="Immagine Foto Gallery"></a>
+        #end
+      #end
+    #end
+  </div>
+</div>
+<!-- FOTO GALLERY end -->

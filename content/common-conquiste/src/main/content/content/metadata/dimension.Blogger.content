@@ -1,0 +1,8 @@
+id:.
+major:department
+inputtemplate:p.TagCategory
+securityparent:p.StandardCategorization
+name:Blogger
+component:description:value:Blogger
+component:changePropagation:value:true
+ref:entityCreator:templateRoot:it.conquiste.standard.metadata.templateroot.BloggerEntity

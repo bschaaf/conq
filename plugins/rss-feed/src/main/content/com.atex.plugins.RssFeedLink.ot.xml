@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <output-template name="com.atex.plugins.RssFeedLink.ot" input-template="p.siteengine.ElementOutputTemplate">
+    <content-xml>
+      <contentref group="plugin" name="plugindef">
+        <contentid>
+          <major>Content</major>
+          <externalid>plugins.com.atex.plugins.rss-feed-plugin</externalid>
+        </contentid>
+      </contentref>
+      <component group="polopoly.Content" name="name">RSS 2.0 Link Output template</component>
+      <component group="output/modelKeyMode" name="selected">no-cache</component>
+      <contentref group="output/renderer" name="selected">
+        <contentid>
+          <externalid>p.siteengine.VelocityRenderer</externalid>
+        </contentid>
+      </contentref>
+      <component group="output/renderer" name="templateFileName">com.atex.plugins.rss-feed-plugin.RssFeedLink.vm</component>
+      <component group="preview/controller" name="value">com.polopoly.siteengine.preview.PreviewControllerStandard</component>
+    </content-xml>
+  </output-template>
+</template-definition>

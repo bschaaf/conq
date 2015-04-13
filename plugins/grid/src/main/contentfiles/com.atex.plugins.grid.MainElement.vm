@@ -1,0 +1,21 @@
+#if($numberOfItemsToRender > 0)
+  <div class="element-grid container-fluid">
+    #set($colspan = 12 / $numberOfColumns)
+    #set($index = 0)
+    #foreach($row in [1..$numberOfRows])
+      <div class="row">
+        #foreach($col in [1..$numberOfColumns])
+          #if($index < $numberOfItemsToRender)
+            <div class="col-sm-$colspan">
+              #set($teaser = $filteredList.get($index))
+              #renderwithfallback({"content": $teaser.contentId, "params": {"mode": "gridElementTeaser"}})
+                #parse("com.atex.plugins.grid.teaser.vm")
+              #end
+            </div>
+            #set($index = $index + 1)
+          #end
+        #end
+      </div>
+    #end
+  </div>
+#end

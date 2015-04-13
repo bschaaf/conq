@@ -1,0 +1,19 @@
+id:.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Test site for teaser
+
+id:.teaserable
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:My article name
+component:lead:value:My article lead
+list:images:.image
+
+id:.teaser
+major:article
+inputtemplate:com.atex.plugins.teaser.Teaser
+securityparent:.site
+list:teaserables:.teaserable

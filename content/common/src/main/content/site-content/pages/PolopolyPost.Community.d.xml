@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content>
+    <metadata>
+      <contentid>
+        <major>Department</major>
+        <externalid>PolopolyPost.Community.d</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>p.siteengine.Page</externalid>
+      </input-template>
+      <security-parent>
+        <major>Department</major>
+        <externalid>PolopolyPost.d</externalid>
+      </security-parent>
+    </metadata>
+    <component group="resources" name="contentListMaxSize">50</component>
+    <component group="polopoly.Content" name="name">Community</component>
+    <component group="premiumContent/isPremiumContent" name="value">false</component>
+    <component group="polopoly.ContentLists" name="polopoly.Department">default</component>
+    <component group="polopoly.ContentLists" name="resources">resources</component>
+    <component group="polopoly.ContentLists" name="pageLayout/selected/right/slotElements">slotElements</component>
+    <component group="polopoly.ContentLists" name="pageLayout/selected/left/slotElements">slotElements</component>
+    <component group="polopoly.ContentLists" name="landingPages">landingPages</component>
+    <component group="polopoly.ContentLists" name="sources">sources</component>
+    <component group="polopoly.ContentLists" name="css">css</component>
+    <component group="disallowIndexing" name="value">false</component>
+    <component group="localizedstrings" name="count">0</component>
+    <component group="premiumContent/contentBundles" name="count">0</component>
+    <component group="pageLayout/selected/right/inheritSetting" name="count">1</component>
+    <component group="pageLayout/selected/right/inheritSetting" name="selected_0">default</component>
+    <component group="pageLayout/selected/left/inheritSetting" name="count">1</component>
+    <component group="pageLayout/selected/left/inheritSetting" name="selected_0">default</component>
+    <component group="cacheTime/cacheTime" name="count">1</component>
+    <component group="cacheTime/cacheTime" name="selected_0">-1</component>
+    <contentref group="pageLayout" name="selected">
+      <contentid>
+        <major>InputTemplate</major>
+        <externalid>com.atex.gong.plugins.pagelayout.PageLayout</externalid>
+      </contentid>
+    </contentref>
+    <contentref group="polopoly.Content" name="inputTemplateId">
+      <contentid>
+        <major>InputTemplate</major>
+        <externalid>p.siteengine.Page</externalid>
+      </contentid>
+    </contentref>
+    <contentref group="inherit" name="workflowIdToInherit">
+      <contentid>
+        <major>Workflow</major>
+        <externalid>PolopolyPost.Default.Workflow</externalid>
+      </contentid>
+    </contentref>
+  </content>
+</batch>

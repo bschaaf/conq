@@ -1,0 +1,51 @@
+#set($rs = $m.context.site.bean.resources.strings)
+#set($href = "#link({'path': $teaser.linkPath, 'htmlEncodeLink': 'true'})")
+#set($link = "<h3><a href='$href'>$!teaser.name</a></h3>")
+
+#set($text = "<p>")
+#foreach($attribute in $teaser.attributes)
+  #if($attribute.value != "")
+    #set($value = $rs.get($attribute.value))
+  #end
+  #set($text = "$text <span class=${esc.quote}$!attribute.cssClass${esc.quote}>$!value</span>")
+#end
+#if($teaser.text)
+  #set($text = "$text $!esc.html($teaser.text)")
+#end
+#set($text = "$text</p>")
+
+#set($imagePosition = $content.imagePosition.value)
+#set($imageContentId = $teaser.imageContentId)
+#if(!$imagePosition)
+  #set($imagePosition = "top")
+#end
+<div class="clearfix $imagePosition">
+  #if($imagePosition == "left")
+    #if($imageContentId)
+      <div class="image">
+        #set($m.stack.imageFormat = "1x1")
+        #render({"content": $imageContentId})
+      </div>
+    #end
+    $link
+    $text
+  #elseif($imagePosition == "right")
+    #if($imageContentId)
+      <div class="image">
+        #set($m.stack.imageFormat = "1x1")
+        #render({"content": $imageContentId})
+      </div>
+    #end
+    $link
+    $text
+  #else
+    #if($imageContentId)
+      <div class="image">
+        #set($m.stack.imageFormat = "3x2")
+        #render({"content": $imageContentId})
+      </div>
+    #end
+    $link
+    $text
+  #end
+</div>

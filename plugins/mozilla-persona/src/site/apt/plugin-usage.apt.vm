@@ -1,0 +1,17 @@
+User guide
+
+  Clicking the "log in" button will open a popup where the user can enter her email address.
+  If the email address has not previously been registered with Mozilla, an email will be sent out with an activation link.
+  Once the user has performed activation and entered a password, they will be logged in.
+  If the email address is already registered with Mozilla, the user will instead be prompted for her password.
+
+  After successful login, the popup will close and the "log in" button will be replaced by a "log out" button.
+
+  While logged in, the user will have an "accessToken" cookie which may be used by the project or other plugins in order
+  to access the user's content. See the Users plugin documentation for details.
+
+[images/login_button.png]
+
+  .
+
+[images/login.png]

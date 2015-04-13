@@ -1,0 +1,35 @@
+id:.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Test site for Search driven PQ
+
+id:.article1
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:84104db4a7fc9502650418a01dd1b96b
+component:categorization:value:{"dimensions"\:[{"id"\:"dimension.T3ag","name"\:"Tag","enumerable"\:false,"entities"\:[{"id"\:"3299f4adca3b26e55409b3a37f3ca6ff","name"\:"3299f4adca3b26e55409b3a37f3ca6ff","entities"\:[],"attributes"\:[],"childrenOmitted"\:false}]}]}
+component:editedDate:date:1406542851479
+component:editedDate:defaultFormat:2014-07-28 12\:20
+component:editedDate:userFormat:2014-07-28 12\:20
+component:p.AssociatedUsers:associatedUsers:sysadmin
+component:p.Content.state:onlineState:true
+component:publishedDate:date:1406329200000
+component:publishedDate:defaultFormat:2014-07-26 01\:00
+component:publishedDate:userFormat:2014-07-26 01\:00
+
+id:.article2
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:6effa9cf93d070ddd275db716c41c580
+component:categorization:value:{"dimensions"\:[{"id"\:"dimension.T3ag","name"\:"Tag","enumerable"\:false,"entities"\:[{"id"\:"3299f4adca3b26e55409b3a37f3ca6ff","name"\:"3299f4adca3b26e55409b3a37f3ca6ff","entities"\:[],"attributes"\:[],"childrenOmitted"\:false}]}]}
+component:editedDate:date:1406542851556
+component:editedDate:defaultFormat:2014-07-28 12\:20
+component:editedDate:userFormat:2014-07-28 12\:20
+component:p.AssociatedUsers:associatedUsers:sysadmin
+component:p.Content.state:onlineState:true
+component:publishedDate:date:1406415600000
+component:publishedDate:defaultFormat:2014-07-27 01\:00
+component:publishedDate:userFormat:2014-07-27 01\:00

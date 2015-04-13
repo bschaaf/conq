@@ -1,0 +1,43 @@
+  ${project.description}
+
+Installation
+
+  To add the plugin dependencies to your project, edit the project <<<pom.xml>>> and add:
+
++-----------------------------------------------------------------+
+<project>
+  ...
+  <dependencies>
+    ...
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>${project.artifactId}</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>${project.artifactId}</artifactId>
+      <version>${project.version}</version>
+      <classifier>contentdata</classifier>
+    </dependency>
+    ...
+  </dependencies>
+  ...
+</project>
++-----------------------------------------------------------------+
+
+  Running <<<mvn p:run>>> in your project, the plugin should be imported to the system. The plugin
+  should show up in the plugins list and any templates should be available in their respective locations.
+
+Configuring the secret key
+
+  The algorithm used by the plugin to sign tokens (HMAC-SHA-256) requires a secret key, which must be configured.
+  The key must be unique to your project and must be generated using a strong pseudo-random function.
+
+* Example
+
++------------------------------------------------------------------+
+id:plugins.com.atex.plugins.users.Config.content
+major:2
+component:token.secret:value:INSECURE-DEFAULT-KEY
++------------------------------------------------------------------+

@@ -1,0 +1,13 @@
+id:.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Test site for Mozilla Persona
+
+id:.article
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:Mozilla Persona article title
+component:lead:value:Mozilla Persona article lead
+

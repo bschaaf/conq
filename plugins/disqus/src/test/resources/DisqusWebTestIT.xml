@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <!--This file contains input template definitions -->
+  <input-template name="DisqusWebTestIT.Article" label="Disqus Mock Article">
+    <policy>com.atex.plugins.baseline.policy.BaselinePolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <type>Article</type>
+    <output-templates mode="www">
+      <id>DisqusWebTestIT.Article.ot</id>
+    </output-templates>
+  </input-template>
+  <output-template name="DisqusWebTestIT.Article.ot" input-template="p.siteengine.ArticleOutputTemplate">
+    <content-xml>
+      <component group="polopoly.Content" name="name">Disqus article mock output template</component>
+      <component group="output/modelKeyMode" name="selected">no-cache</component>
+      <contentref group="output/renderer" name="selected">
+        <contentid>
+          <externalid>p.siteengine.VelocityRenderer</externalid>
+        </contentid>
+      </contentref>
+      <contentref group="output/controller" name="selected">
+        <contentid>
+          <externalid>p.siteengine.JavaClassRenderController</externalid>
+        </contentid>
+      </contentref>
+      <component group="output/renderer/selected/default" name="value"><![CDATA[
+        <article>
+          <header>
+            <h1>$!content.name<h1>
+          </header>
+          <div>
+            <p class="intro">Test lead Test lead Test lead</p>
+            <p>Test body text Test body text</p>
+            #set($canonicalPath = $p_path.resolve($content.contentId))
+            #if($canonicalPath)
+              #set($canonicalLink = "#link({'path': $canonicalPath, 'htmlEncodeLink': 'true', 'requestAttribs': {'localLinksEnabled': false}})")
+            #end
+            <div id="test-render-disqus-ot">
+              BEFORE_RENDER_DISQUS_OT
+              #render({"content": $content, "outputTemplate": "com.atex.plugins.disqus.MainElement.ot",
+                       "params": {"disqus_identifier": $!content.contentId.contentId.contentIdString,
+                        "disqus_title": $esc.javascript($!content.name),
+                        "disqus_url": $!canonicalLink}})
+              AFTER_RENDER_DISQUS_OT
+            </div>
+          </div>
+        </article>
+        ]]>
+      </component>
+    </content-xml>
+  </output-template>
+</template-definition>

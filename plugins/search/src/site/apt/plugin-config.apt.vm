@@ -1,0 +1,105 @@
+Installation
+
+  The plugin is installed using the standard installation guidelines. When the installation is done, you should be
+  able to see the plugin in the plugins department in the admin gui.
+
+* Configuration
+
+** Facet Fields
+
+  You can specify a list of fields that will be presented as facets. The list of fields should be separated by a ",".
+
+** Date Facet Fields
+
+  You can specify multiple fields that will be faceted as a date range. For a date range a number of configuration
+  values are needed. In order to specify a new field you can use the property field using the syntax:
+
++------------------------------------------------------------------+
+  fieldName.configurationName = configurationValue
++------------------------------------------------------------------+
+
+  Where:
+
+*-------------------+-------------------------------------+
+|fieldName          | is the name of the field.
+*-------------------+-------------------------------------+
+|configurationName  | is the name of a configuration value.
+*-------------------+-------------------------------------+
+|configurationValue | is the configuration value.
+*-------------------+-------------------------------------+
+
+  The default configuration is:
+
+*----------------------+-----------------+
+|publishingDate.start  | -10YEARS/DAY
+*----------------------+-----------------+
+|publishingDate.end    | +1DAY/DAY
+*----------------------+-----------------+
+|publishingDate.gap    | +1MONTH/MONTH
+*----------------------+-----------------+
+|publishingDate.format | yyyy MMMMM
+*----------------------+-----------------+
+
+  This the meaning of the configuration fields:
+
+  *** <<start>>
+
+  This is the start range, the default is -10YEARS/DAY that means 10 years back in time.\
+  You must use the solr DateMath format
+  {{http://lucene.apache.org/solr/4_5_0/solr-core/org/apache/solr/util/DateMathParser.html}}
+
+  *** <<end>>
+
+  This is the end range, by default we are using the +1DAY/DAY (i.e. tomorrow) rounded to midnight.\
+  See {{http://searchhub.org/2012/02/23/date-math-now-and-filter-queries}} to know why it is a good idea.\
+  You must use the solr DateMath format
+  {{http://lucene.apache.org/solr/4_5_0/solr-core/org/apache/solr/util/DateMathParser.html}}
+
+  *** <<gap>>
+
+  This is the facet resolution between start and end. By default we are using +1MONTH/MONTH, this means we will get month facets.
+  If you want to decrease the gap (i.e. maybe using +1DAY/DAY) you may want to decrease the start range or the
+  query will take more time (since SOLR is building all the good values between "start" and "end" using the "gap")
+  and more memory.\
+  You must use the solr DateMath format
+  {{http://lucene.apache.org/solr/4_5_0/solr-core/org/apache/solr/util/DateMathParser.html}}
+
+  *** <<format>>
+
+  This is the format String that will be used to display the facet. By default we are using yyyy MMMMM that means the
+  date will show the year and the name of the month (localized using Site's default locale). The formatting rules are
+  the ones used by SimpleDate Formatter {{http://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html}}.
+
+** Search query type
+
+  You can specify the query type that will be used when performing a search.\
+  The default will be << <<<freetextSearch>>> >> which correspond to a request handler with type
+  <<<solr.SearchHandler>>> in solrconfig.xml:
+
++------------------------------------------------------------------+
+  <requestHandler name="freetextSearch" class="solr.SearchHandler">
+  ....
+  </requestHandler>
++------------------------------------------------------------------+
+
+  If you leave the field empty the default search handler will be used, in solrconfig.xml you should have something
+  like:
+
++------------------------------------------------------------------+
+  <requestHandler name="search" class="solr.SearchHandler" default="true">
+  ....
+  </requestHandler>
++------------------------------------------------------------------+
+
+** Results Page Size
+
+  You can specify the number of results you want to be displayed in a single page of the results. By default we will display
+  10 results.
+
+** Facet fields localization
+
+  In the search results page the field name will be shown localized using the prefix <<<com.atex.plugins.search.facets.>>>. For example for
+   the field <<<tag_dimension.Tag>>> the localized key <<<com.atex.plugins.search.facets.tag_dimension.Tag>>> will be used.
+
+  Facet values will be localized with using the field key as prefix, e.g. <<<com.atex.plugins.search.facets.tag_dimension.Tag.someTag>>>
+   will be used for the <<<someTag>>> value of the <<<tag_dimension.Tag>>> field.

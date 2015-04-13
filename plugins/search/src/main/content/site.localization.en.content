@@ -1,0 +1,14 @@
+id:localizedstrings.english
+major:1
+inputtemplate:p.siteengine.LocalizedStrings
+component:localizedstrings:com.atex.plugins.search.SearchUnavailable:Searching is temporarily unavailable.
+component:localizedstrings:com.atex.plugins.search.placeholder:Search...
+component:localizedstrings:com.atex.plugins.search.didnotmatch:Your search for <em>%s</em> did not match anything.
+component:localizedstrings:com.atex.plugins.search.single.results:There is one result.
+component:localizedstrings:com.atex.plugins.search.multi.results:There are %d results.
+component:localizedstrings:com.atex.plugins.search.previousPage.title:Previous page
+component:localizedstrings:com.atex.plugins.search.previousPage.content:&laquo;
+component:localizedstrings:com.atex.plugins.search.nextPage.title:Next page
+component:localizedstrings:com.atex.plugins.search.nextPage.content:&raquo;
+component:localizedstrings:com.atex.plugins.search.currentPage.title:Page %s
+component:localizedstrings:com.atex.plugins.search.search:Search

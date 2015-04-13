@@ -1,0 +1,34 @@
+#if($!content.bloggersList &&  $content.bloggersList.list.size() > 0)
+
+#if($m.context.site.content.landingPages.list.size() > 0)
+    #set($blogPage = $m.context.site.content.landingPages.list.get(0).content)
+#end
+<div class="large-12 column noRight noLeft">
+    <div class="topicSlider">
+        <h2 class="titleTwo">I BLOG</h2>
+        <div class="next buttonNextSlider"></div>
+        <div class="contBlogger">
+            <ul>
+              #set($listsize = $content.bloggersList.list.size() - 1 )
+              #foreach ($i in [0..$listsize])
+                #set($blogger = $content.bloggersList.list.get($i).content)	
+			
+                #if($blogger.images.list.size() > 0)
+                  #set($imgSrc = $tool_img.getUrlBuilder($blogger.images.list.get(0).contentId.contentIdString).format("1x1").height(80).buildUrl())
+                #end
+                <li><a href="#link({'path': $blogPage.parentIds, 'contentId':$blogPage.contentId, 'htmlEncodeLink': 'true',
+                                    'contentParams':{
+                                       $blogPage.contentId : {
+                                         'entity':$blogger.entityMetadata.dimensions.get(0).entities.get(0),
+                                         'dimension':$blogger.entityMetadata.dimensions.get(0)
+                                    }}})" title="">
+					<strong>$!blogger.blogTitle.value</strong>#if($imgSrc)<img src="$imgSrc" alt="">#end<span>di $!blogger.name</span></a></li>
+              #end
+            </ul>
+        </div>
+        <div class="back buttonBackSlider"></div>
+        <!-- Cancel the floating css rule -->
+        <div class="clear"></div>
+    </div>
+</div>
+#end

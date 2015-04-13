@@ -1,0 +1,7 @@
+id:.article
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:Social title
+component:lead:value:Social lead
+list:images:.image

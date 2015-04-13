@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content>
+    <metadata>
+      <contentid>
+        <major>Department</major>
+        <externalid>site.cqdl</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>p.siteengine.Site</externalid>
+      </input-template>
+      <security-parent>
+        <major>Department</major>
+        <externalid>p.siteengine.Sites.d</externalid>
+      </security-parent>
+    </metadata>
+    <component group="resources" name="contentListMaxSize">50</component>
+    <component group="pageLayout/selected/main/inheritSetting" name="count">1</component>
+    <component group="pageLayout/selected/main/inheritSetting" name="selected_0">default</component>
+    <component group="polopoly.Content" name="name">Conquiste del Lavoro</component>
+    <component group="premiumContent/isPremiumContent" name="value">false</component>
+    <component group="polopoly.ContentLists" name="polopoly.Department">default</component>
+    <component group="polopoly.ContentLists" name="resources">resources</component>
+    <component group="polopoly.ContentLists" name="pageLayout/selected/main/slotElements">slotElements</component>
+    <component group="polopoly.ContentLists" name="p.site.Categorization">p.site.Categorization</component>
+    <component group="polopoly.ContentLists" name="landingPages">landingPages</component>
+    <component group="polopoly.ContentLists" name="pageLayouts">pageLayouts</component>
+    <component group="polopoly.ContentLists" name="sources">sources</component>
+    <component group="polopoly.ContentLists" name="css">css</component>
+    <component group="disallowIndexing" name="value">false</component>
+    <component group="polopoly.Client" name="homeDepartment">true</component>
+    <component group="localizedstrings" name="count">0</component>
+    <component group="premiumContent/contentBundles" name="count">0</component>
+    <component group="cacheTime/cacheTime" name="count">1</component>
+    <component group="cacheTime/cacheTime" name="selected_0">-1</component>
+	<contentref group="pageLayout" name="selected">
+      <contentid> 
+        <externalid>it.conquiste.PageLayout</externalid>
+      </contentid>
+    </contentref>
+	<contentref group="chiSiamoPage" name="reference">
+      <contentid>
+        <externalid>page.chisiamo</externalid>
+      </contentid>
+    </contentref>
+    <contentref group="rssPage" name="reference">
+      <contentid>
+        <externalid>page.rss</externalid>
+      </contentid>
+    </contentref>
+  </content>
+</batch>

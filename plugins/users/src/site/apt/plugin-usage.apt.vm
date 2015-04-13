@@ -1,0 +1,66 @@
+Overview
+
+  The plugin allows authentication to be decoupled from users. Regardless of how the user has logged in
+  (OpenID, persona, etc.), they may receive a token which can be used for all subsequent operations.
+  A service which requires a user may then exchange the token for the user's id, validating it in the process.
+
+Implementing an authentication method
+
+* Declaring the method
+
+  A content of type com.atex.plugins.users.AuthenticationMethod must be created with an external id in the form:
+
++-----------------------------------------------------------------+
+atex.AuthenticationMethod:METHOD_NAME
++-----------------------------------------------------------------+
+
+  An AuthenticationMethod has two fields, "name", which should match METHOD_NAME in the external id, and the free-form
+  "description".
+
+** Example
+
++-----------------------------------------------------------------+
+# Create Persona declaration
+id:atex.AuthenticationMethod\:persona
+major:content
+inputtemplate:p.model.Pojo
+component::com.atex.plugins.users.UserAuthentication:p.model.Pojo
+component:model:modelType:com.atex.plugins.users.AuthenticationMethod
+component:model:pojo:{"name"\:"persona","description"\:"Mozilla Persona."}
++-----------------------------------------------------------------+
+
+* Logging in and producing a token
+
+  The authentication method implementation is responsible for authenticating the user. Once that has been done,
+  the AuthenticationManager can be used to locate the user and produce a token.
+
++-----------------------------------------------------------------+
+import com.atex.plugins.users.AccessToken;
+import com.atex.plugins.users.AuthenticationManager;
+import com.atex.plugins.users.CookieUtil;
+import com.atex.plugins.users.User;
+
+// After the user has been successfully authenticated:
+AuthenticationManager authenticationManager = new AuthenticationManager(cmClient);
+ContentId userId = authenticationManager.getUserId("persona", personaId);
+if (userId == null) {
+  User user = new User();
+  user.setUsername(email);
+  userId = authenticationManager.createUser("persona", personaId, user);
+}
+AccessToken token = authenticationManager.getToken(userId);
+CookieUtil.setToken(httpServletResponse, token);
++-----------------------------------------------------------------+
+
+Validating a token
+
+  Once a token has been acquired, it may be validated using the AuthenticationManager.
+
++-----------------------------------------------------------------+
+AccessToken token = CookieUtil.getToken(httpServletRequest);
+AuthenticationManager authenticationManager = new AuthenticationManager(cmClient);
+ContentId userId = authenticationManager.getUserId(token);
+if (userId == null) {
+    // The token has expired.
+}
++-----------------------------------------------------------------+

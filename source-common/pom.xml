@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <name>Common Source</name>
+
+  <artifactId>source-common</artifactId>
+  <packaging>jar</packaging>
+
+  <parent>
+    <groupId>com.atex.gong</groupId>
+    <artifactId>top</artifactId>
+    <version>1.1</version>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.polopoly</groupId>
+      <artifactId>polopoly</artifactId>
+      <version>${polopoly.version}</version>
+      <classifier>api</classifier>
+      <type>jar</type>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.polopoly</groupId>
+      <artifactId>polopoly</artifactId>
+      <version>${polopoly.version}</version>
+      <scope>runtime</scope>
+      <type>jar</type>
+    </dependency>
+
+    <dependency>
+      <groupId>com.atex.plugins</groupId>
+      <artifactId>baseline</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.atex.plugins.gong</groupId>
+      <artifactId>site</artifactId>
+      <version>1.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.drewnoakes</groupId>
+      <artifactId>metadata-extractor</artifactId>
+      <version>2.7.0</version>
+    </dependency>
+
+    <!-- Make the concurrent dependency excplicit so that we can remove it from the jboss container libs -->
+    <dependency>
+      <groupId>concurrent</groupId>
+      <artifactId>concurrent</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>1.9.5</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <!-- This is used by the users plugin to find certain
+             login/logout event listeners that we provide in the project -->
+        <groupId>org.reflections</groupId>
+        <artifactId>reflections-maven</artifactId>
+        <version>0.9.9-RC1</version>
+        <executions>
+          <execution>
+            <id>source</id>
+            <goals>
+              <goal>reflections</goal>
+            </goals>
+            <phase>process-classes</phase>
+          </execution>
+          <!--
+          <execution>
+            <id>test</id>
+            <goals>
+              <goal>reflections</goal>
+            </goals>
+            <phase>process-test-classes</phase>
+            <configuration>
+              <tests>true</tests>
+            </configuration>
+          </execution>
+          -->
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

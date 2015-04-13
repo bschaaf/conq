@@ -1,0 +1,46 @@
+<!-- DIRETTA begin -->
+<div class="large-12 medium-12 column noRight noLeft">
+  <div class="diretta">
+    <h2 class="titleTwo">Diretta</h2>
+    <script type='text/javascript' src='/script/mediaplayer-5.9/jwplayer.js'></script>
+    <div class="bordermedia">
+
+      <div class="boxvideo" id='mediaspace'>Un problema imprevisto ha impedito il caricamento del video.</div>
+
+        <script type='text/javascript'>
+          jwplayer('mediaspace').setup({
+          flashplayer: '/script/mediaplayer-5.9/player.swf',    
+          backcolor: '333333',
+          frontcolor: 'cccccc',
+          lightcolor: 'ffffff',
+          screencolor: '000000',
+          stretching: 'exactfit',
+          volume: '60',
+          #if($content.autostart.value && $content.autostart.value == "true")
+            autostart: 'true',
+          #else
+            autostart: 'false',
+          #end
+          controlbar: 'bottom',
+          width: '100%',
+          height: '100%',
+          provider: "rtmp",
+          #if($content.url.selectedName == "file")
+            file: "$content.url.selected.file.value",
+            #if($content.url.selected.repeat.value == "true")
+              repeat: 'always',
+            #end
+          #else
+            streamer: "$content.url.selected.link.value", 
+          #end
+          levels: [
+              { bitrate:"1080", width:"720", file:"mp4:live_576p" },
+              { bitrate:"650", width:"480", file:"mp4:live_360p" },
+              { bitrate:"420", width:"240", file:"mp4:live_240p" }
+            ]
+          });
+        </script>
+    </div>
+  </div>
+</div>
+<!-- DIRETTA end -->

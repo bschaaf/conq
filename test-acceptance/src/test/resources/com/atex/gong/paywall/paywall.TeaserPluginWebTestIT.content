@@ -1,0 +1,45 @@
+## Enable metered paywall
+id:p.PaywallConfiguration.d
+major:department
+inputtemplate:p.Paywall
+component:enableMeteredModel:value:true
+component:meteredFreeClicks:value:1
+component:meteredPeriod:value:30
+
+id:.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Paywalled Site (TEST)
+
+id:.premiumArticle
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:My premium sports article (TEST)
+component:body:value:<p>Premium sports article. Body text</p>
+component:lead:value:My sports article lead text.
+component:premiumContent/contentBundles:count:1
+component:premiumContent/isPremiumContent:value:true
+ref:premiumContent/contentBundles:reference0:paywall.DefaultPaywallConfiguration.bundle
+ref:premiumContent/contentBundles:reference_parent0:p.PaywallConfiguration.d
+
+id:.nonPremiumArticle
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:My non premium sports article (TEST)
+component:body:value:<p>Non premium sports article. Body text</p>
+component:lead:value:My sports article lead text.
+
+id:.teaserForPremiumArticle
+major:article
+inputtemplate:com.atex.plugins.teaser.Teaser
+securityparent:.site
+list:teaserables:.premiumArticle
+
+id:.teaserForNonPremiumArticle
+major:article
+inputtemplate:com.atex.plugins.teaser.Teaser
+securityparent:.site
+list:teaserables:.nonPremiumArticle

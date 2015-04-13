@@ -1,0 +1,6 @@
+id:.
+major:appconfig
+inputtemplate:com.atex.plugins.image-gallery-plugin.Config.it
+securityparent:p.siteengine.Configuration.d
+component:polopoly.Content:name:Image Gallery Plugin Configuration
+component:inputTemplate:value:standard.Image

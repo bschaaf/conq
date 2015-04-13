@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <!-- Adding pages to site -->
+  <content>
+    <metadata>
+      <contentid>
+        <externalid>site.cqdl</externalid>
+      </contentid>
+    </metadata>
+    <contentlist>
+	  <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>page.sindacato</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+	  <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>page.economia</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+	  <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>page.vertenze</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+	  <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>page.global</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+	  <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>page.glocal</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+	  <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>page.politica</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+	  <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>page.dibattito</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+	  <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>page.contratti</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+	  <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>page.attualita</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+	  <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>page.pubblicoImpiego</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+	  <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>page.pensioni</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>page.breakingNews</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+	  <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>page.blog</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+	  <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>page.edicola</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+	  <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>page.chisiamo</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>page.rss</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+	
+	<contentlist group="landingPages">
+      <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <major>Department</major>
+              <externalid>page.landingBlog</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <major>Department</major>
+              <externalid>page.landingGallery</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <major>Department</major>
+              <externalid>page.landingMetadata</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+    
+    <!--  Add diretta element -->
+    <contentlist group="pageLayout/selected/right/slotElements">
+	  <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <major>LayoutElement</major>
+              <externalid>teaser.edicola</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <major>LayoutElement</major>
+              <externalid>element.diretta</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <!--  Add Rss reader element -->
+      <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <major>LayoutElement</major>
+              <externalid>element.RssInBreve</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <major>LayoutElement</major>
+              <externalid>element.HomePageGallery</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <major>LayoutElement</major>
+              <externalid>element.YouTubeVideoColDx</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+    
+    <!--  Add Breaking News element -->
+    <contentlist group="pageLayout/selected/header/slotElements">
+      <entry mode="modify">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <major>LayoutElement</major>
+              <externalid>element.breakingNews</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+	<contentlist group="sources">
+		<entry mode="modify">
+			<metadata>
+				<referredContent>
+					<contentid>
+						<major>Article</major>
+						<externalid>queue.list.sitemap</externalid>
+					</contentid>
+				</referredContent>
+			</metadata>
+		</entry>
+	</contentlist>
+  </content>
+  
+  <content>
+    <metadata>
+      <contentid>
+        <major>LayoutElement</major>
+        <externalid>element.diretta</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>it.conquiste.DirettaElement</externalid>
+      </input-template>
+      <security-parent>
+        <major>Department</major>
+        <externalid>site.cqdl</externalid>
+      </security-parent>
+    </metadata>
+    <component group="polopoly.Content" name="name">Diretta Element</component>
+    <component group="url" name="subField">link</component>
+    <component group="url/link/link" name="value">rtmpt://mobile.unimedia.unidata.it/cisledge/</component>
+  </content>
+  
+  <content>
+    <metadata>
+      <contentid>
+        <major>LayoutElement</major>
+        <externalid>teaser.edicola</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.newsstand.MainElement</externalid>
+      </input-template>
+      <security-parent>
+        <major>Department</major>
+        <externalid>page.edicola</externalid>
+      </security-parent>
+    </metadata>
+    <component group="polopoly.Content" name="name">Edicola teaser</component>
+	<component group="teaser" name="value">true</component>
+    <contentref group="edicolaPage" name="reference">
+      <contentid>
+        <externalid>page.edicola</externalid>
+      </contentid>
+    </contentref>
+  </content>
+  
+  <content>
+    <metadata>
+      <contentid>
+        <major>LayoutElement</major>
+        <externalid>element.RssInBreve</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>it.conquiste.RssElement</externalid>
+      </input-template>
+      <security-parent>
+        <major>Department</major>
+        <externalid>site.cqdl</externalid>
+      </security-parent>
+    </metadata>
+    <component group="polopoly.Content" name="name">Rss In Breve Element</component>
+    <component group="url" name="value">http://www.cisl.it/rss</component>
+    <component group="other" name="value">http://www.cisl.it/sito.nsf/news?OpenPage</component>
+  </content>
+
+  <content>
+    <metadata>
+      <contentid>
+        <major>LayoutElement</major>
+        <externalid>element.HomePageGallery</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>it.conquiste.HomeGalleryElement</externalid>
+      </input-template>
+      <security-parent>
+        <major>Department</major>
+        <externalid>site.cqdl</externalid>
+      </security-parent>
+    </metadata>
+    <component group="polopoly.Content" name="name">Home Gallery Element</component>
+    <contentref group="link" name="reference">
+      <contentid>
+        <externalid>page.landingGallery</externalid>
+      </contentid>
+    </contentref>
+    <contentlist group="publishingQueue">
+      <entry>
+        <metadata>
+          <position>0</position>
+          <referredContent>
+            <contentid>
+              <major>Article</major>
+              <externalid>queue.landingGallery</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+  </content>
+
+  <content>
+    <metadata>
+      <contentid>
+        <major>LayoutElement</major>
+        <externalid>element.YouTubeVideoColDx</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>it.conquiste.YouTubeVideo</externalid>
+      </input-template>
+      <security-parent>
+        <major>Department</major>
+        <externalid>site.cqdl</externalid>
+      </security-parent>
+    </metadata>
+    <component group="polopoly.Content" name="name">YouTube Video</component>
+    <component group="youTubeUrl" name="value"><![CDATA[http://www.youtube.com/v/rni_xh-2H1k&rel=1]]></component>
+  </content>
+  
+  <content>
+    <metadata>
+      <contentid>
+        <major>LayoutElement</major>
+        <externalid>element.breakingNews</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>it.conquiste.breakingNews</externalid>
+      </input-template>
+      <security-parent>
+        <major>Department</major>
+        <externalid>site.cqdl</externalid>
+      </security-parent>
+    </metadata>
+    <component group="polopoly.Content" name="name">Breaking News Element</component>
+    <component group="numberOfItems" name="value">10</component>
+    <contentlist group="publishingQueue">
+      <entry>
+        <metadata>
+          <position>0</position>
+          <referredContent>
+            <contentid>
+              <major>Article</major>
+              <externalid>queue.breakingNews</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+  </content>
+    <content>
+    <metadata>
+      <contentid>
+        <major>Article</major>
+        <externalid>queue.breakingNews</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue</externalid>
+      </input-template>
+      <security-parent>
+        <major>Department</major>
+        <externalid>page.breakingNews</externalid>
+      </security-parent>
+    </metadata>
+    <component group="polopoly.Content" name="name">Queue Breaking News</component>
+    <contentlist group="sources">
+      <entry>
+        <metadata>
+          <position>0</position>
+          <referredContent>
+            <contentid>
+              <major>Article</major>
+              <externalid>type-decorator.breakingNews</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry>
+        <metadata>
+          <position>1</position>
+          <referredContent>
+            <contentid>
+              <major>Article</major>
+              <externalid>department-decorator.breakingNews</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+  </content>
+  <content>
+    <metadata>
+      <contentid>
+        <major>Article</major>
+        <externalid>department-decorator.breakingNews</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue.decorator.department</externalid>
+      </input-template>
+      <security-parent>
+        <major>Article</major>
+        <externalid>queue.breakingNews</externalid>
+      </security-parent>
+    </metadata>
+    <contentlist group="pageLayout/selected/left/slotElements">
+      <entry>
+        <metadata>
+          <position>0</position>
+          <referredContent>
+            <contentid>
+              <major>LayoutElement</major>
+              <externalid>listelement.sindacato</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+    <component group="department" name="count">1</component>
+    <contentref group="department" name="reference0">
+      <contentid>
+        <externalid>page.breakingNews</externalid>
+      </contentid>
+    </contentref>
+    <contentref group="department" name="reference_parent0">
+      <contentid>
+        <externalid>site.cqdl</externalid>
+      </contentid>
+    </contentref>
+  </content>
+    <content>
+    <metadata>
+      <contentid>
+        <major>Article</major>
+        <externalid>type-decorator.breakingNews</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue.decorator.type</externalid>
+      </input-template>
+      <security-parent>
+        <major>Article</major>
+        <externalid>queue.breakingNews</externalid>
+      </security-parent>
+    </metadata>
+    <component group="type" name="count">1</component>
+    <contentref group="type" name="reference0">
+      <contentid>
+        <externalid>p.templatecategory.article</externalid>
+      </contentid>
+    </contentref>
+    <contentref group="type" name="reference_parent0">
+      <contentid>
+        <externalid>p.StandardResourceCategorization</externalid>
+      </contentid>
+    </contentref>
+  </content>
+  
+  <!-- Add a queue for site map -->
+  <content>
+		<metadata>
+			<contentid>
+				<major>Article</major>
+				<externalid>queue.list.sitemap</externalid>
+			</contentid>
+			<input-template>
+				<major>InputTemplate</major>
+				<externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue</externalid>
+			</input-template>
+			<security-parent>
+				<major>Department</major>
+				<externalid>site.cqdl</externalid>
+			</security-parent>
+		</metadata>
+		<component group="polopoly.Content" name="name">Site map</component>
+		<component group="polopoly.ContentLists" name="sources">sources</component>
+		<contentref group="sources" name="0">
+			<contentid>
+				<major>Article</major>
+				<externalid>queue.list.sitemap.types</externalid>
+			</contentid>
+		</contentref>
+		<contentref group="sources" name="1">
+			<contentid>
+				<major>Article</major>
+				<externalid>queue.list.sitemap.departament</externalid>
+			</contentid>
+		</contentref>
+	</content>
+	<content>
+		<metadata>
+			<contentid>
+				<major>Article</major>
+				<externalid>queue.list.sitemap.types</externalid>
+			</contentid>
+			<input-template>
+				<major>InputTemplate</major>
+				<externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue.decorator.type</externalid>
+			</input-template>
+			<security-parent>
+				<major>Article</major>
+				<externalid>queue.list.sitemap</externalid>
+			</security-parent>
+		</metadata>
+		<component group="type" name="count">1</component>
+		<contentref group="type" name="reference0">
+			<contentid>
+				<major>InputTemplate</major>
+				<externalid>p.siteengine.Page</externalid> 
+			</contentid>
+		</contentref>
+		<contentref group="type" name="reference_parent0">
+			<contentid>
+				<major>Department</major>
+				<externalid>p.templatecategory.department</externalid>
+			</contentid>
+		</contentref>
+	</content>
+  
+	<content>
+		<metadata>
+			<contentid>
+				<major>Article</major>
+				<externalid>queue.list.sitemap.departament</externalid>
+			</contentid>
+			<input-template>
+				<major>InputTemplate</major>
+				<externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue.decorator.department</externalid>
+			</input-template>
+			<security-parent>
+				<major>Article</major>
+				<externalid>queue.list.sitemap</externalid>
+			</security-parent>
+		</metadata>
+		<component group="department" name="count">1</component>
+		<contentref group="department" name="reference0">
+			<contentid>
+				<major>Department</major>
+				<externalid>site.cqdl</externalid> 
+			</contentid>
+		</contentref>
+		<contentref group="department" name="reference_parent0">
+			<contentid>
+				<major>Department</major>
+				<externalid>p.siteengine.Sites.d</externalid>
+			</contentid>
+		</contentref>
+	</content>
+</batch>

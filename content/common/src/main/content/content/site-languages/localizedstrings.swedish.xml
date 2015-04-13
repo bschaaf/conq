@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content>
+    <metadata>
+      <contentid>
+        <major>Article</major>
+        <externalid>localizedstrings.swedish</externalid>
+      </contentid>
+      <security-parent>
+        <externalid>p.siteengine.LocalizedStrings.d</externalid>
+      </security-parent>
+      <input-template>
+        <externalid>p.siteengine.LocalizedStrings</externalid>
+      </input-template>
+    </metadata>
+    <component name="name" group="polopoly.Content">Swedish</component>
+    <component group="lc" name="value">sv</component>
+    <component group="cc" name="value">SE</component>
+
+    <component group="localizedstrings" name="paywall.warning.youhave">Du har </component>
+    <component group="localizedstrings" name="paywall.warning.comparticle"> artikelvisning kvar.</component>
+    <component group="localizedstrings" name="paywall.warning.comparticles"> artikelvisningar kvar.</component>
+    <component group="localizedstrings" name="paywall.warning.enjoy">Redan besökta artiklar förblir synliga.</component>
+
+    <component group="localizedstrings" name="paywall.usersubscription.info">Nedan finner du alla dina prenumerationer och deras slutdatum.</component>
+    <component group="localizedstrings" name="paywall.usersubscription.current">Dina prenumerationer: </component>
+    <component group="localizedstrings" name="paywall.usersubscription.validuntil">Giltig till: </component>
+    <component group="localizedstrings" name="paywall.usersubscription.nosubscription">Du har inga prenumerationer.</component>
+
+    <component group="localizedstrings" name="paywall.premium.content">Premium</component>
+    <component group="localizedstrings" name="paywall.premium.article">Detta är en premiumartikel, köp ett premiumpaket för att läsa hela</component>
+
+    <component group="localizedstrings" name="paywall.overlay.nomoreviews1">Det verkar som om dina gratis klick tagit slut! Köp tillgång till ett premium paket eller </component>
+    <component group="localizedstrings" name="paywall.overlay.nomoreviews2">vänta i</component>
+    <component group="localizedstrings" name="paywall.overlay.nomoreviews3">dag(ar)</component>
+    <component group="localizedstrings" name="paywall.overlay.nomoreviews4"> för att få fler klick.</component>
+    <component group="localizedstrings" name="paywall.overlay.description"><![CDATA[Detta är en premiumartikel. Registrera dig <b>och</b> köp tillgång till ett av våra premiumpaket nedan för att läsa hela:]]></component>
+    <component group="localizedstrings" name="paywall.overlay.description.no.offering"><![CDATA[Detta är en premiumartikel. Inga giltiga premiumpaket är tillgängliga för denna artikel just nu.]]></component>
+    <component group="localizedstrings" name="paywall.overlay.loggedin.description">Detta är en premiumartikel. Du kan få läsa hela genom att köpa något av följande premiumpaket:</component>
+    <component group="localizedstrings" name="paywall.overlay.should.have.access">Borde du redan få läsa denna sida? Prova logga ut och sedan logga in igen.</component>
+    <component group="localizedstrings" name="paywall.overlay.head">Prenumeration tack!</component>
+    <component group="localizedstrings" name="paywall.overlay.close">Stäng</component>
+    <component group="localizedstrings" name="paywall.overlay.select">Välj</component>
+
+    <component group="localizedstrings" name="paywall.premium.teaser.label">Premium</component>
+  </content>
+</batch>

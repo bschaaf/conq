@@ -1,0 +1,51 @@
+/* CUSTOM UI STYLING */
+.toolbox-right {
+    float: right;
+    margin: 0 0 8px 8px;
+}
+
+.image-thumbnail {
+    float: left;
+    margin-right: 8px;
+    max-width: 90px;
+    max-height: 60px;
+}
+
+.image-thumbnail:hover {
+    max-width: 180px;
+    max-height: 120px;
+    transition-delay: 0.2s;
+}
+
+.custom-search-article .thumbnail {
+    float: left;
+    max-width: 50px;
+    max-height: 50px;
+    margin: 0 8px 2px 0;
+}
+
+.custom-search-article .lead {
+    font-size: 11px;
+    line-height: 13px;
+}
+
+.custom-search-image {
+    text-align: center;
+    color: #666;
+}
+
+.custom-search-image .thumbnail {
+    max-width: 100%;
+    max-height: 80px;
+    margin: 0 0 4px;
+}
+
+div.preview_only {
+    background-image: url(images/stripes_trans2.png);
+    background-repeat: repeat-x repeat-y;
+}
+
+div.preview_only_has_visible {
+    background-image: url(images/stripes_trans3.png);
+    background-repeat: repeat-x repeat-y;
+}

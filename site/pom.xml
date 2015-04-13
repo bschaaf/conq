@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <name>Site and Page Plugin</name>
+  <groupId>com.atex.plugins.gong</groupId>
+  <artifactId>site</artifactId>
+  <packaging>jar</packaging>
+  <version>1.1</version>
+
+  <parent>
+    <groupId>com.polopoly</groupId>
+    <artifactId>public</artifactId>
+    <version>10.12.0</version>
+    <relativePath />
+  </parent>
+
+  <description><![CDATA[
+    This Site and Page plugin contains content, code and resources for Site and Page
+    as they were prior to Polopoly version 10.8.0.
+  ]]></description>
+
+  <organization>
+    <name>Atex</name>
+    <url>http://www.atex.com</url>
+  </organization>
+
+  <properties>
+    <polopoly.version>${project.parent.version}</polopoly.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.polopoly</groupId>
+      <artifactId>polopoly</artifactId>
+      <version>${polopoly.version}</version>
+      <type>jar</type>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.polopoly.extensions</groupId>
+        <artifactId>p-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>pack-content</id>
+            <goals>
+              <goal>pack</goal>
+            </goals>
+            <phase>package</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

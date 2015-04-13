@@ -1,0 +1,28 @@
+# This file lists web resources of this plugin that should be rendered on all
+# pages. See "Plugin contributed web resources" on http://support.polopoly.com for
+# documentation.
+#
+# Examples:
+#
+# Add the stylesheets in the css folder to the head section of all pages
+#/resources/css/carosello.css
+#/resources/css/default.css
+#/resources/css/hp.css
+#/resources/css/portatili.css
+#/resources/css/stampa.css
+#
+
+#/resources/javascript/script/carosello.js
+#/resources/javascript/script/fe-enhancement-client.js
+#/resources/javascript/script/jquery.li-scroller.1.0.js
+#/resources/javascript/script/jquery.vticker.1.4.js
+#/resources/javascript/script/jquery-1.3.2.min.js
+#/resources/javascript/script/jquery-ui-1.7.1.custom.min.js
+#/resources/javascript/script/menu.js
+#/resources/javascript/script/print.js
+#/resources/javascript/script/Mediaplayer-5.9/jwplayer.js
+
+#/resources/javascript/cpsps/dwr/interface/VisitManagerBean.js
+#/resources/javascript/cpsps/dwr/interface/VotingManagerBean.js
+#/resources/javascript/cpsps/dwr/engine.js
+#/resources/javascript/cpsps/dwr/util.js

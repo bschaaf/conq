@@ -1,0 +1,36 @@
+  The personalization servlet supports two methods, POST and GET which can be used to store a user's history
+  and read her top categories.
+
+URL
+
+  The servlet is located at /personalization.
+
+POST
+
+  Stores an article or other categorized content to user's history. Called automatically for each page view.
+
+* Parameter: articleId
+
+  Id of content to add to history, in the format returned by IdUtil.toIdString(ContentId). If the content lacks
+  categorization in the configured dimensions, the history will not be modified.
+
+* Cookie: accessToken
+
+  The accessToken cookie is used to find the user's content.
+
+GET
+
+  Retrieves a user's top categories based on recent views (see POST).
+
+* Cookie: accessToken
+
+  The accessToken cookie is used to find the user's content.
+
+* Example response
+
++------------------------------------------------------------------+
+{
+  "politics": 5,
+  "sport": 1
+}
++------------------------------------------------------------------+

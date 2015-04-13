@@ -1,0 +1,5 @@
+id:.content
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Test site for workflow batch operation

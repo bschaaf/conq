@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content>
+    <metadata>
+      <contentid>
+        <major>UserData</major>
+        <externalid>3000</externalid><!-- A unique integer value -->
+      </contentid>
+
+      <security-parent>
+        <externalid>PolopolyPost.d</externalid>
+      </security-parent>
+    </metadata>
+
+    <value name="loginName">edmund</value>
+    <value name="password">edmund</value>
+
+    <component name="isCMUser" group="CMUser">true</component>
+    <component name="value" group="FirstName">Edmund</component>
+    <component name="value" group="LastName">Green</component>
+    <component name="locale" group="polopoly.Client">en_US</component>
+
+    <contentref name="inputTemplateId" group="polopoly.Content">
+      <contentid>
+        <externalid>p.UserEditor</externalid>
+      </contentid>
+    </contentref>
+  </content>
+
+  <content>
+    <metadata>
+      <contentid>
+        <major>UserData</major>
+        <externalid>3001</externalid><!-- A unique integer value -->
+      </contentid>
+
+      <security-parent>
+        <externalid>PolopolyPost.d</externalid>
+      </security-parent>
+    </metadata>
+
+    <value name="loginName">adrian</value>
+    <value name="password">adrian</value>
+
+    <component name="isCMUser" group="CMUser">true</component>
+    <component name="value" group="FirstName">Adrian</component>
+    <component name="value" group="LastName">Green</component>
+    <component name="locale" group="polopoly.Client">en_US</component>
+
+    <contentref name="inputTemplateId" group="polopoly.Content">
+      <contentid>
+        <externalid>p.UserEditor</externalid>
+      </contentid>
+    </contentref>
+  </content>
+
+  <content>
+    <metadata>
+      <contentid>
+        <major>UserData</major>
+        <externalid>3002</externalid><!-- A unique integer value -->
+      </contentid>
+
+      <security-parent>
+        <externalid>PolopolyPost.d</externalid>
+      </security-parent>
+    </metadata>
+
+    <value name="loginName">edith</value>
+    <value name="password">edith</value>
+
+    <component name="isCMUser" group="CMUser">true</component>
+    <component name="value" group="FirstName">Edith</component>
+    <component name="value" group="LastName">Green</component>
+    <component name="locale" group="polopoly.Client">en_US</component>
+
+    <contentref name="inputTemplateId" group="polopoly.Content">
+      <contentid>
+        <externalid>p.UserEditor</externalid>
+      </contentid>
+    </contentref>
+  </content>
+</batch>

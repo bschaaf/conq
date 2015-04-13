@@ -1,0 +1,61 @@
+id:.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Article test site
+
+id:.siteWithLandingPage
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Article test site with landing page
+
+id:.landingPage
+major:department
+inputtemplate:p.siteengine.LandingPage
+securityparent:.siteWithLandingPage
+name:Article test landing page
+publish:landingPages:.siteWithLandingPage
+
+id:.content
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:My simple article
+component:body:value:<p>And simple text containing swedish characters ??????</p>
+component:lead:value:With simple lead
+
+id:.contentWithRelatedTopics
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:My other simple article with categorization
+component:categorization:value:{"dimensions"\:[{"id"\:"dimension.Tag","name"\:"Tag","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.Person","name"\:"Person","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.Organisation","name"\:"Organisation","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.Location","name"\:"Location","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.Company","name"\:"Company","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.IPTC","name"\:"IPTC","enumerable"\:true,"entities"\:[{"id"\:"iptc-11","name"\:"politics","entities"\:[],"attributes"\:[],"childrenOmitted"\:false}]}]}
+component:body:value:<p>And other simple text</p>
+component:lead:value:With other simple lead
+
+id:.contentWithRelatedTopicsAndLandingPage
+major:article
+inputtemplate:standard.Article
+securityparent:.siteWithLandingPage
+name:My third simple article with categorization and landing page
+component:categorization:value:{"dimensions"\:[{"id"\:"dimension.Tag","name"\:"Tag","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.Person","name"\:"Person","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.Organisation","name"\:"Organisation","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.Location","name"\:"Location","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.Company","name"\:"Company","enumerable"\:false,"entities"\:[]},{"id"\:"dimension.IPTC","name"\:"IPTC","enumerable"\:true,"entities"\:[{"id"\:"iptc-11","name"\:"politics","entities"\:[],"attributes"\:[],"childrenOmitted"\:false}]}]}
+component:body:value:<p>And other simple text</p>
+component:lead:value:With other simple lead
+
+id:.contentWithRelatedArticles
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:My third simple article with related articles
+component:body:value:<p>And simple text</p>
+component:lead:value:With simple lead
+list:related:.content
+list:related:.contentWithRelatedTopics
+
+id:.contentWithContentLink
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:My simple article with content link in body text
+component:body:value:<p>Some body text</p><p><a href="javascript\:window.parent.actionEventData({$contentId\:&quot;StandardArticleWebTestIT.contentWithRelatedArticles&quot;, $action\:&quot;view&quot;, $target\:&quot;work&quot;})" polopoly\:contentid="StandardArticleWebTestIT.contentWithRelatedArticles">My third simple article with related articles</a></p>

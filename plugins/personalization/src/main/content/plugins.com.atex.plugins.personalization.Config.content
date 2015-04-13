@@ -1,0 +1,5 @@
+id:.
+major:appconfig
+inputtemplate:com.atex.plugins.personalization.Configuration
+securityparent:p.siteengine.Configuration.d
+component:polopoly.Content:name:User Personalization Configuration

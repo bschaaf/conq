@@ -1,0 +1,10 @@
+id:localizedstrings.english
+major:1
+inputtemplate:p.siteengine.LocalizedStrings
+component:localizedstrings:com.atex.plugins.poll.alreadyVoted:You have already voted!
+component:localizedstrings:com.atex.plugins.poll.thanksForVote:Thank you for your vote!
+component:localizedstrings:com.atex.plugins.poll.answerPoll:Back to poll
+component:localizedstrings:com.atex.plugins.poll.showResult:Show the result
+component:localizedstrings:com.atex.plugins.poll.votesTotal:Total number of votes
+component:localizedstrings:com.atex.plugins.poll.vote:Vote
+component:localizedstrings:com.atex.plugins.poll.tryAgainLater:Voting is temporarily disabled. Please try again later.

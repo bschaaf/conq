@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <!--This file contains input template definitions -->
+  <input-template name="com.atex.plugins.grid.MainElement" label="com.atex.plugins.grid.mainElement">
+    <type>LayoutElement</type>
+    <policy>com.atex.plugins.grid.GridElementPolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <editor contextName="orchid_TOCENTRY">com.polopoly.siteengine.standard.contentlist.OContentListEntryBasePolicyWidget</editor>
+    <viewer contextName="orchid_TOCENTRY">com.polopoly.siteengine.standard.contentlist.OContentListEntryBasePolicyWidget</viewer>
+    <param name="renderTemplateIconInSelect">true</param>
+
+    <param name="ViewState_insert">false</param>
+    <param name="ViewState_refresh">true</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditState_saveAndFastInsert">false</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditState_saveAndEdit">false</param>
+    <param name="EditNewState_saveAndClose">false</param>
+    <param name="EditNewState_saveAndInsert">false</param>
+    <param name="EditNewState_saveAndFastInsert">true</param>
+    <param name="EditNewState_saveAndView">false</param>
+
+    <content-list name="publishingQueue" input-template="com.atex.plugins.grid.PublishingQueueContentListWrapper" />
+    <field name="name" input-template="p.ContentName" label="com.atex.plugins.grid.name" required="true">
+      <param name="inlineHelp">true</param>
+    </field>
+    <layout name="gridColumns" input-template="p.ColumnHolder">
+      <layout name="rowColumn" input-template="p.Column">
+        <param name="width">30</param>
+        <param name="widthRelative">true</param>
+        <field name="numberOfRows" input-template="p.TextInput" label="com.atex.plugins.grid.numberOfRows" required="true">
+          <help>com.atex.plugins.grid.numberOfRows.help</help>
+          <policy>com.polopoly.cm.app.policy.NumberInputPolicy</policy>
+          <param name="type">int</param>
+          <param name="size">5</param>
+          <param name="maxlength">5</param>
+          <param name="default">10</param>
+        </field>
+      </layout>
+      <layout name="colColumn" input-template="p.Column">
+        <param name="width">70</param>
+        <param name="widthRelative">true</param>
+        <field name="numberOfColumns" input-template="p.Select" label="com.atex.plugins.grid.numberOfColumns">
+          <help>com.atex.plugins.grid.numberOfColumns.help</help>
+          <param name="size">1</param>
+          <param name="selected">0</param>
+          <param name="multivalued">false</param>
+          <param name="label_0">com.atex.plugins.grid.numberOfColumns.one</param>
+          <param name="value_0">1</param>
+          <param name="label_1">2</param>
+          <param name="value_1">2</param>
+          <param name="label_2">3</param>
+          <param name="value_2">3</param>
+          <param name="label_3">4</param>
+          <param name="value_3">4</param>
+          <param name="label_4">6</param>
+          <param name="value_4">6</param>
+        </field>
+      </layout>
+    </layout>
+    <field name="imagePosition" input-template="p.Select" label="com.atex.plugins.grid.imagePosition">
+      <help>com.atex.plugins.grid.imagePosition.help</help>
+      <param name="size">1</param>
+      <param name="selected">0</param>
+      <param name="multivalued">false</param>
+      <param name="label_0">com.atex.plugins.grid.imagePosition.top</param>
+      <param name="value_0">top</param>
+      <param name="label_1">com.atex.plugins.grid.imagePosition.right</param>
+      <param name="value_1">right</param>
+      <param name="label_2">com.atex.plugins.grid.imagePosition.left</param>
+      <param name="value_2">left</param>
+    </field>
+    <field name="publishingQueueCreator" input-template="p.ContentCreator" label="com.atex.plugins.grid.newPublishingQueue">
+      <param name="createWithSecurityParent">true</param>
+      <param name="securityParentAlias">content</param>
+      <param name="insertTargetAlias">content</param>
+      <param name="askInsertTarget">false</param>
+      <param name="insertionContentListName">publishingQueue</param>
+      <param name="askInsertionContentListName">false</param>
+      <param name="showCategorySelectWithOneCategory">false</param>
+      <param name="askContentListPosition">false</param>
+      <param name="insertPosition">top</param>
+      <idparam name="templateRoot">
+        <externalid>p.siteengine.SourcesRepositoryTemplates</externalid>
+      </idparam>
+    </field>
+    <field name="publishingQueue" input-template="p.ContentListEntryContainer" label="com.atex.plugins.grid.publishingQueue">
+      <param name="contentListName">publishingQueue</param>
+      <param name="showActionButtonsInViewMode">false</param>
+    </field>
+    <output-templates mode="www">
+      <id>com.atex.plugins.grid.MainElement.ot</id>
+    </output-templates>
+  </input-template>
+</template-definition>

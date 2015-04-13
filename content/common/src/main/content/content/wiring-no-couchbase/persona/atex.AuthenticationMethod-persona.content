@@ -1,0 +1,7 @@
+# Create Persona declaration without Couchbase
+id:atex.AuthenticationMethod\:persona
+major:content
+inputtemplate:p.model.Pojo
+component::com.atex.plugins.users.UserAuthentication:p.model.Pojo
+component:model:modelType:com.atex.plugins.users.AuthenticationMethod
+component:model:pojo:{"name"\:"persona","description"\:"Mozilla Persona."}

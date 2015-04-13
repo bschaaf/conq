@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+
+  <input-template name="com.atex.plugins.search.Config.it" label="com.atex.plugins.search.Config.it">
+    <policy>com.atex.plugins.search.SearchConfigurationPolicy</policy>
+    <editor>com.polopoly.plugin.OPluginConfigContextPolicyWidget</editor>
+    <viewer>com.polopoly.plugin.OPluginConfigContextPolicyWidget</viewer>
+
+    <type>AppConfig</type>
+
+    <field name="facetfields" input-template="p.TextInput" label="com.atex.plugins.search.facetfields">
+      <help>com.atex.plugins.search.facetfields.help</help>
+      <param name="maxlength">500</param>
+      <param name="style">width:100%; box-sizing:border-box</param>
+    </field>
+
+    <field name="facetdates" input-template="p.PropertyEditor" label="com.atex.plugins.search.facetdates">
+      <help>com.atex.plugins.search.facetdates.help</help>
+    </field>
+
+    <field name="queryType" input-template="p.TextInput" label="com.atex.plugins.search.queryType">
+      <help>com.atex.plugins.search.queryType.help</help>
+    </field>
+
+    <field name="resultsPageSize" input-template="p.TextInput" label="com.atex.plugins.search.results.pageSize">
+      <help>com.atex.plugins.search.results.pageSize.help</help>
+    </field>
+
+  </input-template>
+
+</template-definition>

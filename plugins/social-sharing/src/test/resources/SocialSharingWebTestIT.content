@@ -1,0 +1,16 @@
+id:.site
+major:2
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+component:polopoly.Content:name:Test site for social sharing web test
+
+id:js.composer/com.atex.plugins.social.sharing/SocialSharingWebTestIT.Article
+major:content
+inputtemplate:p.model.Pojo
+component:model:modelType:com.atex.plugins.js.composer.ComposerScript
+component:model:pojo:{'_type'\:'com.atex.plugins.js.composer.ComposerScript', 'javaScript'\:'importClass(com.atex.plugins.social.sharing.SocialSharingInfo); importClass(com.atex.onecms.content.ContentResult); var info = new SocialSharingInfo(); info.title = "TITLE"; info.description = "DESCRIPTION"; info.openGraphType = "article"; info.imageContentId = null; new ContentResult(source, info);'}
+
+id:.content
+major:1
+inputtemplate:SocialSharingWebTestIT.Article
+securityparent:.site

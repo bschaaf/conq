@@ -1,0 +1,50 @@
+#if($images.size() > 0)
+<div class="large-12 column">
+    <div class="gallery">
+        <div class="counter">
+            <p> <span class="page">1 </span>/<strong class="totalPage">$images.size()</strong></p>
+        </div>
+        <!-- GALLERY-->
+        #set($image = $images.get(0))
+        <div class="imgSlider" style="background-image:url('$image.getUrl().width(950).buildUrl()'); background-repeat:no-repeat;">
+            <div class="titleSlider">
+                <a href="#" title="" class="urlLink">
+                    <h3 class="titleThree">$content.name</h3> 
+                </a>
+##                <div class="autore">
+##                    <p><strong>di
+##                    <!-- add this span for slider -->
+##                            <span class="zoneAuthor">PINCO PALLOZZI 1</span>
+##                    <!-- end span -->
+##                    </strong></p>
+##                </div>
+            </div>
+            <div class="nextSliderHome"></div>
+            <div class="backSliderHome"></div>
+            
+        </div>
+        <!-- end -->
+    </div>
+       <!--Siparietto-->
+       <div class="sipariettoGallery">
+           <p>$!image.meta.caption</p>
+       </div>
+       <!--Descrizione Gallery-->
+       <div class="descrizioneGallery">
+           <p>$!content.description.value</p>
+       </div>
+    <!-- add this div for slider-->
+        <div class="contentPreviewSlide" style="display: none;">
+        <!-- PREVIEW LITLE HOME COMPONEST SLIDER-->
+        #foreach($image in $images)
+            <div class="large-4 medium-4 small-12 column" style="display:none">
+                    <!-- These inputs are used to javascript for update slider information-->
+                        <input type="hidden" class="imageUrl" value="$image.getUrl().buildUrl()">
+                        <input type="hidden" class="testoGallery" value="$!image.meta.caption">
+                    <!-- end -->
+            </div>
+        #end
+        </div>
+    <!-- end div content slider -->
+</div>
+#end

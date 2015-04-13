@@ -1,0 +1,8 @@
+id:.
+major:department
+inputtemplate:p.TagCategory
+securityparent:p.StandardCategorization
+name:Person
+component:description:value:Person
+component:changePropagation:value:true
+ref:entityCreator:templateRoot:standard.metadata.templateroot.PersonEntity

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="com.atex.plugins.baseline.EntityFromContext.it" label="com.atex.plugins.baseline.EntityFromContext">
+    <policy>com.atex.plugins.baseline.policy.EntityFromContext</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <editor contextName="orchid_TOCENTRY">com.polopoly.siteengine.standard.contentlist.OContentListEntryBasePolicyWidget</editor>
+    <viewer contextName="orchid_TOCENTRY">com.polopoly.siteengine.standard.contentlist.OContentListEntryBasePolicyWidget</viewer>
+    <param name="renderTemplateIconInSelect">true</param>
+    <type>LayoutElement</type>
+
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditNewState_saveAndInsert">false</param>
+    <param name="EditNewState_saveAndFastInsert">true</param>
+
+    <field name="name" input-template="p.ContentName" label="cm.label.Name" required="true"/>
+    <layout name="description" input-template="p.Comment" label="cm.general.Description">
+      <param name="comment">com.atex.plugins.baseline.EntityFromContext.help</param>
+    </layout>
+
+    <field name="metadata" input-template="com.atex.plugins.baseline.ContextCategorization"/>
+
+    <output-templates mode="www">
+      <id>com.atex.plugins.baseline.EntityFromContext.ot</id>
+    </output-templates>
+    <output-templates mode="mobile">
+      <id>com.atex.plugins.baseline.EntityFromContext.ot</id>
+    </output-templates>
+  <content-xml><contentref group="plugin" name="plugindef"><contentid><major>Content</major><externalid>plugins.it.conquiste.features-conquiste</externalid></contentid></contentref></content-xml></input-template>
+
+  <output-template name="com.atex.plugins.baseline.EntityFromContext.ot" input-template="p.siteengine.ElementOutputTemplate">
+    <content-xml>
+      <component group="output/modelKeyMode" name="selected">no-cache</component>
+      <component group="output/renderer/selected/default" name="value">
+        <![CDATA[
+           #if ($m.local.content.entityFromContext)
+             #renderwithfallback({"content": "$content.entityFromContext.id"})
+             <div class="related-content-metadata-name">$content.entityFromContext.name</div>
+             #end
+           #end
+        ]]>
+      </component>
+      <contentref group="output/renderer" name="selected">
+        <contentid>
+          <externalid>p.siteengine.VelocityRenderer</externalid>
+        </contentid>
+      </contentref>
+      <component group="preview/controller" name="value">com.polopoly.siteengine.preview.PreviewControllerStandard</component>
+    </content-xml>
+  <content-xml><contentref group="plugin" name="plugindef"><contentid><major>Content</major><externalid>plugins.it.conquiste.features-conquiste</externalid></contentid></contentref></content-xml></output-template>
+</template-definition>

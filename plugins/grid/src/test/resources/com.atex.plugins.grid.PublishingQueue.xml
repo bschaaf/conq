@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content>
+    <metadata>
+      <contentid>
+        <major>1</major>
+        <externalid>GridElementPolicyTestIT.gridelement.publishingqueue</externalid>
+      </contentid>
+      <security-parent>
+        <externalid>GridElementPolicyTestIT.site</externalid>
+      </security-parent>
+      <input-template>
+        <externalid>com.atex.plugins.baseline.ContentListPublishingQueue</externalid>
+      </input-template>
+    </metadata>
+    <component group="polopoly.Content" name="name"><![CDATA[Publishing queue for grid element test]]></component>
+    <component group="polopoly.ContentLists" name="polopoly.Toc"><![CDATA[default]]></component>
+    <component group="associatedSites" name="count"><![CDATA[0]]></component>
+    <contentlist mode="reset" group="polopoly.Toc">
+      <entry mode="insert" withMetadata="false">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>GridElementPolicyTestIT.gridelement.article</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry mode="insert" withMetadata="false">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>GridElementPolicyTestIT.gridelement.article</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry mode="insert" withMetadata="false">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>GridElementPolicyTestIT.gridelement.article</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry mode="insert" withMetadata="false">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>GridElementPolicyTestIT.gridelement.article</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry mode="insert" withMetadata="false">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>GridElementPolicyTestIT.gridelement.article</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry mode="insert" withMetadata="false">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>GridElementPolicyTestIT.gridelement.article</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry mode="insert" withMetadata="false">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>GridElementPolicyTestIT.gridelement.article</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry mode="insert" withMetadata="false">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>GridElementPolicyTestIT.gridelement.article</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+  </content>
+</batch>

@@ -1,0 +1,3 @@
+id:plugins.com.atex.plugins.users.Config
+major:appconfig
+component:token.secret:value:INSECURE-TEST-KEY

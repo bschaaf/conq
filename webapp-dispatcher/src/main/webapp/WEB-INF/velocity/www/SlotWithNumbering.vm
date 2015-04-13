@@ -1,0 +1,111 @@
+#set($list = [])
+#if($content.slotElements)
+	#set($list = $content.slotElements.list)
+	#set($is_publishingQueue = 0)
+#elseif($content.publishingQueue and $content.publishingQueue.list.size() > 0)
+	#set($publishingQueue = $content.publishingQueue.list.get(0).content)
+	#set($is_publishingQueue = 1)
+	#set($list = $publishingQueue.contentList)
+#end
+
+#set($attr=$m.request.httpRequest.attributes)
+#set($displayTools = $m.request.preview.inInteractivePreviewMode)
+#if($displayTools)
+    #if($m.stack.noDrag)
+       #set($dropareaClass = "")
+       #set($draggableClass = "")
+    #else
+       #set($dropareaClass = " polopoly-droparea")
+       #set($draggableClass = " polopoly-draggable")
+    #end
+    <div class="polopoly-slot$dropareaClass" polopoly:contentId="$content.contentId.contentIdString" polopoly:slotId="$content.slotId">
+    #if ($list.size() == 0)
+      <div>&nbsp</div>
+    #end
+#end
+
+#set($utilInt = 0) ## su cui usare i metodi per l'oggetto java Int
+
+#set($doubleQuote = '"')
+#set($slotUtils = $content.slotUtils)
+#if ($m.request.httpRequest.getParameter("edit"))
+    #set($edits = $m.request.httpRequest.getParameter("edit").split(","))
+#end
+#set($maxItemInSlotInt = 100000)
+#if ($attr.maxItemInSlot)
+    #set($maxItemInSlotInt = $utilInt.parseInt($attr.maxItemInSlot))
+#end
+#set($colonne = 1)
+#if($attr.colonne)
+	#set($colonne = $utilInt.parseInt($attr.colonne))
+#end
+#set($startFrom = 0)
+#if($attr.startFrom)
+	#set($startFrom = $utilInt.parseInt($attr.startFrom))
+#end
+#set($noRow = 0)
+#if($is_publishingQueue == 1)
+	#set($noRow = 1)
+#elseif($attr.noRow)
+	#set($noRow = $attr.noRow)
+#end
+#set($classeRow = "")
+#if($attr.classeRow)
+	#set($classeRow = $attr.classeRow)
+#end
+
+#if($noRow == 0)<div class="row $classeRow">#end
+#set($globalVmCount = 0)
+#if($attr.globalVmCount)
+	#set($globalVmCount = $attr.globalVmCount)
+#end
+#set($display_index = 0)
+#foreach($entry in $list)
+	## checks if the element is a List to esclude it from the startFrom parameter
+	#if($entry.content.publishingQueue)
+		#set($is_publishingQueue = 1)
+	#else
+		#set($globalVmCount = $globalVmCount + 1)
+		#set($m.request.httpRequest.attributes.globalVmCount = $globalVmCount)
+	#end
+	#set($is_objectGroup = 0)
+	#if($entry.content.elements)
+		#set($is_objectGroup = 1)
+	#end
+	#if($globalVmCount <= $maxItemInSlotInt && ($is_publishingQueue == 1 || $globalVmCount > $startFrom))
+		#if($is_objectGroup == 1 && $noRow == 0)
+</div> ## closes .row when not needed
+		#end
+
+		#set($isEditable = $displayTools && $slotUtils.isEditable($edits, $entry.content.contentId))
+		#if($isEditable)
+		  #set($contentEditableObjectName = $slotUtils.getInteractivePreviewEditableObjectName($entry.content.contentId))
+		  #if($contentEditableObjectName)
+			#set($contentEditableAttribute = "polopoly:editableobjectname=$doubleQuote$contentEditableObjectName$doubleQuote")
+		  #else
+			#set($contentEditableAttribute = "")
+		  #end
+		  <div class="polopoly-element$draggableClass" polopoly:contentid="$entry.content.contentId.contentIdString" $contentEditableAttribute>
+		#end
+
+		## Render element
+		#render({"content": $entry.contentId, "":""})
+
+		#if($isEditable)
+		  </div>
+		#end
+		#set($display_index = $display_index + 1)
+		#if($is_objectGroup == 1 && $noRow == 0)
+<div class="row $classeRow"> ## re-opens .row when closed before
+		#elseif($noRow == 0 && $display_index % $colonne == 0 && $globalVmCount < $maxItemInSlotInt && $globalVmCount < $list.size())
+</div>
+<div class="row $classeRow">
+		#end
+	#end
+#end
+#set($m.request.httpRequest.attributes.globalVmCount = 0)
+#if($noRow == 0)</div>#end
+
+#if($displayTools)
+    </div>
+#end

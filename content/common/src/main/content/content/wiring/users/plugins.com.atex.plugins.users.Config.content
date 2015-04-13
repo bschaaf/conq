@@ -1,0 +1,3 @@
+id:.
+major:appconfig
+component:token.secret:value:INSECURE-DEFAULT-KEY

@@ -1,0 +1,42 @@
+Google Plus
+
+  You can configure the google+ button in the plugin configuration page from the polopoly GUI.
+  Look at SiteEngine/Configuration/Plugins/Social Sharing Plugin.
+  To have a list of available options for most of these parameters have a look at {{https://developers.google.com/+/web/share/}}
+  for the "<<share>>" button and {{https://developers.google.com/+/web/+1button/}} for the "<<+1>>" button.
+
+* Google+ page url
+
+  Here you can specify your google plus business page, see {{https://support.google.com/business/answer/4569085}}.
+
+* Button type
+
+  You can use the standard "<<Share>>" button or the "<<+1>>" button.
+
+* Annotation
+
+  You can change the aspect of the button (see {{https://developers.google.com/+/web/share/}}) for available options.
+  The "<<+1>>" button only have one type of "bubble".
+
+* Height
+
+  You can customize the height of the widget.
+
+* Width
+
+  You can customize the width of the widget, the minimum is 120px.
+  Only insert the numeric value (i.e. for 240px insert 240).
+
+* Additional Attributes
+
+  You can specify any additional attribute that will be added to the div. For example you can add
+
++---------------------+
+  data-align="right"
++---------------------+
+
+  to align the baloon on the right.
+
+* Language
+
+  Language to be used when displaying the google widgets.

@@ -1,0 +1,5 @@
+id:.
+major:department
+inputtemplate:p.TemplateCategory
+securityparent:plugins.com.atex.plugins.teaser
+name:Template category that may override the allowed input templates in the teasers image content list

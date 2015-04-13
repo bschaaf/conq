@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<!-- Imports and publishes solr/search related content -->
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content clear="true">
+    <metadata>
+      <contentid>
+        <major>AppConfig</major>
+        <externalid>p.IndexMapping-p.siteengine.Site</externalid>
+      </contentid>
+      <security-parent>
+        <externalid>p.SolrIndexDefinitionHome</externalid>
+      </security-parent>
+      <input-template>
+        <externalid>p.IndexMapping</externalid>
+      </input-template>
+    </metadata>
+    <component group="polopoly.Content" name="name">Index mappings for sites</component>
+    <component group="mapping" name="name">lowRelevanceText</component>
+  </content>
+  <content>
+    <metadata>
+      <contentid>
+        <major>AppConfig</major>
+        <externalid>p.InternalIndexDefinition</externalid>
+      </contentid>
+    </metadata>
+    <contentref group="mappers" name="p.siteengine.Site">
+      <contentid>
+        <externalid>p.IndexMapping-p.siteengine.Site</externalid>
+      </contentid>
+    </contentref>
+  </content>
+</batch>

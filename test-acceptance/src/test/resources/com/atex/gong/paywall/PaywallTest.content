@@ -1,0 +1,98 @@
+id:.duration
+major:article
+inputtemplate:p.PaywallDuration
+securityparent:p.PaywallConfiguration.d
+name:One month duration (TEST)
+component:nofDays:value:30
+
+id:.subscriptionlevel
+major:article
+inputtemplate:p.PaywallSubscriptionLevel
+securityparent:p.PaywallConfiguration.d
+name:Online Subscription (TEST)
+component:capabilities:count:1
+ref:capabilities:reference0:p.CapabilityOnline
+ref:capabilities:reference_parent0:p.PaywallConfiguration.d
+
+id:.bundle
+major:article
+inputtemplate:p.PaywallContentBundle
+securityparent:p.PaywallConfiguration.d
+name:Sports Bundle (TEST)
+
+id:.product
+major:article
+inputtemplate:p.PaywallProduct
+securityparent:p.PaywallConfiguration.d
+name:Sports Product (TEST)
+component:contentBundles:count:1
+ref:contentBundles:reference0:.bundle
+ref:contentBundles:reference_parent0:p.PaywallConfiguration.d
+
+id:.offering
+major:article
+inputtemplate:p.PaywallOffering
+securityparent:p.PaywallConfiguration.d
+name:Sports One Month Offering (TEST)
+component:duration:count:1
+component:product:count:1
+component:subscriptionLevel:count:1
+ref:duration:reference0:.duration
+ref:duration:reference_parent0:p.PaywallConfiguration.d
+ref:product:reference0:.product
+ref:product:reference_parent0:p.PaywallConfiguration.d
+ref:subscriptionLevel:reference0:.subscriptionlevel
+ref:subscriptionLevel:reference_parent0:p.PaywallConfiguration.d
+
+id:p.PaywallConfiguration.d
+major:department
+inputtemplate:p.Paywall
+component:enableMeteredModel:value:true
+component:meteredFreeClicks:value:1
+component:meteredPeriod:value:30
+
+id:.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Paywalled Site (TEST)
+
+id:.sportspage
+major:department
+inputtemplate:p.siteengine.Page
+securityparent:.site
+name:Sports Page (TEST)
+component:premiumContent/isPremiumContent:value:true
+component:premiumContent/contentBundles:count:1
+ref:premiumContent/contentBundles:reference0:.bundle
+ref:premiumContent/contentBundles:reference_parent0:p.PaywallConfiguration.d
+
+id:.businesspage
+major:department
+inputtemplate:p.siteengine.Page
+securityparent:.site
+name:Business Page (TEST)
+
+id:.freearticle
+major:article
+inputtemplate:standard.Article
+securityparent:.businesspage
+name:Free business article. Title text
+component:body:value:<p>Free business article. Body text</p>
+component:lead:value:Free business article. Lead text
+
+id:.premiumarticle1
+major:article
+inputtemplate:standard.Article
+securityparent:.sportspage
+name:Premium sports article 1. Title text
+component:body:value:<p>Premium sports article 1. Body text</p>
+component:lead:value:Premium sports article 1. Lead text
+
+id:.premiumarticle2
+major:article
+inputtemplate:standard.Article
+securityparent:.sportspage
+name:Premium sports article 2. Title text
+component:body:value:<p>Premium sports article 2. Body text</p>
+component:lead:value:Premium sports article 2. Lead text

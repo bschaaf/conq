@@ -1,0 +1,3 @@
+<article class="company-entity">
+  <section>$!esc.html($content.summary.value)</section>
+</article>

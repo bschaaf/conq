@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content>
+    <metadata>
+      <contentid>
+        <major>AppConfig</major>
+        <externalid>p.config.UnifiedContentConfiguration</externalid>
+      </contentid>
+      <input-template>
+        <externalid>p.config.UnifiedContentConfiguration.it</externalid>
+      </input-template>
+      <security-parent>
+        <externalid>p.SystemDepartment</externalid>
+      </security-parent>
+    </metadata>
+    <component name="name" group="polopoly.Content">Unified Content Configuration</component>
+    <component name="defaultInputTemplate" group="polopoly.Content"></component>
+    <contentref name="insertParentId" group="polopoly.Parent">
+      <contentid>
+        <externalid>p.SystemDepartment</externalid>
+      </contentid>
+    </contentref>
+    <component name="value" group="defaultInputTemplate.article">it.conquiste.standard.Article</component>
+    <component name="value" group="defaultInputTemplate.image">standard.Image</component>
+	<component name="value" group="defaultInputTemplate.mediaGallery">com.atex.plugins.image-gallery.MainElement</component>
+  </content>
+</batch>

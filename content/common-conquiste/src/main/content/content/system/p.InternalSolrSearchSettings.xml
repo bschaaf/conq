@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+
+  <!--Default configuration content for solr facet search settings -->
+  <!--The p.SearchArea field takes a parameter: solrSearchSettingsContent -->
+  <!--that specifies the externalid for the configuration content to use. -->
+  <!--The default one is p.InternalSolrSearchSettings -->
+  <!-- -->
+  <!--group: must be "facet" -->
+  <!--name: solr field to facet on -->
+  <!--value <true/false>: present the facets in the searh result with the -->
+  <!-- contentname instead of contentid -->
+  <!-- -->
+  <!--The facets displaynames are stored in the localized files with the labels: -->
+  <!--cm.facets.<solr field> -->
+  <content clear="true">
+    <metadata>
+      <contentid>
+        <externalid>p.InternalSolrSearchSettings</externalid>
+      </contentid>
+      <input-template>
+        <externalid>p.SolrSearchSettingsTemplate</externalid>
+      </input-template>
+    </metadata>
+    <component group="p.SearchFacetting" name="configuration">{"facets":
+        [
+          {
+            "solrFieldName": "inputTemplate",
+            "useNameTransform": true,
+            "maxFacetValues": 10
+          },
+          {
+            "solrFieldName": "page",
+            "useNameTransform": true,
+            "maxFacetValues": 10
+          },
+          {
+            "solrFieldName": "tag_dimension.Person",
+            "useNameTransform": false,
+            "maxFacetValues": 5
+          },
+          {
+            "solrFieldName": "tag_dimension.Company",
+            "useNameTransform": false,
+            "maxFacetValues": 5
+          },
+          {
+            "solrFieldName": "tag_dimension.Tag",
+            "useNameTransform": false,
+            "maxFacetValues": 5
+          },
+          {
+            "solrFieldName": "tag_dimension.Organisation",
+            "useNameTransform": false,
+            "maxFacetValues": 5
+          },
+          {
+            "solrFieldName": "tag_dimension.Location",
+            "useNameTransform": false,
+            "maxFacetValues": 5
+          },
+		            {
+            "solrFieldName": "tag_dimension.Blogger",
+            "useNameTransform": false,
+            "maxFacetValues": 5
+          }
+        ]}</component>
+  </content>
+</batch>

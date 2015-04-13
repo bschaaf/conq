@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+
+  <input-template name="it.conquiste.HomeGalleryElement" label="it.conquiste.HomeGalleryElement.label">
+
+    <type>LayoutElement</type>
+
+    <policy>com.atex.plugins.baseline.policy.BaselinePolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+
+    <param name="ViewState_insert">false</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditState_saveAndFastInsert">false</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditNewState_saveAndClose">false</param>
+    <param name="EditNewState_saveAndInsert">false</param>
+    <param name="EditNewState_saveAndFastInsert">true</param>
+    <param name="EditNewState_saveAndView">false</param>
+    <param name="renderTemplateIconInSelect">true</param>
+
+    <editor contextName="orchid_TOCENTRY">com.polopoly.siteengine.standard.contentlist.OContentListEntryBasePolicyWidget</editor>
+    <viewer contextName="orchid_TOCENTRY">com.polopoly.siteengine.standard.contentlist.OContentListEntryBasePolicyWidget</viewer>
+
+    <field name="name" input-template="p.ContentName" label="cm.label.Name" required="true">
+      <param name="inlineHelp">true</param>
+    </field>
+    <field name="link" input-template="p.ContentSingleSelect" label="it.conquiste.HomeGalleryElement.Link.label" required="true">
+      <param name="allowArticles">false</param>
+      <idparam name="rootContent"><externalid>p.siteengine.Sites.d</externalid></idparam>
+      <param name="hierarchyModel">com.polopoly.cm.app.model.ContentListHierarchyModel</param>
+    </field>
+    <field name="publishingQueue" input-template="p.ContentListEntryContainer" label="com.atex.plugins.list.publishingQueue">
+      <param name="contentListName">publishingQueue</param>
+      <param name="showActionButtonsInViewMode">false</param>
+    </field>
+
+    <output-templates mode="www">
+      <id>it.conquiste.HomeGalleryElement.ot</id>
+    </output-templates>
+  </input-template>
+  <output-template name="it.conquiste.HomeGalleryElement.ot" input-template="p.siteengine.ElementOutputTemplate">
+    <content-xml>
+      <component group="output/modelKeyMode" name="selected">no-cache</component>
+      <contentref group="output/renderer" name="selected">
+        <contentid>
+          <externalid>p.siteengine.VelocityFileRenderer</externalid>
+        </contentid>
+      </contentref>
+      <component group="output/renderer/selected/defaultVelocityViewFileName" name="value">/WEB-INF/velocity/it.conquiste.homegalleryelement.vm</component>
+      <contentref group="output/controller" name="selected">
+        <contentid>
+          <externalid>p.siteengine.JavaClassRenderController</externalid>
+        </contentid>
+      </contentref>
+      <component group="output/controller/selected/renderControllerClass" name="value">it.conquiste.cm.gallery.RenderControllerHomeGalleryElement</component>
+    </content-xml>
+  </output-template>
+
+</template-definition>

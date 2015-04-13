@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content>
+    <metadata>
+      <contentid>
+        <externalid>p.siteengine.ElementLayoutTemplates.d</externalid>
+      </contentid>
+    </metadata>
+    <contentlist>
+        <entry mode="remove" withMetadata="false">
+            <metadata>
+                <referredContent>
+                    <contentid>
+                        <externalid>com.atex.plugins.teaser.Teaser</externalid>
+                    </contentid>
+                </referredContent>
+            </metadata>
+        </entry>
+        <entry mode="modify" withMetadata="false">
+            <metadata>
+                <referredContent>
+                    <contentid>
+                        <externalid>it.conquiste.teaser.Teaser</externalid>
+                    </contentid>
+                </referredContent>
+            </metadata>
+        </entry>
+        <entry mode="modify" withMetadata="false">
+            <metadata>
+                <referredContent>
+                    <contentid>
+                        <externalid>it.conquiste.breakingNews</externalid>
+                    </contentid>
+                </referredContent>
+            </metadata>
+        </entry>
+        <entry mode="modify" withMetadata="false">
+            <metadata>
+                <referredContent>
+                    <contentid>
+                        <externalid>it.conquiste.RssElement</externalid>
+                    </contentid>
+                </referredContent>
+            </metadata>
+        </entry>
+        <entry mode="modify" withMetadata="false">
+            <metadata>
+                <referredContent>
+                    <contentid>
+                        <externalid>it.conquiste.DirettaElement</externalid>
+                    </contentid>
+                </referredContent>
+            </metadata>
+        </entry>
+        <entry mode="modify" withMetadata="false">
+            <metadata>
+                <referredContent>
+                    <contentid>
+                        <externalid>it.conquiste.YouTubeVideo</externalid>
+                    </contentid>
+                </referredContent>
+            </metadata>
+        </entry>
+    </contentlist>
+  </content>
+</batch>

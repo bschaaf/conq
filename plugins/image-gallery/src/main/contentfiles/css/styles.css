@@ -1,0 +1,71 @@
+/*-------------------------
+  Dropbox Element
+--------------------------*/
+#dropbox{
+  border-radius:3px;
+  position: relative;
+  min-height: 70px;
+  overflow: hidden;
+  width: 100%;
+  background-color: #EEEEEE;
+}
+
+#dropbox .message {
+    font-size: 11px;
+    text-align: center;
+    line-height: 6em;
+    display: block;
+    color: #777;
+}
+
+#dropbox .message i {
+  color:#ccc;
+  font-size:10px;
+}
+
+#dropbox .message img {
+  display:none;
+  vertical-align:middle;
+  margin-right: 5px;
+}
+
+.custom-search-image-gallery {
+    text-align: center;
+    color: #666;
+}
+
+.custom-search-image-gallery .image-container {
+  display: inline-block;
+  position: relative;
+  width: 84px;
+}
+
+.custom-search-image-gallery .image-container img {
+  float: left;
+  width: 40px;
+  margin-bottom: 4px;
+}
+
+.custom-search-image-gallery .image-container img:nth-child(odd) {
+  margin-right: 4px;
+}
+
+.custom-search-image-gallery .image-count {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .4);
+    padding: 2px 4px;
+    margin-bottom: 4px;
+    border-top-left-radius: 3px;
+}
+.image-entry img {
+    max-height: 40px;
+}
+
+.image-entry:hover img {
+    max-height: 80px;
+    transition-delay:0.2s;
+}
+

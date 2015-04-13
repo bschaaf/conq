@@ -1,0 +1,11 @@
+<!-- Inizio Video YouTube -->
+<div class="large-12 column noRight noLeft">
+<div class="bgMediaGallery">
+<object width="304" height="210">
+  <param name="movie" value="$content.youTubeUrl.value"></param>
+  <param name="wmode" value="transparent"></param>
+  <embed src="$content.youTubeUrl.value" type="application/x-shockwave-flash" wmode="transparent" width="100%"></embed>
+</object>
+</div>
+</div>
+<!-- Fine Video YouTube -->

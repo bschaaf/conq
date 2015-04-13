@@ -1,0 +1,6 @@
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="com.atex.plugins.batchoperations.ArticleWorkflowSearch">
+    <editor>com.polopoly.cm.app.search.WorkflowSearch</editor>
+    <viewer>com.polopoly.cm.app.search.WorkflowSearch</viewer>
+  </input-template>
+</template-definition>

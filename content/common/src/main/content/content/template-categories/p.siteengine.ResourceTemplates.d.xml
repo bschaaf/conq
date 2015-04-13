@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content>
+    <metadata>
+      <contentid>
+        <major>Department</major>
+        <externalid>p.siteengine.ResourceTemplates.d</externalid>
+      </contentid>
+      <input-template>
+        <externalid>p.TemplateRoot</externalid>
+      </input-template>
+      <security-parent>
+        <externalid>p.sitengine.ContentCreatorTemplates.d</externalid>
+      </security-parent>
+    </metadata>
+    <component name="name" group="polopoly.Content">Resource templates</component>
+    <contentlist>
+      <entry mode="modify" withMetadata="false">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>p.siteengine.ResourceArticleTemplates.d</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+  </content>
+</batch>

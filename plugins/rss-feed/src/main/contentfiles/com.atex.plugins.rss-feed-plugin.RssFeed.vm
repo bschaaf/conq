@@ -1,0 +1,46 @@
+## Will need site alias set to get absolute URLs
+#set($feedLink="#link({'path': $content.parentIds, 'htmlEncodeLink': 'true', 'requestAttribs': {'localLinksEnabled': 'false'}})")
+<?xml version="1.0"?>
+<rss version="2.0">
+  <channel>
+    <title>$!title</title>
+    <link>$!feedLink</link>
+    <description>
+      $!description
+    </description>
+    <lastBuildDate>$!lastBuildDate</lastBuildDate>
+    ## Add channel image
+    #if($hasImage)
+      ## Will need an image service configuration for image service location to get absolute URL
+      #set($imageUrl = $esc.xml("${urlBuilder.width(200).buildUrl()}"))
+      <image>
+        <title>$!title</title>
+        <link>$!feedLink</link>
+        <url>$!imageUrl</url>
+      </image>
+    #end
+    #set($language = $content.language.value)
+    #if("$!language" != "")
+      <language>$!language</language>
+    #end
+    #set($categories = $categories)
+    #foreach($category in $categories)
+      <category>$category</category>
+    #end
+
+    #foreach($item in $rssItems)
+      #set($itemLink="#link({'path': $item.parentIds, 'htmlEncodeLink': 'true', 'requestAttribs': {'localLinksEnabled': 'false'}})")
+      <item>
+        <title>$!item.title</title>
+        <link>$!itemLink</link>
+        <description>$!item.description</description>
+        <guid isPermaLink="false">$!item.guid</guid>
+        <pubDate>$!item.pubDate</pubDate>
+        #if($item.imageUrlBuilder)
+          #set($imageUrl = $esc.xml("${item.imageUrlBuilder.buildUrl()}"))
+          <enclosure url="$tool_link.getContextURL()$imageUrl" />
+        #end
+      </item>
+    #end
+  </channel>
+</rss>

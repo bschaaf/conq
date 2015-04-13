@@ -1,0 +1,84 @@
+<div class="large-12 column $extra_attr">
+    <div class="home">
+        <h2 class="titleTwo leadTitletop"></h2>
+        <!-- NEW TITLE-->
+        <div class="imgSlider">
+            <div class="titleSlider">
+                <a href="$link" title="" class="urlLink">
+                    <h3 class="titleThree"></h3> 
+                </a>
+				
+                <div class="autore">
+                    <p><strong>di
+                            <span class="zoneAuthor"></span>
+                    </strong></p>
+                </div>
+            </div>
+			#if(!$content.extendedWidth.checked)
+			  <div class="nextSliderHome"></div>
+			  <div class="backSliderHome"></div>
+			#end
+        </div>
+        <!-- end -->
+    </div>  
+	   <!--Sipariettp-->
+       <div class="siparietto">
+           <p>Questa è un'anterpima della notizia!</p>
+       </div>
+	<!-- add this div for slider-->
+        <div class="contentPreviewSlide" style="display: none;">
+        <!-- PREVIEW LITLE HOME COMPONEST SLIDER-->
+		#set($teaser=$teasers[$counter])
+        #set($path = $teaser.linkPath)
+        #set($link = "#link({'path': $path, 'htmlEncodeLink': 'true'})")
+
+            <div class="large-4 medium-4 small-12 column" style="display:none">
+                    <!-- These inputs are used to javascript for update slider information-->
+					    <input type="hidden" class="leadTitle" value="$teaser.overtitle">
+                        #if($!teaser.imageContentId.contentIdString)
+                        <input type="hidden" class="imageUrl" value="$tool_img.getUrlBuilder($teaser.imageContentId.contentIdString).buildUrl()">
+                        #end
+                        <input type="hidden" class="author" value="$!teaser.teaserables.list.get(0).content.byline.value">
+                        <input type="hidden" class="linkhidden" value="$link">						
+                        <input type="hidden" class="title" value="$esc.html($teaser.name)">
+                        <input type="hidden" class="testo" value="$teaser.text">
+                    <!-- end -->
+            </div>
+  #if(!$content.extendedWidth.checked)
+	#set($counter = $counter + 1)
+    #set($teaser=$teasers[$counter])
+	#set($path = $teaser.linkPath)
+    #set($link = "#link({'path': $path, 'htmlEncodeLink': 'true'})")
+            <div class="large-4 medium-4 small-12 column ">
+                    <!-- These inputs are used to javascript for update slider information-->
+					    <input type="hidden" class="leadTitle" value="$teaser.overtitle">
+                        #if($!teaser.imageContentId.contentIdString)
+                        <input type="hidden" class="imageUrl" value="$tool_img.getUrlBuilder($teaser.imageContentId.contentIdString).buildUrl()">
+						#end
+                        <input type="hidden" class="author" value="$!teaser.teaserables.list.get(0).content.byline.value">
+						<input type="hidden" class="linkhidden" value="$link">
+                        <input type="hidden" class="title" value="$esc.html($teaser.name)">
+                        <input type="hidden" class="testo" value="$teaser.text">
+                    <!-- end -->
+            </div>
+	#set($counter = $counter + 1)
+    #set($teaser=$teasers[$counter])
+	#set($path = $teaser.linkPath)
+    #set($link = "#link({'path': $path, 'htmlEncodeLink': 'true'})")
+            <div class="large-4 medium-4 small-12 column ">
+                    <!-- These inputs are used to javascript for update slider information-->
+					    <input type="hidden" class="leadTitle" value="$teaser.overtitle">
+                        #if($!teaser.imageContentId.contentIdString)
+                        <input type="hidden" class="imageUrl" value="$tool_img.getUrlBuilder($teaser.imageContentId.contentIdString).buildUrl()">
+                        #end
+                        <input type="hidden" class="author" value="$!teaser.teaserables.list.get(0).content.byline.value">
+						<input type="hidden" class="linkhidden" value="$link">
+                        <input type="hidden" class="title" value="$esc.html($teaser.name)">
+                        <input type="hidden" class="testo" value="$teaser.text">
+                    <!-- end -->
+            </div>
+  #end
+        </div>
+	<!-- end div content slider -->
+
+</div>

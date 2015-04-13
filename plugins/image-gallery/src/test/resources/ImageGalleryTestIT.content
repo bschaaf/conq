@@ -1,0 +1,5 @@
+id:.site
+major:2
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+component:polopoly.Content:name:Test site for image Gallery web test

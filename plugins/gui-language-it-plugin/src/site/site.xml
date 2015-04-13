@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="The Swedish language Admin GUI Plugin">
+  <bannerLeft>
+    <name>${project.name}</name>
+  </bannerLeft>
+
+  <skin>
+    <groupId>com.polopoly.extensions</groupId>
+    <artifactId>gt-example-plugin-site-skin</artifactId>
+    <version>10.4.0-0e345d8</version>
+  </skin>
+
+  <body>
+    <menu name="The plugin">
+      <item name="Overview" href="index.html" />
+    </menu>
+
+    <menu name="Configuration">
+      <item name="Configuration" href="plugin-config.html" />
+    </menu>
+
+    <menu name="Detailed Project Information" ref="reports"/>
+  </body>
+</project>

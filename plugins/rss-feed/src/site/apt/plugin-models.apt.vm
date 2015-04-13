@@ -1,0 +1,16 @@
+Model properties
+
+  This section shows the available properties of the models provided by the included content types, if any.
+
+  The following is an example.
+
+* com.atex.plugins.rssfeed.MainElement
+
+*-----------+------------------+------------------------------------+
+| <<Name>>  | <<Description>>  | <<Type>>                           |
+*-----------+------------------+------------------------------------+
+| name      | The Content Name | java.lang.String                   |
+*-----------+------------------+------------------------------------+
+| contentId | The Content Id   | com.polopoly.cm.VersionedContentId |
+*-----------*------------------*------------------------------------*
+

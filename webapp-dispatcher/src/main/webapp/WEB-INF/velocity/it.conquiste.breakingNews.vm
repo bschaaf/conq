@@ -1,0 +1,21 @@
+#set($numberOfItems = $content.numberOfItems)
+#if($numberOfItems > 0)
+<!-- BREAKING NEWS -->
+<div class="row borderNews">
+    <div class="large-2 medium-2 small-4 column breakingNews">
+        <img src="/img/breakingNews.png" alt="Breaking News">
+    </div>
+    <div class="large-10 medium-10 small-8 column">
+        <div class="contShotNews">
+            <ul>
+                #set($list = $content.defaultList.subList(0, $numberOfItems))
+                #foreach($entry in $list)
+                  #set($newsTime = $date.format("HH : mm", $entry.content.publishingDateTime, $m.context.site.bean.resources.locale))
+                  #set($path = $p_path.resolve($entry.content.contentId, $m.context.page.contentPath))
+                  <li><strong>$newsTime</strong> <a href="#link({"path": $path, 'htmlEncodeLink': 'true'})" title="News">$entry.content.headline.value</a></li>
+                #end
+            </ul>
+        </div>
+    </div>
+</div>
+#end

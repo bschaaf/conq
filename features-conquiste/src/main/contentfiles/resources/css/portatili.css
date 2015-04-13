@@ -1,0 +1,258 @@
+/*
+##############################################################################
+#         stili css media handheld per CDL 2009                              #
+#                        CSS per il mobile                                   #
+##############################################################################
+*/
+
+.hidden, div#testata h1 span, img, hr, #strillibassi, #collegamentifooter, #pathbar ul, #boxmultimedia-1, #news-2, #news-3, .linguette{
+    display: none !important;
+}
+
+body {
+        background-color: #FFF;
+        color: #000;
+        padding: 0;
+        margin: 0;
+        font-family: Verdana, Helvetica, sans-serif;
+        font-size: 0.75em;
+}
+
+a, a:visited{
+    background-color: inherit;
+    color: #015B03;
+}
+
+div#contenitore{
+        padding: 0 10px;
+}
+
+#data{
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+div#menunavigazione{
+    padding: 0px;
+}
+
+div#menunavigazione, div#menunavigazione a, div#menunavigazione a:visited{
+   /* background-color: #015B03;
+        color: #FFF;*/
+}
+
+div#menunavigazione ul{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+div#testata {
+        /*background-color: #9F0808;
+        color: #FFF;
+        float: left;
+        width: 100%;*/
+        clear: both;
+    margin-bottom: 20px;
+    background-image: url(../img/sfondotestata_mobile.png);
+    background-repeat: repeat-x;
+    background-position: left top;
+    border-bottom: 1px solid #ccc;
+}
+
+div#testata img {
+    border: 0;
+    padding: 3px 10px 0 0;
+    float: left;
+    clear: left;
+}
+
+div#testata p {
+    font-size: 0.8em;
+    padding: 8px 5px 5px 0;
+    display:block;
+}
+
+
+div#testata h1 a{
+        display: block;
+        width: 110px;
+        height: 40px;
+        /*background-image: url(../img/logo_cdl_mobile.png);
+        background-position: left top;
+        background-repeat: no-repeat;*/
+}
+
+#menuservizio{
+        top: 25px;
+        right: 20px;
+        position: absolute;
+}
+
+form#areariservata{
+        border: 0;
+        margin: 0;
+        top: 60px;
+        right: 10px;
+        position: absolute;
+	display: none;
+}
+
+
+form#ricerca{
+        top: 50px;
+        left: 20px;
+        position: absolute;
+        margin: 0;
+}
+
+form#ricerca input{
+        margin-left: 5px;
+}
+
+form#ricerca fieldset, form#areariservata fieldset{
+        border: 0;
+        margin: 0;
+}
+
+ul{
+        margin: auto;
+        padding: auto;
+}
+
+ /*
+ul li {
+   list-style: none;
+    display: inline;
+    background-image: url(../img/bordo_dotted_big.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right:8px;
+    padding-left:3px;
+    height: 1%;
+}*/
+
+#menunavigazione ul{
+        margin-left: 0;
+        padding-left: 0;
+}
+
+#menunavigazione ul li {
+    list-style: none !important;
+    display: inline !important;
+    /*background-image: url(../img/bordo_dotted_big.png);
+    background-repeat: no-repeat;
+    background-position: right center;*/
+    padding-right:5px;
+    padding-left:5px;
+    height: 1%;
+    border-left: 1px solid #015B03;
+}
+
+#menunavigazione ul li.primo{
+        margin-left: 0;
+        padding-left: 0;
+        border: 0;
+}
+
+ul li a {
+    color: #015B03;
+        background-color: inherit;
+    text-decoration:none;
+}
+
+#testata ul {
+    list-style: none !important;
+}
+
+li.terminatore {
+    background-image: none;
+}
+
+h2 {
+    font-size: 1.1em;
+    color: #9F0A09;
+background-color: inherit;
+    text-transform: uppercase;
+}
+
+div#corpo h3 {
+    font-size: 1em;
+    color:#9F0A09;
+background-color: inherit;
+}
+
+div#corpo h2 a, div#corpo h3 a {
+    color:#9F0A09;
+    text-decoration: underline;
+background-color: inherit;
+}
+
+/*
+div#corpo ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-image: url(../img/icona_pathbar.png);
+    background-repeat: no-repeat;
+    background-position: left 0.4em;
+    display: block;
+}
+
+div#corpo ul {
+    background-image: url(../img/bordo_dotted.png);
+        background-repeat: repeat-x;
+        background-position: left bottom;
+    margin:0 10px;
+    padding:0px 10px 10px 10px;
+}*/
+
+div#corpo div.content {
+    padding:0 6px 8px 7px;/*
+    background-image: url(../img/bordo_dotted.png);
+    background-repeat: repeat-x;
+    background-position: left bottom;*/
+    margin-left:6px;
+    margin-right:6px;
+}
+/*
+#breakingnews li{
+        clear: both;
+        float: none;
+        display: block;
+}*/
+
+p.tornasu {
+    text-align: right;
+    padding-bottom:5px;
+    display:block;
+    padding-right:8px;
+}
+
+p.tornasu a {
+    color: #015B03;
+    background-color: inherit;
+    font-weight: bold;
+    padding-right:14px;/*
+    background-image: url(../img/icona_tornasu.png);
+    background-repeat: no-repeat;
+    background-position: right 0.4em;*/
+    height: 1%;
+}
+ 
+h3.hidden{
+        display: block !important;
+}
+
+#mailfooter img{
+        display: inline !important;
+        border: 0;
+}
+
+div#footer{
+    border-top: 2px solid #ccc;
+    padding: 10px;
+}

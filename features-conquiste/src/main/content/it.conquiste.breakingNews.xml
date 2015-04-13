@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <!--This file contains input template definitions -->
+  <input-template name="it.conquiste.breakingNews" label="it.conquiste.breakingNews.label">
+    <type>LayoutElement</type>
+    <policy>com.atex.plugins.list.ListElementPolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <editor contextName="orchid_TOCENTRY">com.polopoly.siteengine.standard.contentlist.OContentListEntryBasePolicyWidget</editor>
+    <viewer contextName="orchid_TOCENTRY">com.polopoly.siteengine.standard.contentlist.OContentListEntryBasePolicyWidget</viewer>
+
+    <param name="ViewState_insert">false</param>
+    <param name="ViewState_refresh">true</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditState_saveAndFastInsert">false</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditState_saveAndEdit">false</param>
+    <param name="EditNewState_saveAndClose">false</param>
+    <param name="EditNewState_saveAndInsert">false</param>
+    <param name="EditNewState_saveAndFastInsert">true</param>
+    <param name="EditNewState_saveAndView">false</param>
+
+    <param name="renderTemplateIconInSelect">true</param>
+    <content-list name="publishingQueue" input-template="com.atex.plugins.list.PublishingQueueContentListWrapper" />
+    <field name="name" input-template="p.ContentName" label="com.atex.plugins.list.name" required="true">
+      <param name="inlineHelp">true</param>
+    </field>
+    <field name="numberOfItems" input-template="p.TextInput" label="com.atex.plugins.list.numberOfItems" required="true">
+      <help>com.atex.plugins.list.numberOfItems.help</help>
+      <policy>com.polopoly.cm.app.policy.NumberInputPolicy</policy>
+      <param name="type">int</param>
+      <param name="size">5</param>
+      <param name="maxlength">5</param>
+      <param name="default">10</param>
+    </field>
+    <field name="publishingQueueCreator" input-template="p.ContentCreator" label="com.atex.plugins.list.newPublishingQueue">
+      <param name="createWithSecurityParent">true</param>
+      <param name="securityParentAlias">content</param>
+      <param name="insertTargetAlias">content</param>
+      <param name="askInsertTarget">false</param>
+      <param name="insertionContentListName">publishingQueue</param>
+      <param name="askInsertionContentListName">false</param>
+      <param name="showCategorySelectWithOneCategory">false</param>
+      <param name="askContentListPosition">false</param>
+      <param name="insertPosition">top</param>
+      <idparam name="templateRoot">
+        <externalid>p.siteengine.SourcesRepositoryTemplates</externalid>
+      </idparam>
+    </field>
+    <field name="publishingQueue" input-template="p.ContentListEntryContainer" label="com.atex.plugins.list.publishingQueue">
+      <param name="contentListName">publishingQueue</param>
+      <param name="showActionButtonsInViewMode">false</param>
+    </field>
+    <output-templates mode="www">
+      <id>it.conquiste.breakingNews.ot</id>
+    </output-templates>
+  </input-template>
+  <output-template name="it.conquiste.breakingNews.ot" input-template="p.siteengine.ElementOutputTemplate">
+    <content-xml>
+      <component group="output/modelKeyMode" name="selected">no-cache</component>
+      <contentref group="output/renderer" name="selected">
+        <contentid>
+          <externalid>p.siteengine.VelocityFileRenderer</externalid>
+        </contentid>
+      </contentref>
+      <component group="output/renderer/selected/defaultVelocityViewFileName" name="value">/WEB-INF/velocity/it.conquiste.breakingNews.vm</component>
+      <contentref group="output/controller" name="selected">
+        <contentid>
+          <externalid>p.siteengine.JavaClassRenderController</externalid>
+        </contentid>
+      </contentref>
+      <component group="output/controller/selected/renderControllerClass" name="value">it.conquiste.cm.breakingnews.BreakingNewsRenderController</component>
+      <component group="preview/controller" name="value">com.polopoly.siteengine.preview.PreviewControllerStandard</component>
+    </content-xml>
+  </output-template>
+</template-definition>

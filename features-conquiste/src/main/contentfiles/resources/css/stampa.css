@@ -1,0 +1,27 @@
+ 
+/*
+    CSS di Stampa per Conquiste del lavoro (c)2009
+    Eustema s.p.a.
+    (du)
+*/
+
+body{
+    font-size: 10pt;
+    font-family: font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.hidden, #boxmultimedia, #menuservizio, #areariservata, #menunavigazione, #pathbar, #boxmultimedia, #strillipromozionali, #carosello, #strillilaterali, #collegamentifooter, #footer hr{
+    display: none;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+    background-color: #fff;
+}
+
+#footer{
+    border-top: 2px solid #000;
+    text-align: center;
+    font-size: 8pt;
+}

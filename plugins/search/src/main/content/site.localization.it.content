@@ -1,0 +1,14 @@
+id:localizedstrings.italian
+major:1
+inputtemplate:p.siteengine.LocalizedStrings
+component:localizedstrings:com.atex.plugins.search.SearchUnavailable:La ricerca è momentaneamente non disponibile.
+component:localizedstrings:com.atex.plugins.search.placeholder:Cerca nel sito
+component:localizedstrings:com.atex.plugins.search.didnotmatch:La tua ricerca per <em>%s</em> non ha prodotto risultati.
+component:localizedstrings:com.atex.plugins.search.single.results:C'è un solo risultato.
+component:localizedstrings:com.atex.plugins.search.multi.results:Ci sono %d risultati.
+component:localizedstrings:com.atex.plugins.search.previousPage.title:Pagina precedente
+component:localizedstrings:com.atex.plugins.search.previousPage.content:&laquo;
+component:localizedstrings:com.atex.plugins.search.nextPage.title:Pagina successiva
+component:localizedstrings:com.atex.plugins.search.nextPage.content:&raquo;
+component:localizedstrings:com.atex.plugins.search.currentPage.title:Pagina %s
+component:localizedstrings:com.atex.plugins.search.search:Cerca

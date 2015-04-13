@@ -1,0 +1,68 @@
+{
+  "id": "act.template.Article",
+
+  "type": "com.atex.standard.article.ArticleBean",
+
+  "label": "Article",
+  "namePath": "contentData/title",
+
+  "aspects": {
+    "atex.Metadata": {}
+  },
+
+  "dataBindings": [
+    {
+      "label": "Title",
+      "widget": "pTextInput",
+
+      "config": {
+        "placeholder": "Title of article goes here..."
+      },
+
+      "domainObjects": {
+        "data": "contentData/title"
+      }
+    },
+    {
+      "label": "Lead",
+      "widget": "pTextArea",
+
+      "config": {
+        "placeholder": "Lead of article goes here..."
+      },
+
+      "domainObjects": {
+        "data": "contentData/lead"
+      }
+    },
+    {
+      "label": "Body",
+      "widget": "pCKEditor",
+
+      "config": {
+        "height": "400"
+      },
+
+      "domainObjects": {
+        "data": "contentData/body"
+      }
+    },
+    {
+      "label": "Associated Sites",
+      "widget": "pAssociatedSites",
+
+      "domainObjects": {
+        "associatedSites": "p.InsertionInfo/associatedSites",
+        "taxonomyIds": "atex.Metadata/taxonomyIds"
+      }
+    },
+    {
+      "label": "Metadata",
+      "widget": "pMetadata",
+
+      "domainObjects": {
+        "data": "atex.Metadata"
+      }
+    }
+  ]
+}

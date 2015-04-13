@@ -1,0 +1,7 @@
+# Map user and authentication types to p.model.Pojo
+id:.
+major:3
+inputtemplate:com.atex.onecms.content.ContentManager.config
+component:inputTemplateMapping:com.atex.plugins.users.UserAuthentication:p.model.Pojo
+component:inputTemplateMapping:com.atex.plugins.users.User:p.model.Pojo
+component:inputTemplateMapping:com.atex.plugins.users.AuthenticationMethod:p.model.Pojo

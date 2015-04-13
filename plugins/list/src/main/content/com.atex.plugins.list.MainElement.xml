@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <!--This file contains input template definitions -->
+  <input-template name="com.atex.plugins.list.MainElement" label="com.atex.plugins.list.mainElement">
+    <type>LayoutElement</type>
+    <policy>com.atex.plugins.list.ListElementPolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <editor contextName="orchid_TOCENTRY">com.polopoly.siteengine.standard.contentlist.OContentListEntryBasePolicyWidget</editor>
+    <viewer contextName="orchid_TOCENTRY">com.polopoly.siteengine.standard.contentlist.OContentListEntryBasePolicyWidget</viewer>
+
+    <param name="ViewState_insert">false</param>
+    <param name="ViewState_refresh">true</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditState_saveAndFastInsert">false</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditState_saveAndEdit">false</param>
+    <param name="EditNewState_saveAndClose">false</param>
+    <param name="EditNewState_saveAndInsert">false</param>
+    <param name="EditNewState_saveAndFastInsert">true</param>
+    <param name="EditNewState_saveAndView">false</param>
+
+    <param name="renderTemplateIconInSelect">true</param>
+    <content-list name="publishingQueue" input-template="com.atex.plugins.list.PublishingQueueContentListWrapper" />
+    <field name="description" input-template="p.TextOutput">
+      <help>This element is used to display links to all content in provided publishing queue.</help>
+      <param name="inlineHelp">true</param>
+    </field>
+    <field name="name" input-template="p.ContentName" label="com.atex.plugins.list.name" required="true">
+      <param name="inlineHelp">true</param>
+    </field>
+    <field name="numberOfItems" input-template="p.TextInput" label="com.atex.plugins.list.numberOfItems" required="true">
+      <help>com.atex.plugins.list.numberOfItems.help</help>
+      <policy>com.polopoly.cm.app.policy.NumberInputPolicy</policy>
+      <param name="type">int</param>
+      <param name="size">5</param>
+      <param name="maxlength">5</param>
+      <param name="default">10</param>
+    </field>
+    <layout name="displaySettings" input-template="p.HorizontalGroup" label="com.atex.plugins.list.displaySettings">
+      <param name="showLabel">false</param>
+      <field name="linkPrefix" input-template="p.Select" label="com.atex.plugins.list.linkPrefix">
+          <help>com.atex.plugins.list.linkPrefix.help</help>
+          <param name="size">1</param>
+          <param name="selected">0</param>
+          <param name="multivalued">false</param>
+          <param name="label_0">com.atex.plugins.list.linkPrefix.None</param>
+          <param name="value_0"></param>
+          <param name="label_1">com.atex.plugins.list.linkPrefix.Time</param>
+          <param name="value_1">showTime</param>
+          <param name="label_2">com.atex.plugins.list.linkPrefix.Number</param>
+          <param name="value_2">showNumbers</param>
+      </field>
+      <field name="additionalStyle" input-template="p.Select" label="com.atex.plugins.list.additionalStyle">
+          <help>com.atex.plugins.list.additionalStyle.help</help>
+          <param name="size">1</param>
+          <param name="selected">0</param>
+          <param name="multivalued">false</param>
+          <param name="label_0">None</param>
+          <param name="value_0"></param>
+          <param name="label_1">Underlined items</param>
+          <param name="value_1">lined</param>
+          <param name="label_2">Gallery items</param>
+          <param name="value_2">gallery</param>
+        </field>
+    </layout>
+    <field name="publishingQueueCreator" input-template="p.ContentCreator" label="com.atex.plugins.list.newPublishingQueue">
+      <param name="createWithSecurityParent">true</param>
+      <param name="securityParentAlias">content</param>
+      <param name="insertTargetAlias">content</param>
+      <param name="askInsertTarget">false</param>
+      <param name="insertionContentListName">publishingQueue</param>
+      <param name="askInsertionContentListName">false</param>
+      <param name="showCategorySelectWithOneCategory">false</param>
+      <param name="askContentListPosition">false</param>
+      <param name="insertPosition">top</param>
+      <idparam name="templateRoot">
+        <externalid>p.siteengine.SourcesRepositoryTemplates</externalid>
+      </idparam>
+    </field>
+    <field name="publishingQueue" input-template="p.ContentListEntryContainer" label="com.atex.plugins.list.publishingQueue">
+      <param name="contentListName">publishingQueue</param>
+      <param name="showActionButtonsInViewMode">false</param>
+    </field>
+    <output-templates mode="www">
+      <id>com.atex.plugins.list.MainElement.ot</id>
+    </output-templates>
+  </input-template>
+</template-definition>

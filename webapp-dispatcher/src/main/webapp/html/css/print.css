@@ -1,0 +1,10 @@
+.nav, .social, .topNav, .contResearch, .loginUser{
+    display:none;
+    }
+    
+    .title h1 {
+        font-size: 3.5em;
+    }
+    .articleTxt{
+        padding: 1em 0 1em 0;
+    }

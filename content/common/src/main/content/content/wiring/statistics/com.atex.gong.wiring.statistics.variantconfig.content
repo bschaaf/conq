@@ -1,0 +1,17 @@
+# Statistics variant definition; declare identity mapping for ThinBean
+id:com.atex.gong.wiring.statistics.variantconfig
+major:3
+inputtemplate:com.polopoly.data.Variant.config
+component:model:modelType:com.polopoly.data.mapping.VariantConfig
+component::defaultMapping:atex.onecms.ContentManager.exclude
+component:composer:com.atex.gong.wiring.statistics.thin:atex.onecms.ContentManager.identity
+component:composer:com.atex.standard.article.ArticleBean:com.atex.gong.wiring.statistics.articlecomposer
+component:composer:p.siteengine.SiteRoot:atex.onecms.ContentManager.identity
+component:composer:p.siteengine.Site:atex.onecms.ContentManager.identity
+component:composer:p.siteengine.Page:atex.onecms.ContentManager.identity
+
+# Put our variant in default config
+id:atex.onecms.ContentManager.DefaultConfig
+major:3
+inputtemplate:com.atex.onecms.content.ContentManager.config
+component:variantMapping:statistics.thin:com.atex.gong.wiring.statistics.variantconfig

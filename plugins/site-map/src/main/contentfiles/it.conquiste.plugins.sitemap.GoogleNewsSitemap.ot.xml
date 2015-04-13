@@ -1,0 +1,25 @@
+<output-template name="it.conquiste.plugins.sitemap.GoogleNewsSitemap.ot" input-template="p.siteengine.XmlOutputTemplate">
+	<content-xml>
+
+		<contentref group="plugin" name="plugindef">
+			<contentid>
+				<major>Content</major>
+				<externalid>plugins.it.conquiste.site-map</externalid>
+			</contentid>
+		</contentref>
+		<component group="polopoly.Content" name="name">Google news sitemap output template</component>
+		<component group="output/modelKeyMode" name="selected">no-cache</component>
+		<contentref group="output/renderer" name="selected">
+			<contentid>
+				<externalid>p.siteengine.VelocityRenderer</externalid>
+			</contentid>
+		</contentref>
+		<component group="output/renderer" name="templateFileName">it.conquiste.plugins.sitemap.GoogleNewsSitemap.vm</component>
+		<contentref group="output/controller" name="selected">
+			<contentid>
+				<externalid>p.siteengine.JavaClassRenderController</externalid>
+			</contentid>
+		</contentref>
+		<component group="output/controller/selected/renderControllerClass" name="value">it.conquiste.plugins.sitemap.controlers.GoogleNewsSitemapController</component>
+	</content-xml>
+</output-template>

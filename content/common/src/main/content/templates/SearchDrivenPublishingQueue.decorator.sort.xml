@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="com.atex.plugins.baseline.SearchDrivenPublishingQueue.decorator.sort" label="standard.pq.SearchDriven.decorator.sort.label">
+    <policy>com.atex.gong.publishingqueues.DecoratorSort</policy>
+    <editor>com.atex.plugins.baseline.widget.OInlineContext</editor>
+    <viewer>com.atex.plugins.baseline.widget.OInlineContext</viewer>
+    <idparam name="contextInputTemplate:orchid_TOCENTRY">
+    <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue.decorator.sort</externalid>
+    </idparam>
+    <idparam name="contextInputTemplate:orchid_TOCITEM">
+    <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue.decorator.sort</externalid>
+    </idparam>
+    <idparam name="contextInputTemplate:orchid_CONTENTCREATOR">
+    <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue.decorator.sort</externalid>
+    </idparam>
+    <param name="editorContentListEntryWidget">com.atex.plugins.baseline.widget.OSimpleContextWrapper</param>
+    <param name="viewerContentListEntryWidget">com.atex.plugins.baseline.widget.OSimpleContextWrapper</param>
+    <type>Article</type>
+    <param name="ViewState_insert">false</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditState_saveAndFastInsert">true</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditNewState_saveAndClose">false</param>
+    <param name="EditNewState_saveAndInsert">false</param>
+    <param name="EditNewState_saveAndFastInsert">true</param>
+    <param name="EditNewState_saveAndView">false</param>
+    <param name="ViewState_copy">true</param>
+    <param name="metadataPath">metadata_source/metadata</param>
+    <layout name="padding" input-template="p.Group">
+      <param name="showLabel">false</param>
+      <param name="showFieldset">false</param>
+      <param name="cssClass">p_padding</param>
+      <field name="description" input-template="p.TextOutput">
+        <help>standard.pq.SearchDriven.decorator.sort.label</help>
+        <param name="inlineHelp">true</param>
+      </field>
+      <layout name="paragraph" input-template="p.HorizontalGroup" label=" ">
+        <param name="visible">true</param>
+        <field name="field" input-template="p.Select" label="standard.pq.SearchDriven.decorator.sort.field">
+          <param name="size">1</param>
+          <param name="selected">0</param>
+          <param name="multivalued">false</param>
+          <param name="label_0">standard.pq.SearchDriven.decorator.sort.modifiedDate</param>
+          <param name="value_0">modifiedDate</param>
+          <param name="label_1">standard.pq.SearchDriven.decorator.sort.publishingDate</param>
+          <param name="value_1">publishingDate</param>
+        </field>
+        <field name="order" input-template="p.Select" label="standard.pq.SearchDriven.decorator.sort.order">
+          <param name="size">1</param>
+          <param name="selected">0</param>
+          <param name="multivalued">false</param>
+          <param name="label_0">standard.pq.SearchDriven.decorator.sort.asc</param>
+          <param name="value_0">asc</param>
+          <param name="label_1">standard.pq.SearchDriven.decorator.sort.desc</param>
+          <param name="value_1">desc</param>
+        </field>
+      </layout>
+    </layout>
+  </input-template>
+</template-definition>

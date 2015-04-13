@@ -1,0 +1,12 @@
+# Order categories
+id:p.StandardCategorization
+major:department
+inputtemplate:p.CategoryDimensions
+securityparent:p.SystemDepartment
+list:polopoly.Department:dimension.Company
+list:polopoly.Department:dimension.Organisation
+list:polopoly.Department:dimension.Location
+list:polopoly.Department:dimension.Person
+list:polopoly.Department:dimension.Tag
+list:polopoly.Department:dimension.IPTC
+list:polopoly.Department:dimension.Blogger

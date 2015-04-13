@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="com.atex.plugins.poll.PollElement" label="com.atex.plugins.poll.pollElement">
+    <type>LayoutElement</type>
+    <policy>com.atex.plugins.poll.PollElementPolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <param name="renderTemplateIconInSelect">true</param>
+    <editor contextName="orchid_TOCENTRY">com.atex.plugins.baseline.widget.OContentListEntryBasePolicyWidget</editor>
+    <viewer contextName="orchid_TOCENTRY">com.atex.plugins.baseline.widget.OContentListEntryBasePolicyWidget</viewer>
+    <param name="ViewState_insert">false</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditState_saveAndFastInsert">false</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditNewState_saveAndClose">false</param>
+    <param name="EditNewState_saveAndInsert">false</param>
+    <param name="EditNewState_saveAndFastInsert">true</param>
+    <param name="EditNewState_saveAndView">false</param>
+    <field name="singlePollField" input-template="poll.SinglePoll"/>
+    <field name="questionField" input-template="poll.Question" label="com.atex.plugins.poll.question"/>
+    <field name="answerOptionsLayout" input-template="p.RadioButtonGroup"
+           label="com.atex.plugins.poll.optionsLayout">
+      <param name="label_0">com.atex.plugins.poll.optionsLayout.horizontal</param>
+      <param name="value_0">horizontal</param>
+      <param name="label_1">com.atex.plugins.poll.optionsLayout.vertical</param>
+      <param name="value_1">vertical</param>
+      <param name="selected">0</param>
+    </field>
+    <field name="pollResult" input-template="poll.PollResult" label="com.atex.plugins.poll.result" />
+    <output-templates mode="www">
+      <id>com.atex.plugins.poll.PollElement.ot</id>
+    </output-templates>
+  </input-template>
+</template-definition>

@@ -1,0 +1,11 @@
+id:dimension.IPTC
+major:department
+inputtemplate:p.CategoryTree
+securityparent:p.StandardCategorization
+
+id:.
+major:appconfig
+component:type:count:1
+ref:type:reference0:standard.Article
+ref:type:reference_parent0:p.templatecategory.standardarticle
+list:polopoly.Toc:dimension.IPTC

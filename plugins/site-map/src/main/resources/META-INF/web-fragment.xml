@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-fragment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-fragment_3_0.xsd" id="WebAppFragment_ID"
+	version="3.0">
+	<name>Sitemap</name>
+
+	<context-param>
+    	<param-name>cmservlet_ignore.sitemap</param-name>
+		<param-value>.*sitemap\.xml</param-value>
+  	</context-param>
+
+	<!-- Filter definition for sitemap -->
+	<filter>
+		<filter-name>sitemapFilter</filter-name>
+		<filter-class>it.conquiste.plugins.sitemap.filters.SitemapFilter</filter-class>
+	</filter>
+	
+	<!-- Mapping of the sitemap filter -->
+	<filter-mapping>
+		<filter-name>sitemapFilter</filter-name>
+		<url-pattern>*.xml</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+
+</web-fragment>

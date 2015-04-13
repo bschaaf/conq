@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content>
+    <metadata>
+      <contentid>
+        <major>LayoutElement</major>
+        <externalid>com.atex.gong.paywall.paywall</externalid>
+      </contentid>
+      <security-parent>
+        <externalid>PolopolyPost.d</externalid>
+      </security-parent>
+      <input-template>
+        <externalid>com.atex.gong.paywall.MainElement</externalid>
+      </input-template>
+    </metadata>
+    <component name="name" group="polopoly.Content">subscription-required</component>
+  </content>
+</batch>

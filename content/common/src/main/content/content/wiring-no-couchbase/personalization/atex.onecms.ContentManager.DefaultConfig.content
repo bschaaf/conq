@@ -1,0 +1,5 @@
+# Map Personalization type to p.model.Pojo
+id:.
+major:3
+inputtemplate:com.atex.onecms.content.ContentManager.config
+component:inputTemplateMapping:com.atex.plugins.personalization.Personalization:p.model.Pojo

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <!--This file contains input template definitions -->
+  <input-template name="com.atex.plugins.grid.TeaserableMock" label="Teaserable Mock">
+    <policy>com.atex.plugins.baseline.policy.BaselinePolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <type>Article</type>
+
+    <field name="name" input-template="p.ContentName" label="Name">
+    </field>
+    <field name="text" input-template="p.TextArea" label="Text">
+    </field>
+    <field name="images" input-template="p.ContentListEntryContainer" label="Images">
+      <param name="contentListName">images</param>
+    </field>
+
+  </input-template>
+</template-definition>

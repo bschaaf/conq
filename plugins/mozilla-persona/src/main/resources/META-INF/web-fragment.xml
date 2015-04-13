@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-fragment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-fragment_3_1.xsd"
+              id="WebAppFragment_ID"
+              version="3.1">
+
+  <name>mozilla-persona-login-fragment</name>
+
+  <context-param>
+    <param-name>cmservlet_ignore.mozilla-persona-login</param-name>
+    <param-value>persona/login</param-value>
+  </context-param>
+
+  <servlet>
+    <servlet-name>MozillaPersonaLogin</servlet-name>
+    <servlet-class>com.atex.plugins.persona.servlet.LoginServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>MozillaPersonaLogin</servlet-name>
+    <url-pattern>/persona/login</url-pattern>
+  </servlet-mapping>
+
+  <context-param>
+    <param-name>cmservlet_ignore.mozilla-persona-logout</param-name>
+    <param-value>persona/logout</param-value>
+  </context-param>
+
+  <servlet>
+    <servlet-name>MozillaPersonaLogout</servlet-name>
+    <servlet-class>com.atex.plugins.persona.servlet.LogoutServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>MozillaPersonaLogout</servlet-name>
+    <url-pattern>/persona/logout</url-pattern>
+  </servlet-mapping>
+
+</web-fragment>

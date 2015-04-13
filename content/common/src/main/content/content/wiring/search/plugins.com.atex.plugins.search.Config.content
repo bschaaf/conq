@@ -1,0 +1,4 @@
+id:.
+major:17
+inputtemplate:com.atex.plugins.search.Config.it
+component:facetfields:value:tag_dimension.Tag,tag_dimension.Person,tag_dimension.Organisation,tag_dimension.Location,tag_dimension.IPTC,inputTemplate

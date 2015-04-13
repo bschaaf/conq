@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content>
+    <metadata>
+      <contentid>
+        <externalid>atex.onecms.ContributorToolTemplateList</externalid>
+      </contentid>
+    </metadata>
+
+    <contentlist mode="reset">
+      <entry withMetadata="false">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>atex.onecms.Template-act.template.Article</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry withMetadata="false">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>atex.onecms.Template-act.template.Image.edit</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+  </content>
+</batch>

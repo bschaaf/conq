@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <name>Dispatcher Web Application</name>
+
+  <artifactId>webapp-dispatcher</artifactId>
+  <packaging>war</packaging>
+
+  <parent>
+    <groupId>com.atex.gong</groupId>
+    <artifactId>top</artifactId>
+    <version>1.1</version>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <artifactId>source-common</artifactId>
+      <groupId>com.atex.gong</groupId>
+      <version>${project.version}</version>
+    </dependency>
+
+	<dependency>
+      <artifactId>features-conquiste</artifactId>
+      <groupId>it.conquiste</groupId>
+      <version>${project.version}</version>
+    </dependency>
+	
+	<dependency>
+      <artifactId>auto-login-dispatcher</artifactId>
+      <groupId>com.atex.gong</groupId>
+      <version>${project.version}</version>
+    </dependency>
+	
+    <dependency>
+      <groupId>com.polopoly</groupId>
+      <artifactId>statistics-logger</artifactId>
+      <version>${polopoly.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+    </dependency>
+
+   <dependency>
+      <groupId>commons-digester</groupId>
+      <artifactId>commons-digester</artifactId>
+      <version>1.8</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.polopoly</groupId>
+      <artifactId>polopoly-development</artifactId>
+      <version>${polopoly.version}</version>
+      <type>jar</type>
+    </dependency>
+
+    <dependency>
+      <groupId>com.polopoly</groupId>
+      <artifactId>webresource-compactor</artifactId>
+      <version>${polopoly.version}</version>
+      <type>jar</type>
+    </dependency>
+
+    <dependency>
+      <groupId>com.polopoly</groupId>
+      <artifactId>filedelivery-service</artifactId>
+      <version>${polopoly.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>ROOT</finalName>
+
+    <resources>
+      <resource>
+        <directory>${basedir}/config/${targetEnv}</directory>
+      </resource>
+      <resource>
+        <directory>${basedir}/config/common</directory>
+      </resource>
+    </resources>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.1.1</version>
+        <configuration>
+          <packagingExcludes>WEB-INF/lib/servlet-api-*.jar</packagingExcludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.polopoly.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>${jetty-plugin.version}</version>
+        <configuration>
+          <scanIntervalSeconds>${polopoly.jetty-scanIntervalSeconds}</scanIntervalSeconds>
+          <jettyConfig>${project.parent.basedir}/config/target/config/jetty-jmx.xml</jettyConfig>
+          <webAppConfig>
+            <contextPath>/</contextPath>
+          </webAppConfig>
+          <systemProperties>
+            <systemProperty>
+              <name>polopoly.forcePreviewWithoutGui</name>
+              <value>true</value>
+            </systemProperty>
+            <systemProperty>
+              <name>clientCacheBaseDir</name>
+              <value>${project.build.directory}/tmp</value>
+            </systemProperty>
+            <systemProperty>
+              <name>p.connectionPropertiesUrl</name>
+              <value>${polopoly.connection-properties}</value>
+            </systemProperty>
+          </systemProperties>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

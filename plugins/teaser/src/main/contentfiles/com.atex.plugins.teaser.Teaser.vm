@@ -1,0 +1,33 @@
+#if( "$!content.name" != ""
+  || "$!content.text" != ""
+  || $content.imageContentId)
+  #set($rs = $m.context.site.bean.resources.strings)
+  #if($content.teaserableContentId)
+    #set($path = $content.linkPath)
+    #set($link = "#link({'path': $path, 'htmlEncodeLink': 'true'})")
+  #end
+  <div class="element-teaser">
+    #if($content.imageContentId)
+      #set($m.stack.imageFormat = "3x2")
+      <div class="image">
+        #renderwithfallback({"content": $!content.imageContentId})
+        #end
+      </div>
+    #end
+    <h2>
+      #if($link)
+        <a href="$link" title="$!content.name">$!content.name</a>
+      #else
+        $!content.name
+      #end
+    </h2>
+    #set($text = $!content.text)
+    #foreach($attribute in $content.attributes)
+      #if($attribute.value != "")
+        #set($value = $rs.get($attribute.value))
+      #end
+      #set($text = "<span class=${esc.quote}$!attribute.cssClass${esc.quote}>$!value</span> $text")
+    #end
+    <p>$!text</p>
+  </div>
+#end

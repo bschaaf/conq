@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="p.siteengine.Site.BatchOperations" label="cm.template.p.siteengine.Site.BatchOperations">
+    <policy>com.polopoly.cm.policy.ContentPolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <layout name="settingsmenu" input-template="p.AjaxPageMenu">
+      <layout name="workflowBatchApproveArea" input-template="p.Page" label="com.atex.plugins.batchoperations.WorkflowBatchOperation">
+        <field name="workflowBatchApprove" input-template="com.atex.plugins.batchoperations.WorkflowBatchOperation" />
+      </layout>
+      <layout name="recategorizeBatchArea" input-template="p.Page" label="com.atex.plugins.batchoperations.CategorizationBatchOperation">
+        <field name="recategorizeBatch" input-template="com.atex.plugins.batchoperations.CategorizationBatchOperation" />
+      </layout>
+      <layout name="replaceSingleBatchArea" input-template="p.Page" label="cm.template.p.ReplaceEntityBatchOperation.name">
+        <field name="replaceEntity" input-template="p.ReplaceSingleEntityBatchOperation" />
+      </layout>
+    </layout>
+  </input-template>
+</template-definition>

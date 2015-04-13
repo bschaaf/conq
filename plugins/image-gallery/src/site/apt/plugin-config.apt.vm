@@ -1,0 +1,95 @@
+Installation
+
+* Installing as a binary plugin
+
+  Edit $PROJECT/pom.xml and make sure the following is present:
+
++-------------------------------+
+<project>
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>${project.artifactId}</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>${project.artifactId}</artifactId>
+      <version>${project.version}</version>
+      <classifier>contentdata</classifier>
+    </dependency>
+  </dependencies>
+</project>
++-------------------------------+
+
+* Installing as a source plugin
+
+  [[1]] Copy or link your plugin into the project you wish to use.
+
+  [[2]] Edit $PROJECT/pom.xml and make sure the following is present:
+
++-------------------------------+
+<project>
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>${project.artifactId}</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+  <modules>
+    <module>${project.artifactId}</module>
+  </modules>
+</project>
++-------------------------------+
+
+* Running the project and plugin combination
+
+  You should now be able to run the project (with your plugin in it) using:
+
+  <mvn p:run>
+
+  Login to CM GUI, you should able to see ${project.artifactId} installed.
+
+[images/configuration.png]
+
+* Image Dimensions and Metadata
+
+  By default, images uploaded to a gallery don't have a width or
+  height set, which causes some layout issues, and the content name is
+  the name of the file. This information can be fetched from the image
+  metadata instead, which is recommended but requires
+  configuration. Metadata is extracted using <a
+  href="http://www.sno.phy.queensu.ca/~phil/exiftool/">ExifTool</a>. To
+  enable this feature, the system property
+  <<com.atex.onecms.exiftool.binary>> must point to the exiftool
+  binary. This is normally done on the command line for the web
+  container
+
++---------------------------------+
+-Dcom.atex.onecms.exiftool.binary=/usr/local/bin/exiftool
++---------------------------------+
+
+  but you can also add it to the pom.xml for convenience when using
+  p:run
+
++---------------------------------+
+      <plugin>
+        <groupId>com.polopoly.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        ...
+        <configuration>
+        ...
+          <systemProperties>
+          ...
+            <systemProperty>
+              <name>com.atex.onecms.exiftool.binary</name>
+              <value>/usr/local/bin/exiftool</value>
+            </systemProperty>
++---------------------------------+
+
+  When this feature is enabled a special <<atex.Image.ExifToolTags>>
+  aspect is added to the images. This aspect is experimental and
+  should not be relied upon as it may change or even be replaced in
+  future releases.

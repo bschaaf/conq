@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+	<diskCacheSettings>
+		<contentCacheDirectory>/cache/moderation/content</contentCacheDirectory>
+		<filesCacheDirectory>/cache/moderation/files</filesCacheDirectory>
+	</diskCacheSettings>
+</model>

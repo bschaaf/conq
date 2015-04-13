@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <!-- My OneCMS Content Settings: allow standard.Article and standard.Image -->
+
+  <content>
+    <metadata>
+      <contentid>
+        <major>AppConfig</major>
+        <externalid>atex.onecms.MyOneCMSContentConfiguration</externalid>
+      </contentid>
+    </metadata>
+
+    <component group="inputTemplates" name="count">2</component>
+
+    <contentref group="inputTemplates" name="reference0">
+      <contentid>
+        <externalid>standard.Article</externalid>
+      </contentid>
+    </contentref>
+
+    <contentref group="inputTemplates" name="reference1">
+      <contentid>
+        <externalid>standard.Image</externalid>
+      </contentid>
+    </contentref>
+
+    <contentref group="inputTemplates" name="reference_parent0">
+      <contentid>
+        <externalid>p.templatecategory.standardarticle</externalid>
+      </contentid>
+    </contentref>
+
+    <contentref group="inputTemplates" name="reference_parent1">
+      <contentid>
+        <externalid>p.templatecategory.image</externalid>
+      </contentid>
+    </contentref>
+  </content>
+</batch>

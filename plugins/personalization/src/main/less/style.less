@@ -1,0 +1,56 @@
+@base: #222;
+.personalization-banner {
+  padding: 10px;
+  border: 1px solid #D5D5D5;
+  border-radius: 4px;
+  background: repeating-linear-gradient(
+    135deg,
+    #F8F8F8,
+    #F8F8F8 10px,
+    #F0F0F0 10px,
+    #F0F0F0 20px
+  );
+  border: none;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.personalization-banner div.description {
+  color: #757373;
+}
+
+.personalization-banner span {
+  color: #333;
+  margin: 2px;
+  white-space: nowrap;
+}
+
+@color: #C00;
+@border-color: #c6c6c6;
+.element-personalized-list {
+    h2 {
+        border-bottom: 1px solid;
+        margin-top: 0;
+        font-size: 22px;
+    }
+    ul {
+        padding: 0 0 0 5px;
+        &.lined li:not(:last-child) {
+            border-bottom: 1px solid @border-color;
+        }
+    }
+    li {
+        list-style: none;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+        .number, .time {
+            margin-right: 10px;
+        }
+        .time, .number, a span {
+            color: @color;
+        }
+    }
+    a:hover {
+        text-decoration: inherit;
+    }
+}

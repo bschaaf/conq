@@ -1,0 +1,62 @@
+#set($rs = $m.context.site.bean.resources.strings)
+#set($prs = $rs.com.atex.plugins.search)
+#set($String = '')
+
+<div class="search-results row">
+#if ($m.system.serviceStatus.search_solrClientPublic.serving)
+  #if ($hitCount && $hitCount > 0)
+    <div class="col-md-12">
+    <ul class="list-group">
+    #foreach($hit in $hits)
+      <li class="hit clearfix">
+        #set($path = $hit.linkPath)
+        #set($link = "#link({'path': $path, 'htmlEncodeLink': 'true'})")
+        #if($hit.imageContentId)
+          <div class="image">
+            #set($m.stack.imageFormat = "3x2")
+            <a href="$link">
+            #renderwithfallback({"content": $hit.imageContentId})
+            #end
+            </a>
+          </div>
+        #end
+        <h3><a href="$link">$esc.html($hit.name)</a></h3>
+        #if ($hit.text)
+            <span class="hit_text">$hit.text</span>
+        #end
+      </li>
+    #end
+    </ul>
+
+    #if ($pagination.pagesAvailable > 1)
+    <div class="pagination">
+      <ul class="pagination">
+        #if($pagination.showPrevious)
+            <li><a onclick="Atex.plugin.search.goToPage($pagination.prevPageIndex)" href="#" title="$prs.previousPage.title">$prs.previousPage.content</a></li>
+        #end
+        #foreach($pageNr in $pagination.pages)
+            #set($css_class = "")
+            #if($pageNr == $pagination.currentPage)
+                #set($css_class="active")
+            #end
+            <li class="$css_class"><a onclick="Atex.plugin.search.goToPage($pageNr)" href="#"
+            title="$String.format($prs.currentPage.title.toString(), $pageNr)">$pageNr</a></li>
+        #end
+        #if ($pagination.showNext)
+            <li><a onclick="Atex.plugin.search.goToPage($pagination.nextPageIndex)" href="#" title="$prs.nextPage.title">$prs.nextPage.content</a></li>
+        #end
+      </ul>
+    </div>
+    #end
+    </div>
+  #else
+  <div class="col-md-12">
+    <div class="alert alert-info">$String.format($prs.didnotmatch.toString(), $q)</div>
+  </div>
+  #end
+#else
+  <div class="col-md-12">
+    <div class="alert alert-warning">$prs.SearchUnavailable</div>
+  </div>
+#end
+</div>

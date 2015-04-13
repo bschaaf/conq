@@ -1,0 +1,16 @@
+Models
+
+  This describes the "public api" of the models of this plugin, these properties can be expected to remain after an upgrade to a new version of this plugin.
+
+* com.atex.plugins.image-gallery.MainElement
+
+*-----------+------------------+------------------------------------+
+| <<Name>>  | <<Description>>  | <<Type>>                           |
+*-----------+------------------+------------------------------------+
+| name      | The Content Name | java.lang.String                   |
+*-----------+------------------+------------------------------------+
+| contentId | The Content Id   | com.polopoly.cm.VersionedContentId |
+*-----------+------------------+------------------------------------+
+| images    | The Images       | java.util.Collection\<com.atex.plugins.imagegallery.MainElementController.ImageHolder\>               |
+*-----------*------------------*------------------------------------*
+

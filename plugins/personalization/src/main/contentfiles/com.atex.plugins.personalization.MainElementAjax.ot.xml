@@ -1,0 +1,24 @@
+<output-template name="com.atex.plugins.personalization.MainElementAjax.ot" input-template="p.siteengine.ElementOutputTemplate">
+  <content-xml>
+    <contentref group="plugin" name="plugindef">
+      <contentid>
+        <major>Content</major>
+        <externalid>plugins.com.atex.plugins.personalization</externalid>
+      </contentid>
+    </contentref>
+    <component group="polopoly.Content" name="name">Personalization list ajax backend template</component>
+    <component group="output/modelKeyMode" name="selected">no-cache</component>
+    <contentref group="output/renderer" name="selected">
+      <contentid>
+        <externalid>p.siteengine.VelocityRenderer</externalid>
+      </contentid>
+    </contentref>
+    <component group="output/renderer" name="templateFileName">com.atex.plugins.personalization.MainElementAjax.vm</component>
+    <contentref group="output/controller" name="selected">
+      <contentid>
+        <externalid>p.siteengine.JavaClassRenderController</externalid>
+      </contentid>
+    </contentref>
+    <component group="output/controller/selected/renderControllerClass" name="value">com.atex.plugins.personalization.MainElementAjaxController</component>
+  </content-xml>
+</output-template>

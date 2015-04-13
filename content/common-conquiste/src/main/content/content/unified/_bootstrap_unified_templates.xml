@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+   <input-template name="p.config.UnifiedContentConfiguration.it"
+                  label="cm.general.UnifiedContentConfiguration">
+    <policy>com.polopoly.unified.content.impl.UnifiedContentConfigPolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    
+    <type>AppConfig</type>
+    <param name="ViewState_insert">false</param>
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="templateIcon">config.png</param>
+    <field name="defaultInputTemplate.article" input-template="p.TextInput" label="cm.general.UnifiedContentConfiguration.DefaultInputTemplate.article" />
+    <field name="defaultInputTemplate.image" input-template="p.TextInput" label="cm.general.UnifiedContentConfiguration.DefaultInputTemplate.image" />
+    <field name="defaultInputTemplate.video" input-template="p.TextInput" label="cm.general.UnifiedContentConfiguration.DefaultInputTemplate.video" />
+    <field name="defaultInputTemplate.audio" input-template="p.TextInput" label="cm.general.UnifiedContentConfiguration.DefaultInputTemplate.audio" />
+    <field name="defaultInputTemplate.mediaGallery" input-template="p.TextInput" label="cm.general.UnifiedContentConfiguration.DefaultInputTemplate.mediaGallery" />
+    <field name="contentFactoryClassName" input-template="p.TextInput" label="cm.general.UnifiedContentConfiguration.contentFactoryClassName" />
+  </input-template>
+  
+</template-definition>

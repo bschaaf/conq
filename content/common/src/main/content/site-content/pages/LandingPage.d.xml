@@ -1,0 +1,390 @@
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content updateIfExists="false">
+    <metadata>
+      <contentid>
+        <major>Department</major>
+        <externalid>LandingPage.d</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>p.siteengine.LandingPage</externalid>
+      </input-template>
+      <security-parent>
+        <major>Department</major>
+        <externalid>PolopolyPost.d</externalid>
+      </security-parent>
+    </metadata>
+  </content>
+  <content updateIfExists="false">
+    <metadata>
+      <contentid>
+        <major>LayoutElement</major>
+        <externalid>exportId-528a6d89-fbd5-4a89-a109-37d7785976e5</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.grid.MainElement</externalid>
+      </input-template>
+      <security-parent>
+        <major>Department</major>
+        <externalid>LandingPage.d</externalid>
+      </security-parent>
+    </metadata>
+  </content>
+  <content updateIfExists="false">
+    <metadata>
+      <contentid>
+        <major>Article</major>
+        <externalid>exportId-194c60a9-489a-4326-bce4-776e28f588b3</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue</externalid>
+      </input-template>
+      <security-parent>
+        <major>LayoutElement</major>
+        <externalid>exportId-528a6d89-fbd5-4a89-a109-37d7785976e5</externalid>
+      </security-parent>
+    </metadata>
+  </content>
+  <content updateIfExists="false">
+    <metadata>
+      <contentid>
+        <major>Article</major>
+        <externalid>exportId-d02ca97e-93b0-44a6-a751-d7223863b04e</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue.decorator.sort</externalid>
+      </input-template>
+      <security-parent>
+        <major>Article</major>
+        <externalid>exportId-194c60a9-489a-4326-bce4-776e28f588b3</externalid>
+      </security-parent>
+    </metadata>
+  </content>
+  <content updateIfExists="false">
+    <metadata>
+      <contentid>
+        <major>Article</major>
+        <externalid>exportId-9762edad-68a2-450f-9fc0-3fd3eb6d2d4a</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue.decorator.type</externalid>
+      </input-template>
+      <security-parent>
+        <major>Article</major>
+        <externalid>exportId-194c60a9-489a-4326-bce4-776e28f588b3</externalid>
+      </security-parent>
+    </metadata>
+  </content>
+  <content updateIfExists="false">
+    <metadata>
+      <contentid>
+        <major>Article</major>
+        <externalid>exportId-f4dc6195-9d79-461a-9c20-012c5c2801cb</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue.decorator.context</externalid>
+      </input-template>
+      <security-parent>
+        <major>Article</major>
+        <externalid>exportId-194c60a9-489a-4326-bce4-776e28f588b3</externalid>
+      </security-parent>
+    </metadata>
+  </content>
+  <content updateIfExists="false">
+    <metadata>
+      <contentid>
+        <major>LayoutElement</major>
+        <externalid>exportId-645aa177-0322-4bd6-9e57-a219466c70c4</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.EntityFromContext.it</externalid>
+      </input-template>
+      <security-parent>
+        <major>Department</major>
+        <externalid>LandingPage.d</externalid>
+      </security-parent>
+    </metadata>
+  </content>
+  <content clear="true">
+    <metadata>
+      <contentid>
+        <major>Department</major>
+        <externalid>LandingPage.d</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>p.siteengine.LandingPage</externalid>
+      </input-template>
+      <security-parent>
+        <major>Department</major>
+        <externalid>PolopolyPost.d</externalid>
+      </security-parent>
+    </metadata>
+    <component group="polopoly.Content" name="name">Topics</component>
+    <component group="disallowIndexing" name="value">false</component>
+    <component group="polopoly.ContentLists" name="feeds">feeds</component>
+    <component group="polopoly.ContentLists" name="pageLayout/selected/right/slotElements">slotElements</component>
+    <component group="polopoly.ContentLists" name="pageLayout/selected/left/slotElements">slotElements</component>
+    <component group="polopoly.ContentLists" name="css">css</component>
+    <component group="polopoly.ContentLists" name="sources">sources</component>
+    <component group="localizedstrings" name="count">0</component>
+    <component group="pageLayout/selected/right/inheritSetting" name="count">1</component>
+    <component group="pageLayout/selected/right/inheritSetting" name="selected_0">default</component>
+    <component group="pageLayout/selected/left/inheritSetting" name="count">1</component>
+    <component group="pageLayout/selected/left/inheritSetting" name="selected_0">default</component>
+    <component group="cacheTime/cacheTime" name="count">1</component>
+    <component group="cacheTime/cacheTime" name="selected_0">-1</component>
+    <contentref group="pageLayout" name="selected">
+      <contentid>
+        <major>InputTemplate</major>
+        <externalid>com.atex.gong.plugins.pagelayout.PageLayout</externalid>
+      </contentid>
+    </contentref>
+    <contentref group="polopoly.Content" name="inputTemplateId">
+      <contentid>
+        <major>InputTemplate</major>
+        <externalid>p.siteengine.LandingPage</externalid>
+      </contentid>
+    </contentref>
+    <contentlist group="pageLayout/selected/left/slotElements">
+      <entry>
+        <metadata>
+          <position>0</position>
+          <referredContent>
+            <contentid>
+              <major>LayoutElement</major>
+              <externalid>exportId-645aa177-0322-4bd6-9e57-a219466c70c4</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry>
+        <metadata>
+          <position>1</position>
+          <referredContent>
+            <contentid>
+              <major>LayoutElement</major>
+              <externalid>exportId-528a6d89-fbd5-4a89-a109-37d7785976e5</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+  </content>
+  <content clear="true">
+    <metadata>
+      <contentid>
+        <major>LayoutElement</major>
+        <externalid>exportId-528a6d89-fbd5-4a89-a109-37d7785976e5</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.grid.MainElement</externalid>
+      </input-template>
+      <security-parent>
+        <major>Department</major>
+        <externalid>LandingPage.d</externalid>
+      </security-parent>
+    </metadata>
+    <component group="numberOfColumns" name="count">1</component>
+    <component group="numberOfColumns" name="selected_0">1</component>
+    <component group="polopoly.Content" name="name">Top stories</component>
+    <component group="polopoly.ContentLists" name="publishingQueue">publishingQueue</component>
+    <component group="numberOfRows" name="value">10</component>
+    <component group="imagePosition" name="count">1</component>
+    <component group="imagePosition" name="selected_0">left</component>
+    <component group="publishingQueue" name="contentListMaxSize">1</component>
+    <contentref group="polopoly.Content" name="inputTemplateId">
+      <contentid>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.grid.MainElement</externalid>
+      </contentid>
+    </contentref>
+    <contentlist group="publishingQueue">
+      <entry>
+        <metadata>
+          <position>0</position>
+          <referredContent>
+            <contentid>
+              <major>Article</major>
+              <externalid>exportId-194c60a9-489a-4326-bce4-776e28f588b3</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+  </content>
+  <content clear="true">
+    <metadata>
+      <contentid>
+        <major>Article</major>
+        <externalid>exportId-194c60a9-489a-4326-bce4-776e28f588b3</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue</externalid>
+      </input-template>
+      <security-parent>
+        <major>LayoutElement</major>
+        <externalid>exportId-528a6d89-fbd5-4a89-a109-37d7785976e5</externalid>
+      </security-parent>
+    </metadata>
+    <component group="polopoly.Content" name="name">Context driven article queue</component>
+    <component group="polopoly.ContentLists" name="sources">sources</component>
+    <contentref group="polopoly.Content" name="inputTemplateId">
+      <contentid>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue</externalid>
+      </contentid>
+    </contentref>
+    <contentlist group="sources">
+      <entry>
+        <metadata>
+          <position>0</position>
+          <referredContent>
+            <contentid>
+              <major>Article</major>
+              <externalid>exportId-d02ca97e-93b0-44a6-a751-d7223863b04e</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry>
+        <metadata>
+          <position>1</position>
+          <referredContent>
+            <contentid>
+              <major>Article</major>
+              <externalid>exportId-9762edad-68a2-450f-9fc0-3fd3eb6d2d4a</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+      <entry>
+        <metadata>
+          <position>2</position>
+          <referredContent>
+            <contentid>
+              <major>Article</major>
+              <externalid>exportId-f4dc6195-9d79-461a-9c20-012c5c2801cb</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+  </content>
+  <content clear="true">
+    <metadata>
+      <contentid>
+        <major>Article</major>
+        <externalid>exportId-d02ca97e-93b0-44a6-a751-d7223863b04e</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue.decorator.sort</externalid>
+      </input-template>
+      <security-parent>
+        <major>Article</major>
+        <externalid>exportId-194c60a9-489a-4326-bce4-776e28f588b3</externalid>
+      </security-parent>
+    </metadata>
+    <component group="field" name="count">1</component>
+    <component group="field" name="selected_0">publishingDate</component>
+    <component group="order" name="count">1</component>
+    <component group="order" name="selected_0">desc</component>
+    <contentref group="polopoly.Content" name="inputTemplateId">
+      <contentid>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue.decorator.sort</externalid>
+      </contentid>
+    </contentref>
+  </content>
+  <content clear="true">
+    <metadata>
+      <contentid>
+        <major>Article</major>
+        <externalid>exportId-9762edad-68a2-450f-9fc0-3fd3eb6d2d4a</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue.decorator.type</externalid>
+      </input-template>
+      <security-parent>
+        <major>Article</major>
+        <externalid>exportId-194c60a9-489a-4326-bce4-776e28f588b3</externalid>
+      </security-parent>
+    </metadata>
+    <component group="type" name="count">1</component>
+    <contentref group="polopoly.Content" name="inputTemplateId">
+      <contentid>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue.decorator.type</externalid>
+      </contentid>
+    </contentref>
+    <contentref group="type" name="reference0">
+      <contentid>
+        <major>Department</major>
+        <externalid>p.templatecategory.standardarticle</externalid>
+      </contentid>
+    </contentref>
+    <contentref group="type" name="reference_parent0">
+      <contentid>
+        <major>Department</major>
+        <externalid>p.templatecategory.article</externalid>
+      </contentid>
+    </contentref>
+  </content>
+  <content clear="true">
+    <metadata>
+      <contentid>
+        <major>Article</major>
+        <externalid>exportId-f4dc6195-9d79-461a-9c20-012c5c2801cb</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue.decorator.context</externalid>
+      </input-template>
+      <security-parent>
+        <major>Article</major>
+        <externalid>exportId-194c60a9-489a-4326-bce4-776e28f588b3</externalid>
+      </security-parent>
+    </metadata>
+    <component group="context_metadata/context" name="selected">article</component>
+    <contentref group="polopoly.Content" name="inputTemplateId">
+      <contentid>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.SearchDrivenPublishingQueue.decorator.context</externalid>
+      </contentid>
+    </contentref>
+  </content>
+  <content clear="true">
+    <metadata>
+      <contentid>
+        <major>LayoutElement</major>
+        <externalid>exportId-645aa177-0322-4bd6-9e57-a219466c70c4</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.EntityFromContext.it</externalid>
+      </input-template>
+      <security-parent>
+        <major>Department</major>
+        <externalid>LandingPage.d</externalid>
+      </security-parent>
+    </metadata>
+    <component group="polopoly.Content" name="name">Entity</component>
+    <component group="metadata/context" name="selected">article</component>
+    <contentref group="polopoly.Content" name="inputTemplateId">
+      <contentid>
+        <major>InputTemplate</major>
+        <externalid>com.atex.plugins.baseline.EntityFromContext.it</externalid>
+      </contentid>
+    </contentref>
+  </content>
+</batch>

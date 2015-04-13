@@ -1,0 +1,45 @@
+#set($shouldLink=true)
+#if($m.context.site.content.landingPages.list.size() > 0)
+    #set($landingPage = $m.context.site.content.landingPages.list.get(0).content)
+#else
+    #set($landingPage = $m.context.page.content)
+    #set($shouldLink=false)
+#end
+#set($shouldDisplay=false)
+#set($dimensions = $content.metadata.dimensions)
+#foreach($dimension in $dimensions)
+  #set($entitiesCount = $dimension.entities.size())
+  #if($entitiesCount > 0)
+    #set($shouldDisplay=true)
+    #break
+  #end
+#end
+#if($landingPage && $shouldDisplay)
+  <section class="related">
+    <ul class="related-container list-inline">
+    <li class="desc">Related Topics</li>
+    #foreach($dimension in $dimensions)
+      #set($entitiesCount = $dimension.entities.size())
+      #if($entitiesCount > 0)
+          #foreach($entity in $dimension.entities)
+            <li>
+            #if($shouldLink)
+              <a href="#link({"path": $landingPage.parentIds,
+                            "contentId":$landingPage.contentId,
+                            'htmlEncodeLink': 'true',
+                            "contentParams":{
+                                $landingPage.contentId : {
+                                    "entity":$entity,
+                                    "dimension":$dimension}}})">
+            #end
+              <span class="label label-descrete">$tool_metadata.getEntityPath($entity)</span>
+            #if($shouldLink)
+              </a>
+            #end
+            </li>
+          #end
+      #end
+    #end
+    </ul>
+  </section>
+#end

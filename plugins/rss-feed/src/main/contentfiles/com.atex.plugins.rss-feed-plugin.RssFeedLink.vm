@@ -1,0 +1,2 @@
+#set($link = "#link({'contentId': $content.contentId, 'htmlEncodeLink': 'true', 'requestAttribs': {'localLinksEnabled': 'false'}})")
+<link rel="alternate" type="application/rss+xml" title="$!content.name" href="$!link" />

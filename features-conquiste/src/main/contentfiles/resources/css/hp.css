@@ -1,0 +1,433 @@
+/*
+        CSS hp per Conquiste del lavoro (c)2009
+
+                        (du)
+
+*/
+
+div#corpo{
+    
+        width: 959px;
+}
+
+/*primo piano hp */
+
+div#corpopagina div#primopiano{
+	border-top: 0;
+	padding-top: 0;
+	margin-bottom: 15px;
+	padding-left: 5px;
+}
+
+div#corpopagina div#primopiano img{
+    margin: 0 0 10px 0;
+    border: 0;
+}
+
+div#corpopagina div#primopiano div{
+    border-top: 0;
+    padding-bottom: 10px;
+    width: 610px;
+}
+
+div#corpopagina div#primopiano div.sx{
+	width: 290px;
+	float: left;
+}
+
+div#corpopagina div#primopiano div.dx{
+	width: 290px;
+	float: right;
+	margin-right: 13px;
+}
+
+div#corpopagina div#primopiano div.content{
+    padding-bottom: 0;
+}
+
+div#corpopagina div#primopiano div.sx div.content, div#corpopagina div#primopiano div.dx div.content, div#corpopagina div#primopiano div.sx ul.linkcorrelati, div#corpopagina div#primopiano div.dx ul.linkcorrelati{
+	width: 290px;
+}
+
+div#corpopagina div#primopiano div h2{
+        background-image: url(../img/sfondotitoloprimopiano.png);
+        background-position: center left;
+        background-repeat: no-repeat;
+	text-transform: uppercase;
+	font-size: 1.1em;
+	line-height: 0.9em;
+	padding: 0;
+	margin: 0 0 10px;
+}
+
+div#corpopagina div#primopiano h2 span{
+        background-color: #fff;
+	color: #000;
+	padding-right: 6px;
+}
+
+div#corpopagina div#primopiano div.sx h2, div#corpopagina div#primopiano div.dx h2{
+	background-image: none;        
+	border-bottom: 1px solid #000;
+	line-height: 0.9em
+	padding-top: 15px;
+}
+
+div#corpopagina div#primopiano div.sx h2 span, div#corpopagina div#primopiano div.dx h2 span{
+        background-color: transparent;
+}
+
+div#corpopagina div#primopiano h3{
+	background-color: transparent;
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+div#corpopagina div#primopiano h3 a{
+	background-color: transparent;
+	text-decoration: none;
+        font-size: 2.4em;
+	line-height: 0.9em;
+}
+
+div#corpopagina div#primopiano div.sx h3 a, div#corpopagina div#primopiano div.dx h3 a{
+	font-size: 1.4em;
+	line-height: 1em;
+}
+
+/* strilli hp*/
+
+div#corpopagina div#strilli{
+        margin: 0 20px 30px 5px;
+        width: 440px;
+        float: left;
+}
+
+div#corpopagina div#strilli h2{
+        background-image: url(../img/sfondotitolostrilli.png);
+        background-position: top left;
+        background-repeat: no-repeat;
+	text-transform: uppercase;
+	font-size: 1.1em;
+	line-height: 0.9em;
+	padding: 0;
+	margin: 0 0 10px;
+}
+
+div#corpopagina div#strilli h2 span{
+        background-color: #fff;
+	color: #000;
+	padding-right: 6px;
+}
+
+div#corpopagina div#strilli h3{
+        margin: 0 10px 0 0;
+        font-weight: normal;
+}
+
+div#corpopagina div#strilli h3 a{
+        color: #000;
+	background-color: #fff;
+	text-decoration: none;
+	font-size: 1.4em;
+	line-height: 1em;
+}
+
+div#corpopagina div#strilli div{
+        margin-bottom: 10px;
+        padding-top: 10px;
+        clear: left;
+        padding-bottom: 0;
+}
+
+div#corpopagina div#strilli div p{
+        margin: 0;
+	padding: 0;
+}
+
+div#corpopagina div#strilli div img{
+        float: left;
+        clear: left;
+        margin-right: 5px;
+	border: 0;
+	border-bottom: 3px solid #fff;
+}
+
+div#corpopagina div.immagineadestra img{
+        float: right;
+        clear: right;
+        margin-left: 5px;
+}
+
+div#corpopagina div#strilli div.content{
+        border: 0; 
+	/*min-height:80px;
+        height:auto !important;
+        height:80px;*/
+	clear: none;
+}
+
+/* link correlati */
+
+ul.linkcorrelati{
+        font-weight: bold;
+        background-color: inherit;
+        color: #026E4A;
+	margin: 0;
+	padding: 2px 0 6px;
+        clear: both;
+        width: 435px;
+}
+
+* html ul.linkcorrelati{
+        width: 431px;
+}
+
+div#primopiano ul.linkcorrelati{
+        background-color: transparent;
+}
+
+ul.linkcorrelati li{
+        padding-left: 15px;
+        background-image: url(../img/iconaverde.png);
+        background-position: 4px 0.4em;
+        background-repeat: no-repeat;
+	list-style: none;
+}
+
+ul.linkcorrelati li a{
+        background-color: inherit;
+        color: #015B03;
+	font-size: 0.9em;
+}
+
+/* strilli laterali */
+
+div#strillilaterali{
+        float: left;
+        width: 150px;
+        text-align: center;
+        margin-bottom: 10px;
+	clear: right;
+}
+
+* html div#strillilaterali{
+        margin-right: 0px;
+}
+
+div#strillilaterali h3{
+        margin: 5px 0 -10px 0;
+        padding-bottom: 0;
+        text-align: center;
+}
+
+div#strillilaterali h3 a{
+        font-size: 1em;
+}
+
+div#strillilaterali div.pubblicazioni, div#strillilaterali div.strilli{
+        background-image: url(../img/sfondocolonnastrillilaterali.png);
+        background-position: top left;
+        background-repeat: no-repeat;
+	padding-top: 11px;
+	margin-top: 11px;
+}
+
+div#strillilaterali div.pubblicazioni h3{
+        font-size: 1.5em;
+}
+
+div#strillilaterali div.pubblicazioni h3 span{
+        background-color: inherit;
+        color: #0E914B;
+}
+
+div#strillilaterali div.pubblicazioni h3 span.cultura{
+        background-color: inherit;
+        color: #047AC2;
+	font-size: 0.8em;
+}
+
+div#strillilaterali div.pubblicazioni h3 span.economia{
+	font-size: 0.8em;
+}
+
+div#strillilaterali div.pubblicazioni p a{
+        background-image: url(../img/iconapdf.png);
+        background-position: right center;
+        background-repeat: no-repeat;
+        clear: both;
+        display: block;
+        color: #000;
+        background-color: inherit;
+	text-decoration: none;
+        text-transform: lowercase;
+	margin: 0;
+	padding: 0 16px 0 0;
+}
+
+div#strillilaterali a span{
+        font-weight: bold;
+        color: #000;
+        background-color: inherit;
+        text-transform: uppercase;
+}
+
+div#strillilaterali div.strillilaterali, div#strillilaterali div.strillilaterali h3, div#strillilaterali div.strillilaterali h4, div#strillilaterali div.strillilaterali p, div#strillilaterali div.strillilaterali a{
+	background-image: none !important;
+	border: 0;
+	text-align: left;
+}
+
+div#strillilaterali div.strillilaterali{
+    border-top: 1px dotted #ccc;
+    padding-bottom: 5px;
+}
+
+div#strillilaterali div.strillilaterali h3{
+    margin-bottom: 5px;
+    text-transform: lowercase;
+    text-transform: none;
+    margin-top: 5px;
+    padding-top: 5px;
+}
+
+
+div#strillilaterali div.strillilaterali h3 a{
+    background-color: inherit;
+    text-decoration: none;
+}
+
+div#strillilaterali div.strillilaterali h3 a:first-letter{
+    text-transform: uppercase;
+}
+
+div#strillilaterali div.strillilaterali p{
+    margin-top: 5px;
+    text-align: left;
+    font-weight: normal;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+div#strillilaterali div.strillilaterali h4{
+    margin: 0;
+    font-weight: bold;
+}
+
+div#strillilaterali div.strillilaterali h4 a{
+    text-decoration: none;
+}
+
+
+div#strillilaterali div.strillilaterali img{
+    float: none;
+    border: 0;
+    width: 152px;
+}
+
+/* slider */
+
+div#strillibassi{
+        clear: both;
+        border-top: 2px solid #000;
+	padding-top: 5px;
+}
+
+div#strillibassi .inside{
+        text-align: center;
+}
+
+div#strillibassi .inside h2{
+        color: #464646;
+        margin-bottom: 12px;
+        font-size: 0.9em;
+}
+
+div#strillibassi .inside h3{
+        font-size: 0.8em !important;
+        margin: 5px 0;
+        background-color: transparent;
+	font-weight: normal;
+}
+
+div#strillibassi .inside img{
+    width: 100px;
+}
+
+div#strillibassi .inside p{
+        color: #000;
+}
+
+div#strillibassi .inside a{
+    text-decoration: none;
+        background-color: transparent;
+}
+
+#wrapper {
+    width: 917px;
+    margin: 0;
+}
+
+#intro {
+    padding-bottom: 10px;
+}
+
+#slider {
+    width: 959px;
+    margin: 0 auto 0px auto;
+float: left;
+        background-repeat: repeat-x;
+        background-position: left bottom;
+}
+
+.scroll {
+	width: 959px;
+        margin: 5px auto;
+	text-align: center;
+}
+
+.inside {
+	padding: 0 10px;
+        margin: 0;
+        color: #000;
+	text-align: left;
+}
+
+.inside img {
+	display: block;
+	border: 1px solid #D0D9E0;
+	margin: 0 auto;
+	width: 100px;
+	clear: both;
+}
+
+.inside h2 {
+	margin: 0;
+	border-bottom: 5px solid #C0C0C2;
+	padding-bottom: 3px;
+	text-transform: uppercase;
+}
+
+.inside p {
+	background-color: inherit;
+	color: #ccc;
+}
+
+.scrollButtons {
+    position: absolute;
+    top: 70px;
+    cursor: pointer;
+}
+
+.scrollButtons.left {
+    left: -25px;
+}
+
+.scrollButtons.right {
+    right: -25px;
+}
+
+.hide {
+    display: none;
+}

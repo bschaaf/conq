@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content>
+    <metadata>
+      <contentid>
+        <major>Workflow</major>
+        <externalid>PolopolyPost.Default.Workflow</externalid>
+      </contentid>
+      <input-template>
+        <externalid>p.DefaultWorkflow</externalid>
+      </input-template>
+    </metadata>
+    <component group="polopoly.Content" name="name">Simple workflow</component>
+    <contentref group="polopoly.Workflow" name="typeId">
+      <contentid>
+        <major>WorkflowType</major>
+        <externalid>p.SimpleWorkflow</externalid>
+      </contentid>
+    </contentref>
+    <acl>
+      <entry>
+        <principal loginname="sysadmin"/>
+        <addpermission>approve</addpermission>
+        <addpermission>commit</addpermission>
+        <addpermission>remove</addpermission>
+      </entry>
+    </acl>
+  </content>
+</batch>

@@ -1,0 +1,12 @@
+{
+  "contentData": {
+    "_type": "atex.import.Aspect",
+    "externalId": "atex.AuthenticationMethod:persona",
+    "aspectName": "com.atex.plugins.users.AuthenticationMethod",
+    "aspectData": {
+      "_type": "com.atex.plugins.users.AuthenticationMethod",
+        "name": "persona",
+        "description": "Mozilla Persona."
+    }
+  }
+}

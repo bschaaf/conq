@@ -1,0 +1,11 @@
+id:.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Test site for StandardImageIndexTestIT
+
+id:.content
+major:article
+inputtemplate:standard.Image
+securityparent:.site
+component:contentData:contentData:{"_type"\:"com.atex.standard.image.ImageContentDataBean","title"\:"My simple indexed image","description"\:"Simple text describing the image","byline"\:"Author is Gong the image maker"}

@@ -1,0 +1,91 @@
+Developer guide
+
+* Adding a search form
+
+  To add a search form you should add the following line in an appropriate place in the various velocity files
+  (generally you may want to do this in your page layouts):
+
++---------------------------------------------------------------------------------------+
+#render({"content": $content, "outputTemplate": "com.atex.plugins.search.SearchForm.ot"})
++---------------------------------------------------------------------------------------+
+
+  <<<$content>>> is not used right now, so you can pass the $content of page.
+
+* Adding a results list
+
+  To add a results list you should add the following line in an appropriate place in the various velocity files
+  (generally you may want to do this in your page layouts):
+
++------------------------------------------------------------------------------------------+
+#render({"content": $content, "outputTemplate": "com.atex.plugins.search.SearchResults.ot"})
++------------------------------------------------------------------------------------------+
+
+  You may want to include them only if there is a search to be performed. Since the search functionality uses the <<<q>>> parameter
+  to get the query string, you can check for it:
+
++------------------------------------------------------------------------------------------+
+\#if ($m.request.httpRequest.getParameter("q"))
+<div class="default-layout">
+#render({"content": $content, "outputTemplate": "com.atex.plugins.search.SearchResults.ot"})
+</div>
+\#end
++------------------------------------------------------------------------------------------+
+
+** Wiring example
+
+  To add wiring in your project, first add mappings from your relevant model types (e.g. article) to a <<<composer>>> by adding a
+  component in the plugin's variant config. The following example is in .content format and assumes that your article type is
+  <<<com.atex.standard.article.ArticleBean>>> and your composer content ID (defined further down) is <<<com.atex.gong.wiring.search.searchresultviewcomposer>>>:
+
++------------------------------------------------------------------+
+id:com.atex.plugins.search.variantconfig
+major:3
+inputtemplate:com.polopoly.data.Variant.config
+component:composer:com.atex.standard.article.ArticleBean:com.atex.gong.wiring.search.searchresultviewcomposer
++------------------------------------------------------------------+
+
+  The article type mentioned above is either the external input template id of your article or, if the article policy implements LegacyContentAdapter,
+  the Java bean type produced by that mapper.
+
+  You then need to define the composer content. This example specifies a Java ContentComposer implementation called
+  <<<com.atex.gong.wiring.search.ArticleToSearchResultViewContentComposer>>>:
+
++------------------------------------------------------------------+
+id:com.atex.gong.wiring.search.articlecomposer
+major:3
+inputtemplate:p.model.Pojo
+component:model:modelType:com.atex.onecms.content.mapping.MappingConfigBean
+component:model:pojo:{'_type'\:'com.atex.onecms.content.mapping.MappingConfigBean', 'mapperClass'\:'com.atex.gong.wiring.search.ArticleToSearchResultViewContentComposer'}
++------------------------------------------------------------------+
+
+  Finally, the Java class has to be written. This is a simple class implementing ContentComposer that takes the
+  <<<com.atex.standard.article.ArticleBean>>> provided by the project article and produces the
+  <<<com.atex.plugins.search.SearchResultView>>> bean expected by the search plugin:
+
++------------------------------------------------------------------+
+public class ArticleToSearchResultViewContentComposer implements
+    ContentComposer<ArticleBean, SearchResultViewBean, Object>
+{
+
+  @Override
+  public ContentResult<SearchResultViewBean> compose(final ContentResult<ArticleBean> source, final String variant,
+      final Request request, final Context<Object> context)
+  {
+    final ArticleBean article = source.getContent().getContentData();
+    final SearchResultViewBean resultViewBean = new SearchResultViewBean();
+    if (source.getContent().getId() != null) {
+      resultViewBean.setContentId(IdUtil.toPolicyContentId(source.getContent().getId().getContentId()));
+    }
+    resultViewBean.setName(article.getTitle());
+    resultViewBean.setText(article.getLead());
+    return new ContentResult<>(source, resultViewBean);
+  }
+
+}
++------------------------------------------------------------------+
+
+* Security notes
+
+  Both the form and the results controller use the {{http://jsoup.org/}} library to "sanitize" the input.
+  Only text content (i.e. no html, script, etc.) will be used for searching. In this way we defend ourselves
+  from XSS; see {{http://en.wikipedia.org/wiki/Cross-site_scripting}} for further info.

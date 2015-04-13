@@ -1,0 +1,36 @@
+#if($content.relatedArticles.list && $content.relatedArticles.list.size() > 0)
+  <section class="related row">
+    <h3>Related</h3>
+    #set($index = 0)
+    #set($rows=$math.toInteger($math.roundTo(0, $math.div($content.relatedArticles.list.size(),2))))
+    #foreach($row in [1..$rows])
+      #if($row < $rows)
+        #set($rowclass="itemrow")
+      #else
+        #set($rowclass="")
+      #end
+      <div class="row $!rowclass">
+        #foreach($col in [1..2])
+          #if($index < $content.relatedArticles.list.size())
+            <div class="col-xs-6 item">
+              #set($entry = $content.relatedArticles.list.get($index))
+              #if($entry.content.publishingDateTime || $entry.content.publishingDateTime.value)
+                #set($pubTime = $entry.content.publishingDateTime)
+                #if($pubTime.value)
+                  #set($pubTime = $math.toInteger($pubTime.value))
+                #end
+                #set($linkPrefix = "<span class='time'>" + $date.format("dd MMM yyyy HH:mm", $pubTime, $m.context.site.bean.resources.locale) + "</span>")
+                #set($path = $p_path.resolve($entry.contentId, $m.context.page.contentPath))
+                <a href="#link({"path": $path, 'htmlEncodeLink': 'true'})">
+                  $!linkPrefix<br/>
+                  $!esc.html($entry.content.name)
+                </a>
+              #end
+            </div>
+            #set($index = $index + 1)
+          #end
+        #end
+      </div>
+    #end
+  </section>
+#end

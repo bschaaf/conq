@@ -1,0 +1,181 @@
+/*
+    CSS per carosello homepage
+    CDL 2009
+*/
+
+.scroll img {
+	border: 0;
+}
+.scroll li,
+.scroll p {
+	font-family: "Arial", "Verdana", sans-serif;
+	margin: 0;
+	padding: 0;
+	font-size: .8em;/*
+	line-height: 1.6;*/
+}
+.scroll li p {
+	font-size: 1em;
+}
+.scroll {
+	position: relative;
+	overflow: hidden;
+}
+.scroll .javascript_css {
+	position: relative;
+	z-index: 3;
+	padding: 0px;
+	background: #fffcd3;
+}
+.scroll .skip_to_news {
+	position: absolute;
+	top: 0;
+	left: -9999px;
+}
+.scroll .back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+.scroll .back a,
+.scroll .next a {
+	display: none;
+	outline: none; 
+}
+.scroll .next {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+}
+.scroll ul {
+	position: relative;
+	left: 0;
+	width: auto;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	overflow: hidden;
+	z-index: 1;
+}
+.scroll li {
+	float: left;
+	display: inline;
+	width: 155px;
+padding: 0 5px;
+min-height:170px;
+height:auto !important;
+height:170px;
+text-align: center;
+}
+
+.scroll li *{
+    clear: both;
+    text-align: center;
+}
+
+
+.scroll li div{
+    margin: 0;
+min-height:170px;
+height:auto !important;
+height:170px;
+text-align: center;
+}
+
+
+/*
+	Accessible News Slider : Plugin Specific : Theme [ Candy Coated ]
+-----------------------------------------------------------------------------------------*/
+
+.scroll  {
+	width: 899px;
+	margin: 0;
+	padding: 5px 30px 5px 30px;
+	border-bottom: 2px solid #000;
+}
+.scroll a {
+	text-decoration: none;
+	border: 0;
+}
+.scroll .back {
+	top: 0px;
+	left: 0px;
+	width: 30px;
+min-height:180px;
+height:auto !important;
+height:180px;
+}
+.scroll .next {
+	position: absolute;
+	top: 0px;
+	right: -1px;
+	width: 30px;
+min-height:180px;
+height:auto !important;
+height:180px;
+background-image: url(/img/slider_sfondo_avanti_indietro.png);
+background-repeat: repeat-x;
+background-position: left bottom;
+}
+.scroll .next a {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 30px;
+min-height:180px;
+height:auto !important;
+height:180px;
+z-index: 20;
+	line-height: 30px;
+	background-image: url(/img/slider_frecciadestra.png);
+	background-repeat: no-repeat;
+	background-position: center left;
+}
+.scroll .back a {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 30px;
+min-height:180px;
+height:auto !important;
+height:165px;
+z-index: 20;
+	line-height: 30px;
+	background-image: url(/img/slider_frecciasinistra.png) !important;
+	background-repeat: no-repeat;
+	background-position: center right;
+}
+.scroll .view_all {
+	display: none;
+}
+
+.scroll .back a span, .scroll .next a span{
+	visibility: hidden;
+}
+
+/*.scroll ul {
+	border-bottom: 2px solid #eee;
+}*/
+.scroll li {
+	padding: 0;
+	overflow: hidden;
+	text-align: center;
+}
+
+.scroll li div.inside {
+	background-color: #fff;
+}
+.scroll li img {
+	float: none;
+	clear: both;
+}
+.scroll li p {
+	float: left;
+	display: inline;
+	margin: 0 0 0 10px;
+	width: 190px;
+}
+
+ 

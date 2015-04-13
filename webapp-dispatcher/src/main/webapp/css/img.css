@@ -1,0 +1,23 @@
+.img-container{
+  position: initial;
+  height: auto;
+  overflow:hidden
+}
+  
+.img-container img{
+  /*position:absolute;
+  top:0;
+  left:0;
+  height:100%*/
+  width:100%;
+}
+
+.imgSmallArticle{
+  width:38%;
+}
+
+.imgLargeArticle{
+  width:19%;
+}
+
+

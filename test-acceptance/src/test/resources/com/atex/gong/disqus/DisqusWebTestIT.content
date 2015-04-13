@@ -1,0 +1,19 @@
+id:.integrationtest.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Test Web Site for Disqus Integration Test
+
+id:.integrationtest.article
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:My simple article
+component:body:value:<p>My simple body text.</p>
+component:lead:value:My simple lead
+
+id:plugins.com.atex.plugins.disqus.Config
+major:appconfig
+inputtemplate:com.atex.plugins.disqus.Configuration
+component:disabled:value:false
+component:siteShortname:value:polopolyposttestsite

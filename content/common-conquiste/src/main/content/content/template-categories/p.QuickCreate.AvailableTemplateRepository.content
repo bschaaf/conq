@@ -1,0 +1,16 @@
+# Says what templates should be available for Quick Creator configuration
+id:p.QuickCreate.AvailableTemplateRepository
+major:department
+inputtemplate:p.DefaultDepartment
+securityparent:p.RootDepartment
+
+id:p.QuickCreate.AvailableContentTemplates
+major:department
+inputtemplate:p.TemplateCategory
+securityparent:p.QuickCreate.AvailableTemplateRepository
+name:Article
+component:polopoly.Client:categoryMajor:Article
+component:polopoly.ContentLists:polopoly.Department:default
+list:polopoly.Department:it.conquiste.standard.Article
+list:polopoly.Department:standard.Image
+publish:polopoly.Department:p.QuickCreate.AvailableTemplateRepository

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content>
+    <metadata>
+      <contentid>
+        <major>Department</major>
+        <externalid>page.rss</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>p.siteengine.Page</externalid>
+      </input-template>
+      <security-parent>
+        <major>Department</major>
+        <externalid>site.cqdl</externalid>
+      </security-parent>
+    </metadata>
+    <component group="polopoly.Content" name="name">Rss</component>
+	<component group="pageLayout/selected/removePageFromMenu" name="value">true</component>
+	<contentref group="pageLayout" name="selected">
+      <contentid>
+        <externalid>it.conquiste.PageLayoutOneColumn</externalid>
+      </contentid>
+    </contentref>
+  </content>
+</batch>

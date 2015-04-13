@@ -1,0 +1,126 @@
+Developer guide
+
+  ContentComposers are part of the {{{http://support.polopoly.com/confluence/display/Polopoly10100/Content+API}Content API}} and allows data requested
+  with a certain variant from the ContentManager to be transformed before being
+  presented to the requesting party. ContentComposers are Java classes that
+  implement the ContentComposer interface, and are registered in the system
+  using Polopoly content.
+
+  Writing an entire Java class to do a simple mapping between two beans can
+  be cumbersome, and sometimes (in certain kinds of tests) it may be impossible
+  to add the class to the class path.
+
+  This plugin provides a handy ContentComposer that can be configured entirely
+  through content, and that does its job by executing JavaScript code supplied
+  in a content component.
+
+* JavaScript lookup
+
+  The JavaScript Composer uses a convention mechanism to find the appropriate
+  JavaScript to run. For a requested source type and variant, the composer
+  will look for a content with external ID <<<js.composer/variant/type>>>,
+  where <<<variant>>> and <<<type>>> are replaced with their respective values.
+
+  Note that you still have to configure the JavaScript Composer into the
+  appropriate variant in order for it to execute.
+
+* Selecting the JavaScript Composer
+
+  The JavaScript Composer, like all content composers, can be configured to
+  handle a specific source type in a specific variant. It can also be used
+  as a default composer for a variant. Note that in either case, JavaScript
+  code lookup will be done as described above.
+
+  The plugin comes with a predefined composer setup that can be refered to
+  from variant config contents. Its external ID is <<<com.atex.plugins.js.composer>>> .
+
+  To use the JavaScript Composer as default composer in a variant, set it
+  as such on the corresponding variant config content. Example (in .content format):
+
++-------------+
+id:com.atex.plugins.smurfalizer.variantconfig
+major:3
+inputtemplate:com.polopoly.data.Variant.config
+component:model:modelType:com.polopoly.data.mapping.VariantConfig
+component::defaultMapping:com.atex.plugins.js.composer
++-------------+
+
+  See the ContentManager documentation for more information on how to
+  set up composers.
+
+* Writing your JavaScript
+
+  As described above, a configured JavaScript Composer will look for a
+  content containing JavaScript using an external ID pattern. The content
+  itself is a <<<p.model.Pojo>>> of modelType <<<com.atex.plugins.js.composer.ComposerScript>>>
+  that contains Json in a component. This Json then carries the JavaScript
+  in a string.
+
+  An example is in order. With the JavaScript Composer set up as above, as
+  default composer for a variant named <<<smurfalizer>>>, the following
+  defines a JavaScript that will be executed when a content of type
+  <<<com.atex.standard.article.ArticleBean>>> is requested with the
+  <<<smurfalizer>>> variant:
+
++--------------+
+  <content>
+    <metadata>
+      <contentid>
+        <major>Content</major>
+        <externalid>js.composer/smurfalizer/com.atex.standard.article.ArticleBean</externalid>
+      </contentid>
+      <input-template>
+        <major>InputTemplate</major>
+        <externalid>p.model.Pojo</externalid>
+      </input-template>
+    </metadata>
+    <component group="model" name="modelType">com.atex.plugins.js.composer.ComposerScript</component>
+    <component group="model" name="pojo"><![CDATA[
+{
+  '_type':'com.atex.plugins.js.composer.ComposerScript',
+  'javaScript':'importClass(com.atex.onecms.content.ContentResult); var bean = new java.com.atex.plugins.smurfalizer.SmurfBean(); bean.smurfTitle = source.content.contentData.title; bean.smurfText = source.content.contentData.body; new ContentResult(source, bean);'
+}
+]]>
+  </content>
++--------------+ 
+
+* JavaScript details
+
+  The JavaScripts executed by the JavaScript Composer are executed by Java’s internal
+  {{{http://docs.oracle.com/javase/7/docs/technotes/guides/scripting/programmer_guide/}ScriptEngine}}
+  framework and are thus subject to its limitations and rules. In particular, the interplay between
+  JavaScript and Java (such as the <<<importClass>>> function and automatic invocation of getter
+  methods) should be studied by users of this  plugin.
+
+** Input
+
+  The JavaScript Composer exposes four variables that are available to the JavaScript:
+
+  * source
+
+  * variant
+
+  * request
+
+  * context
+
+[]
+
+  These are the raw Java objects received by all ContentComposer implementations, and work the same.
+  See the corresponding Java documentation.
+
+** Output
+
+  The JavaScript Composer expects the final statement of the JavaScript to evaluate to a
+  <<<com.atex.onecms.content.ContentResult>>> object (note: do <<not>> use a <<<return>>> statement).
+  See the corresponding Java documentation for information on how to create such an object.
+
+  Normally the script first creates a bean that it fills with data, and then constructs a new
+  <<<ContentResult>>> object using the <<<new>>> operator that wraps the bean.
+
+  To report problems in execution, use the <<<ContentResult>>> object’s ability to indicate an error.
+
+* Behaviour in the absence of a JavaScript content
+
+  If the JavaScript Composer is mapped for a variant but no JavaScript content can be found by
+  external ID lookup, the JavaScript Composer will return a status of 40461 ("Not found in variant").

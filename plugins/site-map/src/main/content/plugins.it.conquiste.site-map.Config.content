@@ -1,0 +1,5 @@
+id:.
+major:appconfig
+inputtemplate:it.conquiste.plugins.sitemap.SitemapConfigField
+securityparent:p.siteengine.Configuration.d
+component:polopoly.Content:name:Site map Configuration

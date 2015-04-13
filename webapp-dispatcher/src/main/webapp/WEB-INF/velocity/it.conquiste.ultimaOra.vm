@@ -1,0 +1,19 @@
+#if($content.ultimora &&  $content.ultimora.slotElements.list.size() > 0)
+  #set($teaser = $content.ultimora.slotElements.list.get(0).content)
+  #set($articleLink = "#")
+  #if($teaser.teaserableContentId)
+    #set($path = $teaser.linkPath)
+    #set($articleLink = "#link({'path': $path, 'htmlEncodeLink': 'true'})")
+  #end
+  <!-- ULTIMA ORA -->
+  <div class="row">
+    <!-- ULTIMA ORA begin -->
+    <div class="large-12 column noRight noLeft">
+      <div class="ultimaOra">
+        <a href="$articleLink" title="Ultima Ora">
+            <p><strong>ULTIMA ORA</strong> - $teaser.name</p>
+        </a>
+      </div>
+    </div>
+  </div>
+#end

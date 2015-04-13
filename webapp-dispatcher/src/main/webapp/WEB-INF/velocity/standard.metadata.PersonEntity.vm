@@ -1,0 +1,18 @@
+<article class="person-entity">
+    #foreach($entry in $content.images.list)
+      <div class="image">
+        #renderwithfallback({"content": $entry.content})
+        #end
+        #set($image = $entry.content.contentData)
+        <p class="meta">
+          #if($image.description)
+            $!esc.html($image.description)
+          #end
+          #if($image.byline)
+            <span class="byline">$!esc.html($image.byline)</span>
+          #end
+        </p>
+      </div>
+    #end
+  <section class="biography">$!esc.html($content.biography.value)</section>
+</article>

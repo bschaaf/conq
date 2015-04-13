@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content>
+    <metadata>
+      <contentid>
+	      <externalid>p.SystemConfig</externalid>
+      </contentid>
+    </metadata>
+    <component group="parameter" name="locales">it_IT,en_US</component>
+  </content>
+</batch>

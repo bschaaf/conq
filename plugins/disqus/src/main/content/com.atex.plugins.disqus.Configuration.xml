@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="com.atex.plugins.disqus.Configuration" label="com.atex.plugins.disqus.Configuration">
+    <policy>com.atex.plugins.disqus.ConfigPolicy</policy>
+    <editor>com.polopoly.plugin.OPluginConfigContextPolicyWidget</editor>
+    <viewer>com.polopoly.plugin.OPluginConfigContextPolicyWidget</viewer>
+
+    <type>AppConfig</type>
+
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="ViewState_insert">false</param>
+
+    <field name="enabled" input-template="p.Checkbox" label="com.atex.plugins.disqus.Configuration.enable">
+      <help>com.atex.plugins.disqus.Configuration.enable.help</help>
+      <param name="inlineHelp">true</param>
+      <param name="checked">false</param>
+    </field>
+    <field name="siteShortname" input-template="p.TextInput" label="com.atex.plugins.disqus.Configuration.siteShortname">
+      <help>com.atex.plugins.disqus.Configuration.siteShortname.help</help>
+      <param name="inlineHelp">true</param>
+    </field>
+  </input-template>
+</template-definition>

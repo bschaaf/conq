@@ -1,0 +1,13 @@
+# Social sharing variant definition; declare identity mapping for SocialSharingInfo
+id:com.atex.plugins.social.sharing.variantconfig
+major:3
+inputtemplate:com.polopoly.data.Variant.config
+component:model:modelType:com.polopoly.data.mapping.VariantConfig
+component::defaultMapping:com.atex.plugins.js.composer
+component:composer:com.atex.plugins.social.sharing.SocialSharingInfo:atex.onecms.ContentManager.identity
+
+# Put our variant in default config
+id:.
+major:3
+inputtemplate:com.atex.onecms.content.ContentManager.config
+component:variantMapping:com.atex.plugins.social.sharing:com.atex.plugins.social.sharing.variantconfig

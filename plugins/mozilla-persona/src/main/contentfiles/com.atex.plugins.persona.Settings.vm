@@ -1,0 +1,25 @@
+<script type="text/javascript">
+persona.settings = {
+#if($m.local.privacyPolicy)
+    privacyPolicy: "#link({'path': $p_path.resolve($m.local.privacyPolicy), 'htmlEncodeLink': 'true', 'requestAttribs': {'localLinksEnabled': false}})",
+#end
+
+#if($m.local.termsOfService)
+    termsOfService: "#link({'path': $p_path.resolve($m.local.termsOfService), 'htmlEncodeLink': 'true', 'requestAttribs': {'localLinksEnabled': false}})",
+#end
+
+#if($m.local.siteName && $m.local.siteName != "")
+    siteName: "$m.local.siteName",
+#end
+
+#if($m.local.siteLogo && $m.local.siteLogo != "")
+    siteLogo: "$m.local.siteLogo",
+#end
+
+#if($m.local.backgroundColor && $m.local.backgroundColor != "")
+    backgroundColor: "#$m.local.backgroundColor",
+#end
+
+    oncancel: function() {}
+}
+</script>

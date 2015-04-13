@@ -1,0 +1,14 @@
+id:localizedstrings.swedish
+major:1
+inputtemplate:p.siteengine.LocalizedStrings
+component:localizedstrings:com.atex.plugins.search.SearchUnavailable:Sökfunktionen är för tillfället ej tillgänglig.
+component:localizedstrings:com.atex.plugins.search.placeholder:Sök...
+component:localizedstrings:com.atex.plugins.search.didnotmatch:Sökningen på <em>%s</em> gav inga träffar.
+component:localizedstrings:com.atex.plugins.search.single.results:Sökningen gav en träff.
+component:localizedstrings:com.atex.plugins.search.multi.results:Sökningen gav %d träff.
+component:localizedstrings:com.atex.plugins.search.previousPage.title:Föregående sida
+component:localizedstrings:com.atex.plugins.search.previousPage.content:&laquo;
+component:localizedstrings:com.atex.plugins.search.nextPage.title:Nästa sida
+component:localizedstrings:com.atex.plugins.search.nextPage.content:&raquo;
+component:localizedstrings:com.atex.plugins.search.currentPage.title:Sida %s
+component:localizedstrings:com.atex.plugins.search.search:Sök

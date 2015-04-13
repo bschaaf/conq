@@ -1,0 +1,62 @@
+id:.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Test site for list element
+
+id:.article1
+major:article
+inputtemplate:com.atex.plugins.list.ArticleMock
+securityparent:.site
+name:My first article
+component:publishingDateTime:value:1393345923339
+
+id:.article2
+major:article
+inputtemplate:com.atex.plugins.list.ArticleMock
+securityparent:.site
+name:My second article
+component:publishingDateTime:value:1393345923339
+
+id:.article3
+major:article
+inputtemplate:com.atex.plugins.list.ArticleMock
+securityparent:.site
+name:My third article
+component:publishingDateTime:value:1393345923339
+
+id:.pq
+major:article
+inputtemplate:com.atex.plugins.baseline.ContentListPublishingQueue
+securityparent:.site
+name:My articles
+component:polopoly.ContentLists:polopoly.Toc:default
+list:polopoly.Toc:.article1
+list:polopoly.Toc:.article2
+list:polopoly.Toc:.article3
+
+id:.element
+major:layoutelement
+inputtemplate:com.atex.plugins.list.MainElement
+securityparent:.site
+name:My list element
+component:additionalStyle:count:1
+component:additionalStyle:selected_0:
+component:numberOfItems:value:10
+component:polopoly.ContentLists:publishingQueue:publishingQueue
+component:publishingQueue:contentListMaxSize:1
+list:publishingQueue:.pq
+
+id:.cappedElement
+major:layoutelement
+inputtemplate:com.atex.plugins.list.MainElement
+securityparent:.site
+name:My capped list element
+component:additionalStyle:count:1
+component:additionalStyle:selected_0:lined
+component:numberOfItems:value:2
+component:polopoly.ContentLists:publishingQueue:publishingQueue
+component:publishingQueue:contentListMaxSize:1
+component:linkPrefix:count:1
+component:linkPrefix:selected_0:showTime
+list:publishingQueue:.pq

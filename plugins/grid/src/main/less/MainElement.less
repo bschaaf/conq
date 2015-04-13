@@ -1,0 +1,87 @@
+.element-grid {
+  .right, .left {
+    .image {
+      width: 25%;
+    }
+  }
+  .right .image {
+    float: right;
+    margin: 0 0 10px 10px;
+  }
+  .left .image {
+    float: left;
+    margin: 0 10px 10px 0;
+  }
+  .top .image {
+    margin-bottom: 2px;
+  }
+   h3 {
+    font-size: 22px;
+    line-height: 24px;
+    margin: 0 0 2px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .element-grid {
+    &> .row:not(:last-child) {
+        margin-bottom: 10px;
+    }
+    p {
+      margin: 0;
+    }
+    .col-sm-12 {
+       h3 {
+        font-size: 36px;
+        line-height: 40px;
+        margin: 0 0 4px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+    .col-sm-6 {
+       h3 {
+        font-size: 22px;
+        line-height: 24px;
+        margin: 0 0 2px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+    .col-sm-4 {
+       h3 {
+        font-size: 18px;
+        line-height: 19px;
+        margin: 0 0 2px;
+      }
+      p {
+        font-size: 13px;
+      }
+    }
+    .col-sm-3 {
+       h3 {
+        font-size: 16px;
+        line-height: 17px;
+        margin: 0 0 2px;
+      }
+      p {
+        font-size: 12px;
+      }
+    }
+    .col-sm-2 {
+       h3 {
+        font-size: 14px;
+        line-height: 15px;
+        margin: 0 0 2px;
+      }
+      p {
+        font-size: 11px;
+      }
+    }
+  }
+}

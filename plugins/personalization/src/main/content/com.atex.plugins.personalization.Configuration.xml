@@ -1,0 +1,68 @@
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="com.atex.plugins.personalization.Configuration" label="com.atex.plugins.personalization.Configuration">
+    <policy>com.atex.plugins.personalization.ConfigPolicy</policy>
+    <editor>com.polopoly.plugin.OPluginConfigContextPolicyWidget</editor>
+    <viewer>com.polopoly.plugin.OPluginConfigContextPolicyWidget</viewer>
+
+    <type>AppConfig</type>
+
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="ViewState_insert">false</param>
+
+    <content-list name="default" input-template="p.CategoryDimensionsList" />
+
+    <field name="enabled" input-template="p.Checkbox" label="com.atex.plugins.personalization.Configuration.enabled">
+      <param name="checked">true</param>
+    </field>
+
+    <field name="maxHistory" input-template="p.TextInput" label="com.atex.plugins.personalization.Configuration.maxHistory" required="true">
+      <policy>com.polopoly.cm.app.policy.NumberInputPolicy</policy>
+      <help>com.atex.plugins.personalization.Configuration.maxHistoryHelp</help>
+      <param name="inlineHelp">true</param>
+      <param name="type">int</param>
+      <param name="default">100</param>
+      <param name="defaultUntilChanged">true</param>
+    </field>
+    <field name="maxEntities" input-template="p.TextInput" label="com.atex.plugins.personalization.Configuration.maxEntities" required="true">
+      <policy>com.polopoly.cm.app.policy.NumberInputPolicy</policy>
+      <param name="type">int</param>
+      <param name="default">5</param>
+      <param name="defaultUntilChanged">true</param>
+    </field>
+    <field name="maxExclude" input-template="p.TextInput" label="com.atex.plugins.personalization.Configuration.maxExclude" required="true">
+      <policy>com.polopoly.cm.app.policy.NumberInputPolicy</policy>
+      <help>com.atex.plugins.personalization.Configuration.maxExcludeHelp</help>
+      <param name="inlineHelp">true</param>
+      <param name="type">int</param>
+      <param name="default">20</param>
+      <param name="defaultUntilChanged">true</param>
+    </field>
+
+    <field name="maxResults" input-template="p.TextInput" label="com.atex.plugins.personalization.Configuration.maxResults" required="true">
+      <policy>com.polopoly.cm.app.policy.NumberInputPolicy</policy>
+      <param name="type">int</param>
+      <param name="default">10</param>
+      <param name="defaultUntilChanged">true</param>
+    </field>
+
+    <layout name="typeSection" input-template="p.LabeledSection" label="com.atex.plugins.personalization.Configuration.contentTypes">
+      <param name="cssClass">p_section</param>
+      <layout name="typePadding" input-template="p.Group">
+        <param name="showLabel">false</param>
+        <param name="showFieldset">false</param>
+        <param name="cssClass">p_padding</param>
+        <field name="type" input-template="p.ContentTypeSelect" label="cm.label.ContentTypes" required="true">
+          <idparam name="rootContent">
+            <externalid>p.StandardResourceCategorization</externalid>
+          </idparam>
+        </field>
+      </layout>
+    </layout>
+
+    <field name="contentsContentList" input-template="p.ContentListEntryContainer" label="cm.label.CategoryDimensions">
+      <param name="alwaysSyncWithContentList">true</param>
+    </field>
+  </input-template>
+</template-definition>

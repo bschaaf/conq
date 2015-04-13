@@ -1,0 +1,8 @@
+id:.
+major:department
+inputtemplate:p.TagCategory
+securityparent:p.StandardCategorization
+name:Organisation
+component:description:value:Organisation
+component:changePropagation:value:true
+ref:entityCreator:templateRoot:standard.metadata.templateroot.OrganisationEntity

@@ -1,0 +1,18 @@
+<output-template name="it.conquiste.layout.SlotWithNumbering.ot" input-template="p.siteengine.SlotOutputTemplate">
+    <content-xml>
+        <!-- add plugin reference -->
+        <contentref group="plugin" name="plugindef">
+            <contentid>
+                <major>Content</major>
+                <externalid>plugins.it.conquiste.features-conquiste</externalid>
+            </contentid>
+        </contentref>
+        <component group="output/modelKeyMode" name="selected">null</component>
+        <contentref group="output/renderer" name="selected">
+            <contentid>
+                <externalid>p.siteengine.VelocityRenderer</externalid>
+            </contentid>
+        </contentref>
+        <component group="output/renderer" name="templateFileName">it.conquiste.layout.SlotWithNumbering.vm</component>
+    </content-xml>
+</output-template>

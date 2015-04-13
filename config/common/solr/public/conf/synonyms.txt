@@ -1,0 +1,59 @@
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#-----------------------------------------------------------------------
+#some test synonym mappings unlikely to appear in real input text
+# Syntax examples
+#aaa => aaaa
+#bbb => bbbb1 bbbb2
+#ccc => cccc1,cccc2
+#a\=>a => b\=>b
+#a\,a => b\,b
+#fooaaa,baraaa,bazaaa
+
+#-----------------------------------------------------------------------
+# Note:
+# Used by the indexing analyzer, with expand = true, means that all 
+# comma-separated terms will be added to the index. 
+#-----------------------------------------------------------------------
+
+#-----------------------------------------------------------------------
+# TMG Acronyms: all lower case!
+#-----------------------------------------------------------------------
+aba, architectural barriers act
+ada, americans with disability act
+adaag, ada accessibility guideline
+adr, alternative dispute resolution
+ansi, american national standards institute
+cdc, centers for disease control and prevention
+dod, department of defense
+doj, department of justice
+dot, department of transportation
+eeoc, equal employment opportunity commission
+fcc, federal communications commission
+fep,fair employment practices
+fmla,family and medical leave act
+hava, help america vote act
+hipaa, health insurance portability and accountability act
+mmpi, minnesota multiphasic personality inventory
+nlra, national labor relations act
+nlrb, national labor relations board
+nrc, nuclear regulatory commission
+osha, occupational safety and health act
+resna, rehabilitation engineering and assistive technology society of north america
+tty, teletypewriter
+ufas, uniform federal accessibility standards
+userra, uniformed services employment and reemployment rights act
+
+#-----------------------------------------------------------------------
+# General Synonyms
+#-----------------------------------------------------------------------

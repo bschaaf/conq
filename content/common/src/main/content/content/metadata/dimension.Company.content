@@ -1,0 +1,8 @@
+id:.
+major:department
+inputtemplate:p.TagCategory
+securityparent:p.StandardCategorization
+name:Company
+component:description:value:Company
+component:changePropagation:value:true
+ref:entityCreator:templateRoot:standard.metadata.templateroot.CompanyEntity

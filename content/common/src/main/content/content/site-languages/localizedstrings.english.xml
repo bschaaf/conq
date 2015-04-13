@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content>
+    <metadata>
+      <contentid>
+        <major>Article</major>
+        <externalid>localizedstrings.english</externalid>
+      </contentid>
+      <security-parent>
+        <externalid>p.siteengine.LocalizedStrings.d</externalid>
+      </security-parent>
+      <input-template>
+        <externalid>p.siteengine.LocalizedStrings</externalid>
+      </input-template>
+    </metadata>
+    <component name="name" group="polopoly.Content">English</component>
+    <component group="lc" name="value">en</component>
+    <component group="cc" name="value">US</component>
+
+    <component group="localizedstrings" name="paywall.warning.youhave">You have </component>
+    <component group="localizedstrings" name="paywall.warning.comparticle"> complimentary article left.</component>
+    <component group="localizedstrings" name="paywall.warning.comparticles"> complimentary articles left.</component>
+    <component group="localizedstrings" name="paywall.warning.enjoy">Already viewed articles will remain viewable. Enjoy!</component>
+
+    <component group="localizedstrings" name="paywall.usersubscription.info">Below you'll find all premium content subscriptions and their end date.</component>
+    <component group="localizedstrings" name="paywall.usersubscription.current">Your current subscriptions: </component>
+    <component group="localizedstrings" name="paywall.usersubscription.validuntil">Valid until: </component>
+    <component group="localizedstrings" name="paywall.usersubscription.nosubscription">You have no current subscriptions.</component>
+
+    <component group="localizedstrings" name="paywall.premium.content">Premium</component>
+    <component group="localizedstrings" name="paywall.premium.article">This is a premium article, buy a premium package to see the whole story</component>
+
+    <component group="localizedstrings" name="paywall.overlay.nomoreviews1">It seems you've run out of complimentary views! Buy one of the suggested packages or </component>
+    <component group="localizedstrings" name="paywall.overlay.nomoreviews2">wait for</component>
+    <component group="localizedstrings" name="paywall.overlay.nomoreviews3">day(s)</component>
+    <component group="localizedstrings" name="paywall.overlay.nomoreviews4"> to get more for free.</component>
+    <component group="localizedstrings" name="paywall.overlay.description"><![CDATA[This is a premium article. Register <b>and</b> buy one of the following premium package(s) to read the whole story:]]></component>
+    <component group="localizedstrings" name="paywall.overlay.description.no.offering"><![CDATA[This is a premium article. No offering available at this time.]]></component>
+    <component group="localizedstrings" name="paywall.overlay.loggedin.description">This is a premium only article. You can buy access to it through one of the following offerings:</component>
+    <component group="localizedstrings" name="paywall.overlay.should.have.access">Should already have access to this page? Try logging out and logging in again.</component>
+    <component group="localizedstrings" name="paywall.overlay.head">Subscription required!</component>
+    <component group="localizedstrings" name="paywall.overlay.close">Close</component>
+    <component group="localizedstrings" name="paywall.overlay.select">Select</component>
+
+    <component group="localizedstrings" name="paywall.premium.teaser.label">Premium</component>
+  </content>
+</batch>

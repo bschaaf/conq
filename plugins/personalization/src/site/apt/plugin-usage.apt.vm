@@ -1,0 +1,25 @@
+Personalized List Element
+
+  The personalized list will display content of the selected type related to the metadata entities most viewed by the user.
+  If the user isn't logged in, or hasn't viewed any categorized articles, the list element will not be visible.
+
+[images/personalized_list.png]
+
+* Caching
+
+  The element is rendered asynchronously from the client and will be marked private by its cache-control header.
+  Caching is done in-process by the render controller. A more optimal solution for installations with many registered users
+  would be to do HTTP caching with access control.
+
+Banner
+
+  The content of the banner will change depending on whether the user is logged in, and if so, on which
+  articles the user has read and how they were categorized.
+
+  A standard banner will be displayed if the user isn't logged in.
+
+[images/standard.png]
+
+  For logged in users, personalized keywords will be displayed.
+
+[images/personalized.png]

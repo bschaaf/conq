@@ -1,0 +1,35 @@
+Advanced Configuration
+
+  By default this plugin is working well with Greenfield Time's input template. However. there are some circumference that
+  the plugin user want to use project specific input template.
+
+* File Size and Maximum Number of Files
+
+ By default at most 10 files, no larger than 10 megabytes, can be uploaded using drag and drop. This limit is configurable on the dnd field in the input template (<<src/main/content/templates.xml>>).
+
+-------------------------------
+    <field name="dnd" input-template="com.atex.plugins.image-gallery.image.dnd">
+      <!-- Max file size megabyte (MB) -->
+      <param name="maxFileSize">2</param>
+      <!-- Max number of file per upload -->
+      <param name="maxNofFile">10</param>
+    </field>
+-------------------------------
+
+* Variant
+
+  The plugin uses the variant <<com.atex.plugins.gallery.image>> when
+  rendering images. It expects the content data in the variant to be
+  of the type
+  <<com.atex.plugins.imagegallery.util.ImageGalleryImageBean>>, and it
+  also needs the <<atex.Image>> and <<atex.ImageEditInfo>> aspects to
+  be included.
+
+  Content that does not have a mapping for that variant will not be
+  permitted in the gallery's content list.
+
+* Input Template(s)
+
+  By default, the plugin is configured to use an input template named
+  <<standard.Image>> for images. This can be changed to another
+  template in the plugin's configuration content.

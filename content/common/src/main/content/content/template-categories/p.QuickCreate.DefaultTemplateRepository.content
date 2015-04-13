@@ -1,0 +1,15 @@
+# Adds a default Quick Creator for articles
+id:p.QuickCreate.DefaultTemplateRepository
+major:department
+inputtemplate:p.DefaultDepartment
+securityparent:p.RootDepartment
+
+id:p.QuickCreate.DefaultContentTemplates
+major:department
+inputtemplate:p.TemplateCategory
+securityparent:p.QuickCreate.DefaultTemplateRepository
+name:Article
+component:polopoly.Client:categoryMajor:Article
+component:polopoly.ContentLists:polopoly.Department:default
+list:polopoly.Department:standard.Article
+publish:polopoly.Department:p.QuickCreate.DefaultTemplateRepository

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="it.conquiste.standard.Article" label="standard.Article.Label">
+    <policy>it.conquiste.cm.standard.article.ArticlePolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OAjaxTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OAjaxTopPolicyWidget</viewer>
+    <editor contextName="orchid_TOCENTRY">com.atex.plugins.baseline.widget.OContentListEntryBasePolicyWidget</editor>
+    <viewer contextName="orchid_TOCENTRY">com.atex.plugins.baseline.widget.OContentListEntryBasePolicyWidget</viewer>
+    <editor contextName="orchid_INBOXITEM">com.atex.plugins.baseline.widget.OInboxEntryWidget</editor>
+    <viewer contextName="orchid_INBOXITEM">com.atex.plugins.baseline.widget.OInboxEntryWidget</viewer>
+    <editor contextName="orchid_THUMBENTRY">it.conquiste.cm.standard.article.widget.OSearchThumb</editor>
+    <viewer contextName="orchid_THUMBENTRY">it.conquiste.cm.standard.article.widget.OSearchThumb</viewer>
+    <type>Article</type>
+    <param name="templateIcon">document_text.png</param>
+    <param name="renderTemplateIconInSelect">true</param>
+    <content-xml>
+      <component group="polopoly.Content" name="name">Article</component>
+    </content-xml>
+    <param name="enableAutosave">true</param>
+
+    <content-list name="images" input-template="standard.ImageContentListWrapper" />
+    <content-list name="related" input-template="standard.ArticleContentListWrapper" />
+
+    <!-- TODO: These should be reasonable defaults -->
+    <param name="ViewState_insert">false</param>
+    <param name="ViewState_refresh">true</param>
+    <param name="ViewState_copy">true</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditState_saveAndFastInsert">false</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditState_saveAndEdit">true</param>
+    <param name="EditNewState_saveAndClose">false</param>
+    <param name="EditNewState_saveAndInsert">true</param>
+    <param name="EditNewState_saveAndFastInsert">false</param>
+    <param name="EditNewState_saveAndView">false</param>
+    <param name="PrepareInsertionState_abortAndClose">false</param>
+    <param name="PrepareInsertionState_abortAndView">true</param>
+    <!-- END TODO -->
+
+    <param name="titleOfNewContent">standard.Article.New</param>
+    <param name="cloneSecurityParent">currentOrHome</param>
+    <param name="metadataPath">categorization</param>
+
+    <layout name="pages" input-template="p.AjaxPageMenu">
+      <layout name="content" input-template="p.Page" label="standard.Article.Content">
+        <param name="lazyInit">true</param>
+          <layout name="textMetadataColumns" input-template="p.ColumnHolder">
+            <layout name="textColumn" input-template="p.Column">
+            <param name="width">70</param>
+            <param name="widthRelative">true</param>
+            <layout name="text" input-template="p.Group">
+			  <field name="overtitle" input-template="p.TextArea" label="it.conquiste.cm.label.Overtitle">
+                <param name="fieldsetClass">heading</param>
+                <param name="fieldsetClass">field text</param>
+                <param name="rows">1</param>
+                <param name="cols">50</param>
+                <param name="tabIndex">2</param> 
+              </field>
+              <field name="headline" input-template="p.ContentName" label="standard.Article.Headline" required="true">
+                <param name="fieldsetClass">field text heading</param>
+                <!-- A size of zero or less will prevent the OTextInput from printing the size attribute of the HTML tag, this text input field's width is controlled by CSS -->
+                <param name="size">-1</param>
+                <param name="tabIndex">1</param>
+              </field>
+              <field name="lead" input-template="p.TextArea" label="standard.Article.Lead">
+                <param name="fieldsetClass">heading</param>
+                <param name="fieldsetClass">field text</param>
+                <param name="rows">3</param>
+                <param name="cols">50</param>
+                <param name="tabIndex">2</param>
+              </field>
+              <field name="body" input-template="p.FCKEditor" label="standard.Article.Body">
+                <param name="fieldsetClass">field text</param>
+                <param name="width">-1</param>
+                <param name="height">300</param>
+                <param name="cols">50</param>
+                <param name="rows">30</param>
+                <param name="showPasteButton">false</param>
+                <param name="tabIndex">3</param>
+                <param name="ckParameters">extraPlugins</param>
+                <param name="extraPlugins">"pasteorchid,droprecieve"</param>
+              </field>
+              <field name="byline" input-template="p.TextInput" label="standard.Article.Byline">
+                <param name="tabIndex">4</param>
+                <help>standard.Article.Byline.Help</help>
+                <param name="inlineHelp">true</param>
+              </field>
+              <layout name="images-section" input-template="p.LabeledSection" label="standard.Article.Images">
+                <layout name="images-help" input-template="p.Comment">
+                  <param name="comment">standard.Article.Images.help</param>
+                </layout>
+                <field name="imageContentCreator" input-template="p.SimpleContentCreator">
+                  <param name="insertTargetAlias">content</param>
+                  <param name="askInsertTarget">false</param>
+                  <param name="insertionContentListName">images</param>
+                  <param name="askInsertionContentListName">false</param>
+                  <param name="askContentListPosition">false</param>
+                  <param name="insertPosition">top</param>
+                  <param name="major">1</param>
+                  <idparam name="inputTemplateId">
+                    <externalid>standard.Image</externalid>
+                  </idparam>
+                  <param name="createWithSecurityParent">true</param>
+                  <param name="securityParentAlias">content</param>
+                  <param name="createLabel">standard.Article.CreateNewImage</param>
+                </field>
+                <field name="images" input-template="p.ContentListEntryContainer">
+                  <param name="contentListName">images</param>
+                </field>
+              </layout>
+              <layout name="elements-section" input-template="p.LabeledSection" label="standard.Article.Elements">
+                <field name="elements" input-template="p.siteengine.layout.Slot.it">
+                  <param name="inlineHelp">true</param>
+                  <param name="defaultInheritSetting">false</param>
+                  <param name="displayInheritSetting">false</param>
+                </field>
+              </layout>
+            </layout>
+          </layout>
+          <layout name="metadataColumn" input-template="p.Column">
+            <param name="width">30</param>
+            <param name="widthRelative">true</param>
+            <field name="allowComments" input-template="p.Checkbox" label="standard.Article.AllowComments">
+              <help>standard.Article.AllowComments.Help</help>
+              <param name="inlineHelp">true</param>
+              <param name="checked">true</param>
+            </field>
+            <field name="publishedDate" input-template="p.OptionalDateTime" label="standard.Article.PublishedDate">
+              <help>standard.Article.PublishedDate.Help</help>
+              <param name="inlineHelp">true</param>
+              <param name="showSeconds">false</param>
+            </field>
+            <field name="editedDate" input-template="p.OptionalDateTime" label="standard.Article.EditedDate">
+              <help>standard.Article.EditedDate.Help</help>
+              <param name="inlineHelp">true</param>
+              <param name="saveDefaultValue">commitTime</param>
+              <param name="showSeconds">false</param>
+            </field>
+              
+            <layout name="metadataSection" input-template="p.LabeledSection" label="standard.Article.Categorization">
+              <param name="cssClass">p_section</param>
+              <layout name="categorizationPadding" input-template="p.Group">
+                <param name="showLabel">false</param>
+                <param name="showFieldset">false</param>
+                <param name="cssClass">p_padding</param>
+                <field name="categorization" input-template="p.Metadata" label=""></field>
+                <field name="categorizationSuggestion" input-template="p.ArticleCategorizationSuggestion">
+                  <param name="metadataPath">categorization</param>
+                </field>
+                <field name="relatedArticleSearch" input-template="p.SearchForRelated" label="">
+                  <param name="metadataPath">categorization</param>
+                </field>
+              </layout>
+            </layout>
+            <layout name="relatedArticlesSection" input-template="p.LabeledSection" label="standard.Article.RelatedArticles">
+              <param name="cssClass">p_section</param>
+              <field name="relatedArticles" input-template="p.ContentListEntryContainer" label="">
+                <param name="contentListName">related</param>
+              </field>
+            </layout>
+          </layout>
+        </layout>
+      </layout>
+      <layout name="settings" input-template="p.Page" label="standard.Article.Settings">
+        <param name="lazyInit">true</param>
+        <layout name="structure" input-template="p.Group">
+          <field name="securityParent" input-template="p.SecurityParentSelect" label="standard.Article.ParentPage">
+            <help>standard.Article.ParentPage.Help</help>
+            <param name="inlineHelp">true</param>
+            <param name="width">320</param>
+            <param name="height">100</param>
+            <idparam name="rootContent">
+              <externalid>p.siteengine.Sites.d</externalid>
+            </idparam>
+          </field>
+          <field name="associatedSites" input-template="p.siteengine.SiteSelector" label="standard.Article.AssociatedSites">
+            <help>standard.Article.AssociatedSites.Help</help>
+            <param name="inlineHelp">true</param>
+            <param name="multipleSelect">true</param>
+            <param name="allowDepartments">true</param>
+            <param name="allowArticles">false</param>
+            <param name="width">320</param>
+            <param name="height">100</param>
+            <idparam name="rootContent">
+              <externalid>p.siteengine.Sites.d</externalid>
+            </idparam>
+          </field>
+        </layout>
+        <layout name="state" input-template="p.Group">
+          <field name="onlineState" input-template="p.OnlineState" label="standard.Article.OnlineState">
+            <help>standard.Article.OnlineState.Help</help>
+            <param name="inlineHelp">true</param>
+            <param name="initialOnlineState">true</param>
+          </field>
+          <field name="timeState" input-template="p.TimeState" label="standard.Article.TimeState">
+            <help>standard.Article.TimeState.Help</help>
+            <param name="inlineHelp">true</param>
+            <param name="showYear">true</param>
+            <param name="showMonth">true</param>
+            <param name="showDay">true</param>
+            <param name="showHour">true</param>
+            <param name="showMinute">true</param>
+            <param name="showSecond">false</param>
+            <param name="show12HourFormat">false</param>
+            <param name="format">yyyyMMddHHmmss</param>
+            <param name="startYear">1970</param>
+            <param name="endYear">2050</param>
+          </field>
+          <field name="workflowAction" input-template="p.WorkflowAction" label="standard.Article.WorkFlowAction" />
+          <field name="inheritedWorkflow" input-template="p.InheritWorkflow" label="standard.Article.Workflow">
+            <param name="inheritFromPolicyName">inherit</param>
+            <param name="parentName">securityParent</param>
+          </field>
+          <field name="premiumContent" input-template="p.PremiumContentConf" />
+        </layout>
+      </layout>
+    </layout>
+
+    <field name="associatedUsers" input-template="p.AssociatedUsers" />
+
+    <output-templates mode="www">
+      <id>it.conquiste.standard.Article.ot</id>
+    </output-templates>
+
+  </input-template>
+</template-definition>

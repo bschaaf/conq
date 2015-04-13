@@ -1,0 +1,56 @@
+#set($rs = $m.context.site.bean.resources.strings)
+<article>
+  <header>
+    <h1>$!content.name</h1>
+    <div class="byline">
+      #if($!content.byline.value)
+        By <address class="author">$!content.byline.value</address> on
+      #end
+      <time datetime="$date.format("yyyy-MM-dd", $!content.publishedDate.date)">$date.format("d MMMM, yyyy", $!content.publishedDate.date)</time>
+    </div>
+  </header>
+  <div class="article-content">
+    #renderwithfallback({"content": $content.elements})
+    #end
+    #if($content.elements.slotElements.list.size() < 1)
+      #foreach($entry in $content.images.list)
+        <div class="image">
+          #renderwithfallback({"content": $entry.content})
+          #end
+          #set($image = $entry.content.contentData)
+          <p class="meta">
+            #if($image.description)
+              $!esc.html($image.description)
+            #end
+            #if($image.byline)
+              <span class="byline">$!esc.html($image.byline)</span>
+            #end
+          </p>
+        </div>
+      #end
+    #end
+    #if($behindPaywall == "true")
+      <p class="intro">$!content.lead</p>
+      <span class="premium-label-box"><i class="fa fa-lock"></i> <div>$rs.paywall.premium.article</div></span>
+    #else
+    <div class="row">
+      <div class="col-sm-2">
+        #render({"content": $content, "outputTemplate": "com.atex.plugins.social.sharing.ShareButtons.ot"})
+      </div>
+      <div class="col-sm-10">
+        <p class="intro">$!content.lead</p>
+        #if($content.premiumSettings.premiumContent && "$!premiumBundles" != "")
+          <div class="premium-package"><span class="premium-package-label">Premium package:</span> $!premiumBundles</div>
+        #end
+        #parse("/WEB-INF/velocity/standard.Article.RelatedContent.vm")
+        $!parsedBody
+        #parse("/WEB-INF/velocity/standard.Article.RelatedArticles.vm")
+        #parse("/WEB-INF/velocity/standard.Article.Comments.vm")
+      </div>
+    </div>
+    #end
+  </div>
+    #if($content.premiumSettings.premiumContent && $meteredPaywallEnabled)
+      #parse("/WEB-INF/velocity/com.atex.gong.paywall.meteredwarningelement.vm")
+    #end
+</article>

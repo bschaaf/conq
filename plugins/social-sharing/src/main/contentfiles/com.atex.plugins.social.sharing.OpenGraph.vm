@@ -1,0 +1,19 @@
+<meta property="og:title" content="$!title">
+<meta property="og:site_name" content="$!m.context.site.bean.name">
+
+#set($canonicalPath = $p_path.resolve($canonicalContentId))
+#if($canonicalPath)
+  #set($canonicalLink = "#link({'path': $canonicalPath, 'htmlEncodeLink': 'true', 'requestAttribs': {'localLinksEnabled': false}})")
+  #if("$!canonicalLink" != "")
+<meta property="og:url" content="$!canonicalLink">
+  #end
+#end
+
+#if($description)
+<meta property="og:description" content="$!description">
+#end
+<meta property="og:type" content="$!type">
+#if($imageId)
+<meta property="og:image" content="$tool_img.getUrlBuilder($imageId.contentIdString).aspectRatio(191, 100).name('image').type('jpg').width(1200).buildUrl()">
+<meta property="og:image:width" content="1200">
+#end

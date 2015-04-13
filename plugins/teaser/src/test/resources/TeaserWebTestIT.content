@@ -1,0 +1,31 @@
+id:.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Test site for teaser
+
+id:.content
+major:article
+inputtemplate:com.atex.plugins.teaser.Teaser
+securityparent:.site
+name:My simple teaser name
+component:text:value:My simple teaser text
+
+id:.teaserableImage
+major:article
+inputtemplate:TeaserVariantMocks.ImageMock
+securityparent:.site
+name:My teaserable's image
+
+id:.teaserable
+major:article
+inputtemplate:p.model.Pojo
+securityparent:.site
+component:model:modelType:com.atex.plugins.teaser.TeaserableBean
+component:model:pojo:{"name"\:"My teaserable title", "text"\:"My teaserable text", "linkPath"\:["TeaserWebTestIT.site", "TeaserWebTestIT.teaserable"], "imageContentId"\:"TeaserWebTestIT.teaserableImage", "attributes"\:[{"cssClass"\:"my-attribute-css-class", "value"\:"my-undefined-language-key"}]}
+
+id:.teaser.with.teaserables
+major:layoutelement
+inputtemplate:com.atex.plugins.teaser.Teaser
+securityparent:.site
+list:teaserables:.teaserable

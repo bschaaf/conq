@@ -1,0 +1,5 @@
+id:.
+major:department
+inputtemplate:p.CategoryTree
+securityparent:p.StandardCategorization
+component:subjectPrefix:value:iptc-

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="it.conquiste.standard.metadata.BloggerEntity" label="standard.metadata.BloggerEntity.Label">
+    <policy>com.atex.standard.metadata.EntityPolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <type>Article</type>
+
+    <param name="EditNewState_saveAndClose">false</param>
+    <param name="EditNewState_saveAndView">false</param>
+    <param name="EditNewState_saveAndInsert">true</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditState_saveAndInsert">false</param>
+
+    <field name="name" input-template="p.ContentName" label="standard.metadata.BloggerEntity.Name" />
+	<field name="blogTitle" input-template="p.TextArea" label="standard.metadata.BloggerEntity.BlogTitle">
+      <param name="fieldsetClass">heading</param>
+      <param name="fieldsetClass">field text</param>
+      <param name="rows">1</param>
+      <param name="cols">50</param>
+      <param name="tabIndex">2</param> 
+    </field>
+    <field name="biography" input-template="p.TextArea" label="standard.metadata.BloggerEntity.Biography" />
+    <field name="externalId" input-template="p.ExternalId" label="cm.label.ExternalId"/>
+
+    <field name="imageContentCreator" input-template="p.SimpleContentCreator">
+      <param name="insertTargetAlias">content</param>
+      <param name="askInsertTarget">false</param>
+      <param name="insertionContentListName">images</param>
+      <param name="askInsertionContentListName">false</param>
+      <param name="askContentListPosition">false</param>
+      <param name="insertPosition">top</param>
+      <param name="major">1</param>
+      <idparam name="inputTemplateId">
+        <externalid>standard.Image</externalid>
+      </idparam>
+      <param name="createWithSecurityParent">true</param>
+      <param name="securityParentAlias">content</param>
+      <param name="createLabel">standard.Article.CreateNewImage</param>
+    </field>
+    <field name="images" input-template="p.ContentListEntryContainer" label="">
+      <param name="contentListName">images</param>
+    </field>
+
+    <output-templates mode="www">
+      <id>it.conquiste.standard.metadata.BloggerEntity.ot</id>
+    </output-templates>
+  </input-template>
+
+  <output-template name="it.conquiste.standard.metadata.BloggerEntity.ot" input-template="p.siteengine.ElementOutputTemplate">
+    <content-xml>
+      <component group="output/modelKeyMode" name="selected">no-cache</component>
+      <contentref group="output/renderer" name="selected">
+        <contentid>
+          <externalid>p.siteengine.VelocityFileRenderer</externalid>
+        </contentid>
+      </contentref>
+      <component group="output/renderer/selected/defaultVelocityViewFileName" name="value">/WEB-INF/velocity/it.conquiste.standard.metadata.BloggerEntity.vm</component>
+      <component group="preview/controller" name="value">com.polopoly.siteengine.preview.PreviewControllerStandard</component>
+    </content-xml>
+  </output-template>
+</template-definition>

@@ -1,0 +1,15 @@
+#set($contentId = $content.id.contentId.contentIdString)
+#set($selector = $contentId.replaceFirst('\.', '-'))
+<script id="personalization-$selector">
+$(function() {
+  if (document.cookie.indexOf("accessToken") >= 0) {
+    var userId = $.cookie("accessToken").split('::')[0];
+    $.ajax({ url: "/cmlink/com.atex.plugins.personalization.MainElementAjax.ot?elementId=$contentId&userId="+userId, dataType: "html"}).done(function(data) {
+      $("script#personalization-$selector").after(data);
+      $("script#personalization-$selector")[0].isDone = true;
+    });
+  } else {
+    $("script#personalization-$selector")[0].isDone = true;
+  }
+});
+</script>

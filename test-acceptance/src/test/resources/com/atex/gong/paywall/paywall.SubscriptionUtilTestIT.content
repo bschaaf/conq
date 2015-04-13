@@ -1,0 +1,92 @@
+id:.duration
+major:article
+inputtemplate:p.PaywallDuration
+securityparent:p.PaywallConfiguration.d
+name:One month duration (TEST)
+component:nofDays:value:30
+
+id:.subscriptionlevel
+major:article
+inputtemplate:p.PaywallSubscriptionLevel
+securityparent:p.PaywallConfiguration.d
+name:Online Subscription (TEST)
+component:capabilities:count:1
+ref:capabilities:reference0:p.CapabilityOnline
+ref:capabilities:reference_parent0:p.PaywallConfiguration.d
+
+id:.foo-bundle
+major:article
+inputtemplate:p.PaywallContentBundle
+securityparent:p.PaywallConfiguration.d
+name:Foo Bundle (TEST)
+
+id:.bar-bundle
+major:article
+inputtemplate:p.PaywallContentBundle
+securityparent:p.PaywallConfiguration.d
+name:Bar Bundle (TEST)
+
+id:.product-1
+major:article
+inputtemplate:p.PaywallProduct
+securityparent:p.PaywallConfiguration.d
+name:Product 1 (TEST)
+component:contentBundles:count:1
+ref:contentBundles:reference0:.foo-bundle
+ref:contentBundles:reference_parent0:p.PaywallConfiguration.d
+
+id:.product-2
+major:article
+inputtemplate:p.PaywallProduct
+securityparent:p.PaywallConfiguration.d
+name:Product 2 (TEST)
+component:contentBundles:count:1
+ref:contentBundles:reference0:.bar-bundle
+ref:contentBundles:reference_parent0:p.PaywallConfiguration.d
+
+id:.offering-1
+major:article
+inputtemplate:p.PaywallOffering
+securityparent:p.PaywallConfiguration.d
+name:Sports One Month Offering (TEST)
+component:duration:count:1
+component:product:count:1
+component:subscriptionLevel:count:1
+ref:duration:reference0:.duration
+ref:duration:reference_parent0:p.PaywallConfiguration.d
+ref:product:reference0:.product-1
+ref:product:reference_parent0:p.PaywallConfiguration.d
+ref:subscriptionLevel:reference0:.subscriptionlevel
+ref:subscriptionLevel:reference_parent0:p.PaywallConfiguration.d
+
+id:.offering-2
+major:article
+inputtemplate:p.PaywallOffering
+securityparent:p.PaywallConfiguration.d
+name:Sports One Month Offering (TEST)
+component:duration:count:1
+component:product:count:1
+component:subscriptionLevel:count:1
+ref:duration:reference0:.duration
+ref:duration:reference_parent0:p.PaywallConfiguration.d
+ref:product:reference0:.product-2
+ref:product:reference_parent0:p.PaywallConfiguration.d
+ref:subscriptionLevel:reference0:.subscriptionlevel
+ref:subscriptionLevel:reference_parent0:p.PaywallConfiguration.d
+
+id:p.PaywallConfiguration.d
+major:department
+inputtemplate:p.Paywall
+component:secret:value:mysecret
+component:status:selected:internal
+list:capabilities:p.CapabilityOnline
+list:contentBundles:.foo-bundle
+list:contentBundles:.bar-bundle
+list:durations:.duration
+list:offerings:.offering-1
+list:offerings:.offering-2
+list:products:.product-1
+list:products:.product-2
+list:subscriptionLevels:.subscriptionlevel
+
+

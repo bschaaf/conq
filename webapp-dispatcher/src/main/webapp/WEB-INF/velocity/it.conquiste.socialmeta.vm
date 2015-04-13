@@ -1,0 +1,27 @@
+## Create link
+#set($path = $p_path.resolve($content.contentId, $m.context.page.contentPath))
+
+## og:title
+#if($content.name)
+  <meta property="og:title" content="$esc.html($content.name)" />
+#end
+
+## og:type
+#if($meta_type)
+  <meta property="og:type" content="$meta_type" />
+#end
+
+## og:url
+<meta property="og:url" content="$m.context.site.bean.mainAlias.url#link({'path': $path, '':''})" />
+
+## og:description
+#if($meta_description)
+  <meta property="og:description" content="$esc.html($meta_description)" />
+#end
+
+## og:image
+#if($meta_image)
+  <meta property="og:image" content="$m.context.site.bean.mainAlias.url$tool_img.getUrlBuilder($meta_image.contentId.contentIdString).buildUrl()" />
+###else
+##  <meta property="og:image" content="$m.context.site.bean.mainAlias.url/conquiste/img/T_Facebook.jpg" />
+#end

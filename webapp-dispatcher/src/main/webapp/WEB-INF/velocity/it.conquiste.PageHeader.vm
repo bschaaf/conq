@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<!-- INCLUDE OF HEADER -->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="shortcut icon" type="image/x-icon" href="/img/icon/favicon.ico">
+
+    #set($searchPage = $m.context.site.top.content.pageLayout.selected.result-page.selected.contentId)
+    #set($searchQuery = $m.request.httpRequest.getParameter("q"))
+    #set($pageTitle = $!m.context.page.bean.name)
+    #set($siteTitle = $!m.context.site.bean.name)
+    #if($!pageTitle != "" && $!pageTitle != $!siteTitle)
+        #set($pageTitle = $!siteTitle + " - " + $!pageTitle)
+    #else
+        #set($pageTitle = $!siteTitle)
+    #end
+    <title>$!pageTitle</title>
+
+	<script>localStorage.clear(); </script>
+    <!-- CSS STYLE-->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" media="print" href="/css/print.css" />
+	<script src="/js/jquery-1.11.2.min.js"></script>
+    <script src="/js/jquery.scrollTo.min.js"></script>
+    <script src="/js/jquery.marquee.min.js"></script>
+    <script src="/js/namespace.js"></script>
+    <script src="/js/newsstand.js"></script>
+	<script src="/js/jquery.raty.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="/js/jquery.datepicker.it.js"></script>
+    <!-- FOUNDATIONG JS DEFAULT PAGES -->
+    <script src="/js/placeholder.js"></script>
+    <script src="/js/modernizr.js"></script>
+    <!-- end -->
+    <link rel="stylesheet" href="/css/img.css" />
+    <link rel="stylesheet" href="/css/login.css" />
+	<link rel="stylesheet" href="/css/SearchElement.css" />
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="/js/SearchElement.js"></script>
+
+    ## Social network
+    #if($m.context.page.pathAfterPage.size() > 0)
+      #set($contentInpTempl = $tool_model.getModel($m.context.page.pathAfterPage.get(0)).get("_data").getInputTemplate().getExternalId().getExternalId())
+      #if($contentInpTempl == "it.conquiste.standard.Article")
+        #render({"content": $m.context.page.pathAfterPage.get(0), "params":{"view":"socialmeta"}, "":""})
+      #end
+    #end
+
+ </head>
+  <body>
+       <!-- top navigation class, close the div at the end of footer   -->
+        <div class="borderGray">
+            <div class="row">
+            <!-- container of the body site, the div is close at the end of footer   -->
+                <div class="contTopNav">
+                    <!-- date -->
+                    <div class="large-6 medium-5 column">
+                        <div class="date">
+						    #set($firstLetterCap=$date.format("E", $date, $m.context.site.bean.resources.locale).substring(0,1).toUpperCase())
+                            <p>$firstLetterCap$date.format("EEEE d MMMM yyyy, 'ore' H,m", $date, $m.context.site.bean.resources.locale).substring(1) </p>
+                        </div>
+                    </div>
+                     <!-- Top Navigation -->
+                    <div class="large-6 medium-12 small-12 column">
+                        <div class="topNav">
+						    #if($!m.context.site.content.chiSiamoPage)
+							  #set($chiSiamo = $m.context.site.content.chiSiamoPage.contentId)
+							#end
+                            #if($!m.context.site.content.rssPage)
+                              #set($rss = $m.context.site.content.rssPage.contentId)
+                            #end
+                            <ul>
+                                <li><a href="#if($!chiSiamo)#link({'path': $p_path.resolve($chiSiamo, $m.context.site.contentPath)})#end" title="Chi siamo">Chi siamo</a></li>
+                                <li style="border:0;"><a href="#if($!rss)#link({'path': $p_path.resolve($rss, $m.context.site.contentPath)})#end" title="RSS">RSS</a></li>
+                            </ul>
+                        </div>
+                        <div class="contResearch">
+						 #render({"content": $content, "outputTemplate": "com.atex.plugins.search.SearchForm.ot", "params":{"searchPage": $searchPage}})
+                        </div>
+						<div class="loginUser">
+                            <a href="#" title="Login">Login</a>
+                        </div>
+                    </div>
+                    <!-- Cancel the floating css rule -->
+                    <div class="clear"></div>
+                </div>
+                <!-- Social -->
+                <div class="large-1 medium-2 column noRight">
+                   <div class="social">
+                       <p>Seguici su</p>
+                       <ul>
+                           <li><a href="https://www.facebook.com/conquiste.dellavoro" title="Facebook" target="_blank"><img src="/img/icon/fb.png" alt="Facebook Logo"/></a></li>
+                           <li><a href="https://twitter.com/conquistepromo" title="Twitter" target="_blank"><img src="/img/icon/twitter.png" alt="Twitter Logo"/></a></li>
+                           <li><a href="https://www.pinterest.com/conquistelavoro/" title="Pinterest" target="_blank"><img src="/img/icon/pinterest.png" alt="Pinterest Logo"/></a></li>
+                           <li><a href="http://www.freerumble.com/_new/mieiAudio_channel.php?theme_id=278&user_id=0" title="Fr" target="_blank"><img src="/img/icon/fr.png" alt="Fr Logo"/></a></li>
+                           <li><a href="http://www.youtube.com" title="Youtube" target="_blank"><img src="/img/icon/uTube.png" alt="Youtube Logo"/></a></li>
+                           <li><a href="https://plus.google.com/u/0/110558374666913684186/posts" title="googlePlus" target="_blank"><img src="/img/icon/googlePlus.png" alt="googlePlus Logo"/></a></li>
+                       </ul>
+                   </div>
+                </div>
+                 <!-- title -->
+                <div class="large-11 medium-12 column noLeft">
+                    <div class="title">
+                        <a href="#link({"path": $p_path.resolve($m.context.site.content.contentId)})"><h1>Conquiste del Lavoro</h1></a>
+                    </div>
+                    <div class="contCsil">
+                        <img src="/img/logoCisl.png">
+                        <p>Quotidiano della CISL fondato nel 1948 da Giulio Pastore</p>
+                    </div>
+                </div>
+            </div>
+            #parse("/WEB-INF/velocity/it.conquiste.navigationMenu.vm")
+            #render({"content": $content.header, "":""})
+			#parse("/WEB-INF/velocity/it.conquiste.ultimaOra.vm")
+<!-- HEADER end -->

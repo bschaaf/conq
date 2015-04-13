@@ -1,0 +1,55 @@
+id:.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Test site for plugin Grid Element
+
+id:.gridelement.publishingqueue
+major:article
+inputtemplate:com.atex.plugins.baseline.ContentListPublishingQueue
+securityparent:.site
+name:Publishing queue for grid element test
+
+id:.gridelement.article1
+major:article
+inputtemplate:p.model.Pojo
+securityparent:.site
+component:model:modelType:com.atex.plugins.grid.TeaserableBean
+component:model:pojo:{"name"\:"Article 1 for grid element test","text"\:"Text for article 1 for grid element test", "linkPath"\:["GridElementWebTestIT.site", "GridElementWebTestIT.gridelement.article1"], "attributes"\:[{"cssClass"\:"my-attribute-css-class", "value"\:"my-undefined-language-key"}]}
+publish:polopoly.Toc:.gridelement.publishingqueue
+
+id:.gridelement.article2
+major:article
+inputtemplate:p.model.Pojo
+securityparent:.site
+component:model:modelType:com.atex.plugins.grid.TeaserableBean
+component:model:pojo:{"name"\:"Article 2 for grid element test","text"\:"Text for article 2 for grid element test", "linkPath"\:["GridElementWebTestIT.site", "GridElementWebTestIT.gridelement.article2"]}
+publish:polopoly.Toc:.gridelement.publishingqueue
+
+id:.gridelement.article3
+major:article
+inputtemplate:p.model.Pojo
+securityparent:.site
+component:model:modelType:com.atex.plugins.grid.TeaserableBean
+component:model:pojo:{"name"\:"Article 3 for grid element test","text"\:"Text for article 3 for grid element test", "linkPath"\:["GridElementWebTestIT.site", "GridElementWebTestIT.gridelement.article3"]}
+publish:polopoly.Toc:.gridelement.publishingqueue
+
+id:.gridelement.article4
+major:article
+inputtemplate:p.model.Pojo
+securityparent:.site
+component:model:modelType:com.atex.plugins.grid.TeaserableBean
+component:model:pojo:{"name"\:"Article 4 for grid element test","text"\:"Text for article 4 for grid element test", "linkPath"\:["GridElementWebTestIT.site", "GridElementWebTestIT.gridelement.article4"]}
+publish:polopoly.Toc:.gridelement.publishingqueue
+
+id:.element
+major:layoutelement
+inputtemplate:com.atex.plugins.grid.MainElement
+securityparent:.site
+name:My test grid element
+component:imagePosition:selected_0:right
+component:numberOfColumns:selected_0:3
+component:numberOfRows:value:2
+list:publishingQueue:.gridelement.publishingqueue
+#Adding self to PQ to test that grid element won't break when non-teaserable content present
+publish:polopoly.Toc:.gridelement.publishingqueue

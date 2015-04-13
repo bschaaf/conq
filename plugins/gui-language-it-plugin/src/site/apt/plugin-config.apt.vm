@@ -1,0 +1,27 @@
+
+Installation
+
+  The Itailan language Admin GUI plugin is installed according to the normal plugin installation instructions found in
+  the {{{http://support.polopoly.com/confluence/display/Nitro}Nitro documentation}}. See chapter <<How-to's > How to work with plugins>>. When the installation is complete you should be able to see the plugin in the content tree of the Polopoly Admin GUI.
+
+[images/content-tree.png]
+
+* Making the locale selectable
+
+  To be able to select the new locale in the Admin GUI, it needs to be added to your version of the 'p.SystemConfig' input template and
+  imported into your system. This template normally resides in the Polopoly installation and not in the project. You should copy this template  to your project and make the necessary changes.
+
+  Example:
+
+---
+<input-template name="p.SystemConfig" system-template="true">
+  <policy>com.polopoly.cm.app.policy.impl.SystemConfigPolicy</policy>
+  <editor>com.polopoly.cm.app.widget.impl.OSystemConfigWidget</editor>
+  <viewer>com.polopoly.cm.app.widget.impl.OSystemConfigWidget</viewer>
+
+  <!-- Add the sv_SE locale here -->
+  <param name="locales">en_US,sv_SE</param>
+
+  <!-- ... the rest of the template needs to be intact here ... -->
+</input-template>
+---

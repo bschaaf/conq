@@ -1,0 +1,65 @@
+<!-- HEADER -->
+#parse("/WEB-INF/velocity/it.conquiste.PageHeader.vm")
+			
+#if($isGalleryDetail && !$m.context.page.pathAfterPage.empty)
+  #render({"content": $m.context.page.pathAfterPage.get(0)})
+#end
+
+<!-- CENTER HORIZON COLUMN --> 
+ #set($listsize = $content.first.slotElements.list.size() - 1 )
+ #if($listsize > 0)
+   #set($teasers = [])
+   #set($teaser_count=0)
+   #foreach ($i in [0..$listsize])
+      #set($teaser = $content.first.slotElements.list.get($i).content)
+	  #if($teaser.visible && $!teaser.article)  
+	    #set($bar = $teasers.add($teaser))
+		#set($teaser_count=$teaser_count + 1)
+		#if($teaser_count == $content.maxTeasers_first.value) #break #end
+	  #end
+   #end
+ #end
+ 
+ #set($counter = 0)
+ #set($extra_attr = "")
+ 
+ #if("$!searchQuery" == "" && $m.context.page.pathAfterPage.empty && $content.extendedWidth.checked && $listsize > 0)
+<!-- HOME begin extended -->
+<div class="row">
+   #parse("/WEB-INF/velocity/it.conquiste.teaser.home.vm")
+</div>
+<!-- HOME end extended -->
+ #end
+ 
+ #if("$!searchQuery" == "" && $m.context.page.pathAfterPage.empty && $listsize > 0)
+<!-- HOME begin tablet -->
+<div class="row openColumn">
+   #parse("/WEB-INF/velocity/it.conquiste.teaser.home.vm")
+</div>
+<!-- HOME end tablet -->
+ #end
+
+ #set($counter = 0)
+ 
+<div class="row">						
+<!-- COLUMNS  SX -->
+    #if("$!searchQuery" != "")
+              #render({"content": $content, "outputTemplate": "com.atex.plugins.search.SearchResults.ot" })
+    #elseif(($m.context.page.pathAfterPage.empty || $isGalleryDetail))
+	    #parse("/WEB-INF/velocity/it.conquiste.home.mainColumn.vm")
+	#else
+          <div class="large-8 medium-6 column columnLeft">
+            <section class='article'>
+            #render({"content": $m.context.page.pathAfterPage.get(0)})
+            </section>
+          </div>
+	#end
+<!-- COLUMNS  DX -->
+    <div class="large-4 medium-6 column columnRight">
+	  #render({"content": $content.right})
+	</div>
+    ##parse("/WEB-INF/velocity/it.conquiste.home.rightColumn.vm")
+</div>
+
+<!-- FOOTER -->
+#parse("/WEB-INF/velocity/it.conquiste.PageFooter.vm")

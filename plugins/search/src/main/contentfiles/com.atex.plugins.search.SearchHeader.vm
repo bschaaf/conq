@@ -1,0 +1,6 @@
+#set($searchQuery=$m.request.httpRequest.getParameter("q"))
+#set($showSearchResults=($searchQuery && !$searchQuery.trim().isEmpty()))
+#if ($showSearchResults)
+  #set($path = $p_path.resolve($m.context.page.bean.contentId, $m.context.page.contentPath))
+  <link rel="canonical" href="#link({'path': $path, 'htmlEncodeLink': 'true'})" />
+#end

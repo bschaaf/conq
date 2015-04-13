@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="standard.Image" label="standard.Image.Label">
+    <editor contextName="orchid_TOCENTRY">com.atex.standard.image.widget.OImageTocEntryRenderer</editor>
+    <viewer contextName="orchid_TOCENTRY">com.atex.standard.image.widget.OImageTocEntryRenderer</viewer>
+    <editor contextName="orchid_THUMBENTRY">com.atex.standard.image.widget.OSearchThumb</editor>
+    <viewer contextName="orchid_THUMBENTRY">com.atex.standard.image.widget.OSearchThumb</viewer>
+
+
+    <param name="ViewState_insert">false</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditState_saveAndFastInsert">false</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditNewState_saveAndClose">false</param>
+    <param name="EditNewState_saveAndInsert">true</param>
+    <param name="EditNewState_saveAndFastInsert">false</param>
+    <param name="EditNewState_saveAndView">false</param>
+    <param name="ViewState_copy">false</param>
+
+    <param name="templateIcon">photo_scenery.png</param>
+    <param name="renderTemplateIconInSelect">true</param>
+    <param name="defaultContentDataType">com.atex.standard.image.ImageContentDataBean</param>
+    <type>Article</type>
+
+    <field name="associatedUsers" input-template="p.AssociatedUsers" />
+
+    <policy>com.atex.standard.image.ImagePolicy</policy>
+
+    <viewer>com.atex.plugins.orchid.onecms.OOneCMSTemplateTopPolicyWidget</viewer>
+    <editor>com.atex.plugins.orchid.onecms.OOneCMSTemplateTopPolicyWidget</editor>
+
+    <param name="oneCMSEditTemplateId">act.template.Image.edit</param>
+    <param name="oneCMSViewTemplateId">act.template.Image.view</param>
+
+    <output-templates mode="www">
+      <id>standard.Image.ot</id>
+    </output-templates>
+  </input-template>
+</template-definition>

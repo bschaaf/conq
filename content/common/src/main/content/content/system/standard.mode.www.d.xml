@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <!-- Import of channel www -->
+  <content>
+    <metadata>
+      <contentid>
+        <major>Department</major>
+        <externalid>standard.mode.www.d</externalid>
+      </contentid>
+      <input-template>
+        <externalid>p.ModeDepartment</externalid>
+      </input-template>
+      <security-parent>
+        <externalid>p.siteengine.ModeConfiguration.d</externalid>
+      </security-parent>
+    </metadata>
+    <component name="name" group="polopoly.Content">WWW mode</component>
+    <policy name="mode">
+      <value name="value">www</value>
+    </policy>
+  </content>
+  <content>
+    <metadata>
+      <contentid>
+        <major>Department</major>
+        <externalid>p.siteengine.ModeConfiguration.d</externalid>
+      </contentid>
+      <input-template>
+        <externalid>p.ModeConfigurationDepartment</externalid>
+      </input-template>
+    </metadata>
+    <contentlist>
+      <entry mode="modify" withMetadata="false">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>standard.mode.www.d</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+  </content>
+</batch>

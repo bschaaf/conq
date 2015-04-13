@@ -1,0 +1,30 @@
+<!-- NAVIGATION MENU -->
+<div class="row">
+    <div class="large-12 column menuSmobile">
+        <!-- SMART MENU NAV - VISIBLE ELEMENTS ONLY FOR TABLET & SMARTPHONE DEVICES-->
+        <div class="contSmartNav">
+            <div class="openNav">
+                <span></span>
+            </div>
+            <div class="smartNav">
+                <a href="#">MENU DI NAVIGAZIONE </a>
+            </div>
+            <!-- Cancel the floating css rule -->
+            <div class="clear"></div>
+        </div>
+        <!-- END -->
+        <div class="nav tendina">
+            <ul>
+			<li class="closeMenu"><a href="#">&#9665Chiudi</a></li>
+			#foreach($topPage in $m.local.topPages)
+			     #if($topPage.pageLayout.selected.removePageFromMenu.value && $topPage.pageLayout.selected.removePageFromMenu.value.equals("true"))
+				 #else
+				 <li><a href="#link({"path": $p_path.resolve($topPage.contentId), 'htmlEncodeLink': 'true'})">$topPage.name</a></li>
+				 #end
+		    #end
+            </ul> 
+            <!-- Cancel the floating css rule -->
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

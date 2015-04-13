@@ -1,0 +1,9 @@
+id:.
+major:department
+inputtemplate:p.TemplateCategory
+securityparent:p.TemplateRoot
+name:Blogger templates
+component:polopoly.Client:categoryMajor:Article
+list:it.conquiste.standard.metadata.BloggerEntity
+
+publish:it.conquiste.standard.metadata.templateroot.BloggerEntity

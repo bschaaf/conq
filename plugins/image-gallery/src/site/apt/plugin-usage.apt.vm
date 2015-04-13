@@ -1,0 +1,21 @@
+Basic Usage
+
+  Image galleries are layout elements, and can be created wherever layout elements can be created. Images can be added to a gallery in a number of different ways:
+
+  * Drag and drop images or zip archives with images from the desktop
+
+  * Upload images using the browser's file selector
+
+  * Drag and drop images from the Polopoly search area
+
+  * Paste images from the Polopoly clipboard
+
+
+Captions
+
+  The gallery lets you add a caption specifically for the gallery to
+  each image. It is possible to customize this to include more fields
+  by modifying the input template
+  <<com.atex.plugins.image-gallery.Caption>>. Only fields whose
+  policies implement <<com.polopoly.cm.app.policy.SingleValued>> are
+  supported.

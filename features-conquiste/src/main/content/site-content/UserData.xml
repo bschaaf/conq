@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <!-- sysadmin working sites for the inbox and search -->
+  <content>
+    <metadata>
+      <contentid>
+        <major>UserData</major>
+        <externalid>98</externalid>
+      </contentid>
+    </metadata>
+    <policy name="workingSitesProvider/workingSitesSelect">
+      <value name="addSelection">site.cqdl</value>
+    </policy>
+  </content>
+</batch>

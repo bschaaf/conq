@@ -1,0 +1,32 @@
+id:plugins.com.atex.plugins.search.Config
+major:appconfig
+component:resultsPageSize:value:2
+
+id:.site
+major:department
+inputtemplate:p.siteengine.Site
+securityparent:p.siteengine.Sites.d
+name:Test site for Search
+
+id:.article1
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:TestArticle1
+component:lead:value:test_article_1_lead, multiple_test_article_lead, test_pagination.
+component:categorization:value:{"dimensions"\:[{"id"\:"dimension.Tag","name"\:"Tag","enumerable"\:false,"entities"\:[{"id"\:"article1","name"\:"article1","entities"\:[],"attributes"\:[],"childrenOmitted"\:false}]}]}
+
+id:.article2
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:TestArticle2
+component:lead:value:test_article_2_lead, multiple_test_article_lead, test_pagination.
+component:categorization:value:{"dimensions"\:[{"id"\:"dimension.Tag","name"\:"Tag","enumerable"\:false,"entities"\:[{"id"\:"article2","name"\:"article2","entities"\:[],"attributes"\:[],"childrenOmitted"\:false}]}]}
+
+id:.article3
+major:article
+inputtemplate:standard.Article
+securityparent:.site
+name:TestArticle3
+component:lead:value:test_article_3_lead, test_pagination.

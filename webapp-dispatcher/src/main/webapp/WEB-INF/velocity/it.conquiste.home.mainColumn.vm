@@ -1,0 +1,71 @@
+<div class="large-8 medium-6 column columnLeft">
+    #if($listsize > 0)
+	  #if(!$content.extendedWidth.checked)
+        <!-- HOME begin-->
+        #set($extra_attr = "closeColumn")
+        #parse("/WEB-INF/velocity/it.conquiste.teaser.home.vm")
+        <!-- HOME end-->
+	  #end
+      
+      <!-- SMALL ARTICLEs begin -->
+	  #set($counter = $counter + 1)
+      #set($teaser=$teasers[$counter])
+      #parse("/WEB-INF/velocity/it.conquiste.teaser.smallArticle.vm")
+	  #set($counter = $counter + 1)
+      #set($teaser=$teasers[$counter])
+      #parse("/WEB-INF/velocity/it.conquiste.teaser.smallArticle.vm")
+      <!-- SMALL ARTICLEs end -->
+      
+      <!-- TOPIC SLIDER begin -->
+      #parse("/WEB-INF/velocity/it.conquiste.bloggers.vm")
+      <!-- TOPIC SLIDER end -->
+
+      <!-- LARGE ARTICLEs begin -->
+	  #set($counter = $counter + 1)
+      #set($teaser=$teasers[$counter])
+      #parse("/WEB-INF/velocity/it.conquiste.teaser.largeArticle.vm")
+	  #set($counter = $counter + 1)
+      #set($teaser=$teasers[$counter])
+      #parse("/WEB-INF/velocity/it.conquiste.teaser.largeArticle.vm")
+	  #set($counter = $counter + 1)
+      #set($teaser=$teasers[$counter])
+      #parse("/WEB-INF/velocity/it.conquiste.teaser.largeArticle.vm")
+      <!-- LARGE ARTICLEs end -->
+      
+      <!-- GLI EVENTI begin -->
+      #parse("/WEB-INF/velocity/it.conquiste.eventi.vm")
+      <!-- GLI EVENTI end -->
+
+      <!-- LARGE ARTICLEs begin -->
+	  #set($counter = $counter + 1)
+      #set($teaser=$teasers[$counter])
+      #parse("/WEB-INF/velocity/it.conquiste.teaser.largeArticle.vm")
+	  #set($counter = $counter + 1)
+      #set($teaser=$teasers[$counter])
+      #parse("/WEB-INF/velocity/it.conquiste.teaser.largeArticle.vm")
+      <!-- LARGE ARTICLEs end -->
+
+      <!-- I DOSSIER begin -->
+      #parse("/WEB-INF/velocity/it.conquiste.dossier.vm")
+      <!-- I DOSSIER end-->
+
+      <!-- Rest of LARGE ARTICLEs begin -->
+	  #set($counter = $counter + 1)
+      #set($listsize = $teasers.size() - 1 )
+      #foreach ($i in [$counter..$listsize])
+        #set($teaser=$teasers[$i])
+        #parse("/WEB-INF/velocity/it.conquiste.teaser.largeArticle.vm")
+      #end
+	#else
+    <div class="large-12 column noLeft">
+      <div class="generalArgument">
+        <!--<h2 class="titleTwo">Section Page</h2>-->
+        <a href="#" title="">
+            <h3 class="titleResult">$!content.name</h3> 
+        </a>
+      </div>
+    </div>
+	#end
+	<!-- Rest of LARGE ARTICLEs end -->
+	#render({"content": $content.left})
+</div>

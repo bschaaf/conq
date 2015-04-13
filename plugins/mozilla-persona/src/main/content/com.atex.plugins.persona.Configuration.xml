@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="com.atex.plugins.persona.Configuration" label="com.atex.plugins.persona.Configuration">
+    <policy>com.atex.plugins.persona.ConfigPolicy</policy>
+    <editor>com.polopoly.plugin.OPluginConfigContextPolicyWidget</editor>
+    <viewer>com.polopoly.plugin.OPluginConfigContextPolicyWidget</viewer>
+
+    <type>AppConfig</type>
+
+    <param name="EditState_saveAndInsert">false</param>
+    <param name="EditState_saveAndView">true</param>
+    <param name="EditState_saveAndClose">true</param>
+    <param name="ViewState_insert">false</param>
+
+    <field name="privacyPolicy" input-template="p.TextInput" label="com.atex.plugins.persona.Configuration.privacyPolicy" />
+    <field name="termsOfService" input-template="p.TextInput" label="com.atex.plugins.persona.Configuration.termsOfService" />
+    <field name="siteName" input-template="p.TextInput" label="com.atex.plugins.persona.Configuration.siteName" />
+    <field name="siteLogo" input-template="p.TextInput" label="com.atex.plugins.persona.Configuration.siteLogo" />
+    <field name="backgroundColor" input-template="p.TextInput" label="com.atex.plugins.persona.Configuration.backgroundColor" />
+  </input-template>
+</template-definition>

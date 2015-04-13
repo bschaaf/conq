@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <!--This file contains input template definitions -->
+  <input-template name="com.atex.plugins.list.ArticleMock" label="Image Mock">
+    <policy>com.atex.plugins.baseline.policy.BaselinePolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <type>Article</type>
+
+    <field name="name" input-template="p.ContentName" label="Name" />
+    <field name="publishingDateTime" input-template="p.TextInput" label="Pub time" />
+    <output-templates mode="www">
+      <id>com.atex.plugins.list.ArticleMock.ot</id>
+    </output-templates>
+  </input-template>
+  <output-template name="com.atex.plugins.list.ArticleMock.ot" input-template="p.siteengine.ElementOutputTemplate">
+    <content-xml>
+      <contentref group="output/renderer" name="selected">
+        <contentid>
+          <externalid>p.siteengine.VelocityRenderer</externalid>
+        </contentid>
+      </contentref>
+      <component group="output/renderer/selected/default" name="value">
+<![CDATA[
+<!-- This is never used -->
+]]>
+      </component>
+    </content-xml>
+  </output-template>
+</template-definition>

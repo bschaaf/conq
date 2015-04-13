@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content clear="true">
+    <metadata>
+      <contentid>
+        <major>AppConfig</major>
+        <externalid>p.IndexMapping.public.standard.metadata.CompanyEntity</externalid>
+      </contentid>
+      <security-parent>
+        <externalid>p.SolrIndexDefinitionHome</externalid>
+      </security-parent>
+      <input-template>
+        <externalid>p.IndexMapping</externalid>
+      </input-template>
+    </metadata>
+    <component group="polopoly.Content" name="name">Public index mappings for companies</component>
+    <component group="mapping" name="name">title</component>
+  </content>
+
+  <content clear="true">
+    <metadata>
+      <contentid>
+        <major>AppConfig</major>
+        <externalid>p.IndexMapping.internal.standard.metadata.CompanyEntity</externalid>
+      </contentid>
+      <security-parent>
+        <externalid>p.SolrIndexDefinitionHome</externalid>
+      </security-parent>
+      <input-template>
+        <externalid>p.IndexMapping</externalid>
+      </input-template>
+    </metadata>
+    <component group="polopoly.Content" name="name">Internal index mappings for companies</component>
+    <component group="mapping" name="name">title</component>
+  </content>
+
+  <content>
+    <metadata>
+      <contentid>
+        <major>AppConfig</major>
+        <externalid>p.PublicIndexDefinition</externalid>
+      </contentid>
+    </metadata>
+    <contentref group="mappers" name="standard.metadata.CompanyEntity">
+      <contentid>
+        <externalid>p.IndexMapping.public.standard.metadata.CompanyEntity</externalid>
+      </contentid>
+    </contentref>
+  </content>
+
+  <content>
+    <metadata>
+      <contentid>
+        <major>AppConfig</major>
+        <externalid>p.InternalIndexDefinition</externalid>
+      </contentid>
+    </metadata>
+    <contentref group="mappers" name="standard.metadata.CompanyEntity">
+      <contentid>
+        <externalid>p.IndexMapping.internal.standard.metadata.CompanyEntity</externalid>
+      </contentid>
+    </contentref>
+  </content>
+</batch>

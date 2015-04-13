@@ -1,0 +1,9 @@
+#set($contentIdString = $content.contentId.contentId.contentIdString)
+##set($version = $content.contentId.version)
+##set($filePath = $content.contentData.filePath)
+##set($src = "/filedelivery/policy:$contentIdString:$version/$filePath")
+
+<div class="banner">  
+    <a href="$content.contentData.byline"><img src="$tool_img.getUrlBuilder($contentIdString).buildUrl()"/>
+	</a>
+</div>

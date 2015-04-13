@@ -1,0 +1,5 @@
+id:.
+major:3
+inputtemplate:p.model.Pojo
+component:model:modelType:com.atex.onecms.content.mapping.MappingConfigBean
+component:model:pojo:{'_type'\:'com.atex.onecms.content.mapping.MappingConfigBean', 'mapperClass'\:'com.atex.gong.wiring.search.ArticleToSearchResultViewContentComposer'}
