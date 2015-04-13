@@ -15,11 +15,11 @@
   </parent>
 
   <dependencies>
-<!--      <dependency>
+    <dependency>
       <artifactId>module-encoding</artifactId>
       <groupId>it.conquiste</groupId>
       <version>1.0</version>
-    </dependency>-->
+    </dependency>
 	
     <dependency>
       <groupId>com.polopoly</groupId>
@@ -39,11 +39,11 @@
       <version>${project.version}</version>
     </dependency>
 	
- <!--     <dependency>
+    <dependency>
       <groupId>com.atex.gong</groupId>
       <artifactId>auto-login</artifactId>
       <version>${project.version}</version>
-    </dependency>-->
+    </dependency>
 
     <dependency>
       <groupId>com.polopoly</groupId>
