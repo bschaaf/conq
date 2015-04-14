@@ -23,6 +23,10 @@
       <param-name>QueryParameterName</param-name>
       <param-value>h11AccessCode</param-value>
     </init-param>
+    <init-param>
+      <param-name>filter</param-name>
+      <param-value>test</param-value>
+    </init-param>
   </filter>
 
   <filter-mapping>
