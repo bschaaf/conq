@@ -106,8 +106,8 @@
 	<module>plugins/newsstand</module>
 	<module>plugins/site-map</module>
     <module>auto-login</module>
-	<module>auto-login-dispatcher</module>
-	<module>module-encoding</module>	
+	<!--  <module>auto-login-dispatcher</module>
+	<module>module-encoding</module>-->	
   </modules>
 
   <repositories>

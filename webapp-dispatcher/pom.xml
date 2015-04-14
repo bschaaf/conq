@@ -28,7 +28,7 @@
     </dependency>
 	
 	<dependency>
-      <artifactId>auto-login-dispatcher</artifactId>
+      <artifactId>auto-login</artifactId>
       <groupId>com.atex.gong</groupId>
       <version>${project.version}</version>
     </dependency>

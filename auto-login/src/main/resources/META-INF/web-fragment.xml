@@ -4,10 +4,19 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-fragment_3_0.xsd">
   <name>moduleautologin</name>
-  <ordering><after>moduleencoding</after><before><others/></before></ordering>
+  <ordering><before><others/></before></ordering>
 <!-- #####################################################################
      ## Filter for SSO                                                  ##
      ##################################################################### -->
+  <filter>
+    <filter-name>charencodingfilter</filter-name>
+    <filter-class>com.polopoly.util.CharEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+     
   <filter>
     <filter-name>autologin</filter-name>
     <filter-class>com.atex.integration.authentication.AutoLoginFilter</filter-class>
@@ -23,11 +32,13 @@
       <param-name>QueryParameterName</param-name>
       <param-value>h11AccessCode</param-value>
     </init-param>
-    <init-param>
-      <param-name>filter</param-name>
-      <param-value>test</param-value>
-    </init-param>
   </filter>
+  
+  <filter-mapping>
+    <filter-name>charencodingfilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
 
   <filter-mapping>
     <filter-name>autologin</filter-name>
