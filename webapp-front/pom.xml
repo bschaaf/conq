@@ -19,6 +19,12 @@
       <groupId>${project.groupId}</groupId>
       <artifactId>webapp-dispatcher</artifactId>
       <version>${project.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>auto-login</artifactId>
+        </exclusion>
+      </exclusions>
       <type>war</type>
     </dependency>
   </dependencies>
